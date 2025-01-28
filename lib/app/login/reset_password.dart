@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:simplex_conference_redo_repo/app/login/login_screen.dart';
+import 'login_screen.dart';
 
 import '../../api/logic/API.dart';
 
@@ -89,10 +89,10 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                           ),
                           const SizedBox(width: 10),
                           Text(
-                            'Sielify',
+                            'Simplex Conference',
                             style: GoogleFonts.getFont('Poppins',
                                 fontWeight: FontWeight.w600,
-                                fontSize: 30,
+                                fontSize: 24,
                                 color: Colors.white),
                           )
                         ],
@@ -312,7 +312,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                                 case 'user-not-found':
                                   Fluttertoast.showToast(
                                     msg:
-                                        "Error: Email is not associated with a Sielify user account.",
+                                        "Error: Email is not associated with a Simplex Conference user account.",
                                     toastLength: Toast.LENGTH_SHORT,
                                     backgroundColor: Colors.red,
                                     textColor: Colors.white,

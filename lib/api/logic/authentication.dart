@@ -45,9 +45,12 @@ class Authentication {
     User? user;
 
     try {
-      googleSignInAccount = await GoogleSignIn(
-              scopes: ['profile', 'email', calendar.CalendarApi.calendarScope])
-          .signIn();
+      log(calendar.CalendarApi.calendarScope);
+      googleSignInAccount = await GoogleSignIn(scopes: [
+        'profile',
+        'email',
+        // 'https://www.googleapis.com/auth/calendar.events'
+      ]).signIn();
     } catch (e) {
       FirebaseCrashlytics.instance.log(e.toString());
       Fluttertoast.showToast(
@@ -165,7 +168,9 @@ class Authentication {
       AccessToken(
         'Bearer',
         auth.accessToken!,
-        DateTime.now().add(Duration(hours: 1)).toUtc(), // Set token expiration time
+        DateTime.now()
+            .add(Duration(hours: 1))
+            .toUtc(), // Set token expiration time
       ),
       null,
       ['https://www.googleapis.com/auth/calendar'],

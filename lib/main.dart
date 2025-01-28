@@ -9,7 +9,7 @@ import 'package:flutter/foundation.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_app_badger/flutter_app_badger.dart';
+import 'package:flutter_app_badge_control/flutter_app_badge_control.dart';
 
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:simplex_conference_redo_repo/admin/login/welcome_screen.dart';
@@ -23,7 +23,7 @@ import 'app/login/welcome_screen.dart';
 import 'app/navigation/navigation.dart';
 
 Future firebaseMessagingBackgroundHandler(RemoteMessage message) async {
-  FlutterAppBadger.updateBadgeCount(1);
+  FlutterAppBadgeControl.updateBadgeCount(1);
 }
 
 void main() async {
@@ -123,7 +123,7 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
     if (state == AppLifecycleState.resumed) {
-      FlutterAppBadger.removeBadge();
+      FlutterAppBadgeControl.removeBadge();
     }
   }
 

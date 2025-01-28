@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:http/http.dart' as http;
-import 'package:simplex_conference_redo_repo/api/app_info.dart';
+import '../../api/app_info.dart';
 
 class MapScreen extends StatefulWidget {
   const MapScreen({super.key});
@@ -14,7 +14,7 @@ class MapScreen extends StatefulWidget {
 class MapScreenState extends State<MapScreen> {
   late GoogleMapController mapController;
   LatLng? _center;
-  Set<Marker> _markers = {};
+  final Set<Marker> _markers = {};
 
   @override
   void initState() {
@@ -27,7 +27,7 @@ class MapScreenState extends State<MapScreen> {
   }
 
   Future<void> _getLatLng(String address) async {
-    final String apiKey = 'AIzaSyDGtvdkDK3mHBoAIdYeoMwfLU9GU-XF3pM';
+    const String apiKey = 'AIzaSyDGtvdkDK3mHBoAIdYeoMwfLU9GU-XF3pM';
     final String url =
         'https://maps.googleapis.com/maps/api/geocode/json?address=${Uri.encodeComponent(address)}&key=$apiKey';
 
@@ -40,7 +40,7 @@ class MapScreenState extends State<MapScreen> {
         _center = LatLng(location['lat'], location['lng']);
         _markers.add(
           Marker(
-            markerId: MarkerId('location'),
+            markerId: const MarkerId('location'),
             position: _center!,
             infoWindow: InfoWindow(
               title: 'Conference Location',
@@ -57,7 +57,7 @@ class MapScreenState extends State<MapScreen> {
   @override
   Widget build(BuildContext context) {
     return _center == null
-        ? Center(child: CircularProgressIndicator())
+        ? const Center(child: CircularProgressIndicator())
         : GoogleMap(
             onMapCreated: _onMapCreated,
             initialCameraPosition: CameraPosition(

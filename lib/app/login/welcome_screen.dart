@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:simplex_conference_redo_repo/app/login/login_screen.dart';
+
+import 'login_screen.dart';
+
 import '../../api/logic/API.dart';
 
 class WelcomeScreen extends StatefulWidget {

@@ -12,8 +12,8 @@ import 'package:flutter/material.dart';
 
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:simplex_conference_redo_repo/admin/login/welcome_screen.dart';
-import 'package:simplex_conference_redo_repo/app/login/local_map.dart';
+import '../../admin/login/welcome_screen.dart';
+import 'welcome_screen.dart';
 
 import 'package:url_launcher/url_launcher.dart';
 
@@ -40,19 +40,13 @@ class _ConferenceViewState extends State<ConferenceView> {
   List<Widget> conferenceItems = [];
   List<ConferenceData> conferences = [];
   bool dataLoaded = false;
-  List<ConferenceData> userConfs = [];
-  bool linkGoogle = Authentication.googleSignInAccount != null;
+  bool linkGoogle = false;
   bool isLinking = false;
 
   _ConferenceViewState() {
     API().getConferences().then((value) {
       conferences = value;
 
-      userConfs = conferences.where(
-        (element) {
-          return AppInfo.currentUser.conferences.contains(element.id);
-        },
-      ).toList();
       conferenceItems = getConferenceWidgets();
       dataLoaded = true;
       setState(() {});
@@ -246,7 +240,7 @@ class _ConferenceViewState extends State<ConferenceView> {
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Text(
-                      'My Conferences',
+                      'Active Conferences',
                       style: GoogleFonts.getFont(
                         'Poppins',
                         fontWeight: FontWeight.normal,
@@ -261,7 +255,7 @@ class _ConferenceViewState extends State<ConferenceView> {
                   : const Padding(
                       padding: EdgeInsets.only(top: 15),
                       child: CircularProgressIndicator(color: Colors.black)),
-              SizedBox(height: 25),
+              const SizedBox(height: 25),
 
               Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -276,11 +270,11 @@ class _ConferenceViewState extends State<ConferenceView> {
                           height: 48,
                           decoration: BoxDecoration(
                               border: Border.all(
-                                color: Color(0xFF070650),
+                                color: const Color(0xFF070650),
                                 width: 2.0,
                               ),
                               borderRadius: BorderRadius.circular(40)),
-                          child: Align(
+                          child: const Align(
                               alignment: Alignment.center,
                               child: Text('Join a Conference',
                                   style: TextStyle(
@@ -289,40 +283,40 @@ class _ConferenceViewState extends State<ConferenceView> {
                     ),
                   ]),
 
-              SizedBox(height: 15),
+              const SizedBox(height: 15),
 
-              Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    InkWell(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => GoogleMapsPage(
-                                    conferences: conferences,
-                                  )),
-                          // This condition removes all previous routes
-                        );
-                      },
-                      child: Container(
-                          width: 300,
-                          height: 48,
-                          decoration: BoxDecoration(
-                              border: Border.all(
-                                color: Color(0xFF070650),
-                                width: 2.0,
-                              ),
-                              borderRadius: BorderRadius.circular(40)),
-                          child: Align(
-                              alignment: Alignment.center,
-                              child: Text('Browse Local Conferences',
-                                  style: TextStyle(
-                                      fontFamily: 'Poppins',
-                                      color: Color(0xFF070650))))),
-                    ),
-                  ]),
+              // Row(
+              //     mainAxisAlignment: MainAxisAlignment.center,
+              //     mainAxisSize: MainAxisSize.max,
+              //     children: [
+              //       InkWell(
+              //         onTap: () {
+              //           Navigator.push(
+              //             context,
+              //             MaterialPageRoute(
+              //                 builder: (context) => GoogleMapsPage(
+              //                       conferences: conferences,
+              //                     )),
+              //             // This condition removes all previous routes
+              //           );
+              //         },
+              //         child: Container(
+              //             width: 300,
+              //             height: 48,
+              //             decoration: BoxDecoration(
+              //                 border: Border.all(
+              //                   color: Color(0xFF070650),
+              //                   width: 2.0,
+              //                 ),
+              //                 borderRadius: BorderRadius.circular(40)),
+              //             child: Align(
+              //                 alignment: Alignment.center,
+              //                 child: Text('Browse Local Conferences',
+              //                     style: TextStyle(
+              //                         fontFamily: 'Poppins',
+              //                         color: Color(0xFF070650))))),
+              //       ),
+              //     ]),
 
               dataLoaded && !linkGoogle
                   ? Padding(
@@ -353,7 +347,7 @@ class _ConferenceViewState extends State<ConferenceView> {
                         children: [
                           Flexible(
                             child: Text(
-                              'You can link your Google account to your Sielify account so that next time you sign in, you can use your Google account.',
+                              'You can link your Google account to your Simplex Conference account so that next time you sign in, you can use your Google account.',
                               style: GoogleFonts.getFont(
                                 'Poppins',
                                 fontWeight: FontWeight.normal,
@@ -365,7 +359,6 @@ class _ConferenceViewState extends State<ConferenceView> {
                       ),
                     )
                   : const SizedBox(),
-
               dataLoaded && !linkGoogle
                   ? !isLinking
                       ? Padding(
@@ -556,7 +549,7 @@ class _ConferenceViewState extends State<ConferenceView> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'You are being directed to an external third-party application by opening this link. Sielify bears no responsibility for any violations on third-party platforms.\n\nLink: $s',
+                      'You are being directed to an external third-party application by opening this link. Simplex bears no responsibility for any violations on third-party platforms.\n\nLink: $s',
                       style: GoogleFonts.getFont(
                         fontSize: 14,
                         color: const Color.fromARGB(255, 0, 0, 0),
@@ -777,7 +770,7 @@ class _ConferenceViewState extends State<ConferenceView> {
 
   List<Widget> getConferenceWidgets() {
     List<Widget> items = [];
-    for (ConferenceData c in userConfs) {
+    for (ConferenceData c in conferences) {
       items.add(
         Padding(
           padding: const EdgeInsetsDirectional.fromSTEB(0, 12, 0, 0),
@@ -805,9 +798,9 @@ class _ConferenceViewState extends State<ConferenceView> {
                             color: const Color(0xFF010030),
                             image: DecorationImage(
                               fit: BoxFit.cover,
-                              image: CachedNetworkImageProvider(
-                                c.homeBg,
-                              ),
+                              image: Image.asset(
+                                'assets/images/homebg.png',
+                              ).image,
                             ),
                             borderRadius: BorderRadius.circular(25),
                           ),
@@ -1008,26 +1001,26 @@ class _ConferenceViewState extends State<ConferenceView> {
     showDialog(
       context: context,
       builder: (BuildContext context) {
-        TextEditingController _textFieldController = TextEditingController();
+        TextEditingController textFieldController = TextEditingController();
         return AlertDialog(
-          title: Text('Enter Conference Code'),
+          title: const Text('Enter Conference Code'),
           content: TextField(
-            controller: _textFieldController,
-            decoration: InputDecoration(hintText: "Type code here"),
+            controller: textFieldController,
+            decoration: const InputDecoration(hintText: "Type code here"),
           ),
           actions: <Widget>[
             TextButton(
-              child: Text('Back'),
+              child: const Text('Back'),
               onPressed: () {
                 Navigator.of(context).pop(); // Closes the dialog
               },
             ),
             !isJoiningConference
                 ? ElevatedButton(
-                    child: Text('Submit'),
+                    child: const Text('Submit'),
                     onPressed: () async {
                       // Handle the submit action here
-                      String enteredText = _textFieldController.text;
+                      String enteredText = textFieldController.text;
                       enteredText = enteredText.toLowerCase();
                       for (ConferenceData c in conferences) {
                         if (c.code.toLowerCase() == enteredText) {
@@ -1094,7 +1087,7 @@ class _ConferenceViewState extends State<ConferenceView> {
                       // Closes the dialog
                     },
                   )
-                : CircularProgressIndicator(color: Colors.black),
+                : const CircularProgressIndicator(color: Colors.black),
           ],
         );
       },

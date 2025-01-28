@@ -1,0 +1,169 @@
+{
+  "project_info": {
+    "project_number": "566031276304",
+    "project_id": "mad5-bb404",
+    "storage_bucket": "mad5-bb404.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:566031276304:android:381d8ec8e1e121c480ad95",
+        "android_client_info": {
+          "package_name": "com.mad5.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "566031276304-86qq969vqb1k3kuovkct5adni08m09pq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAFikHAbtiSYkZm8DCgzDuomTkwAopkRsg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "566031276304-86qq969vqb1k3kuovkct5adni08m09pq.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "566031276304-288mtnf9s8nt0e6d7kl24j6mkor1623g.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.mad5conference.conventus",
+                "app_store_id": "6471044993"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:566031276304:android:12c417b3fcf1708e80ad95",
+        "android_client_info": {
+          "package_name": "com.mad5conference.conventus"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "566031276304-7g3asj6q63olq653r2cr96nrmh1arech.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mad5conference.conventus",
+            "certificate_hash": "79533e6fe2a79c0677b03bc2301ce9ee35f67e41"
+          }
+        },
+        {
+          "client_id": "566031276304-kb3ucac1hvfjmg01h2v0dt1mrrbtoot7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mad5conference.conventus",
+            "certificate_hash": "647109c28e6f8e958714f9b49770ac3baf2961e0"
+          }
+        },
+        {
+          "client_id": "566031276304-rhd9fe1ctdgavin84ut3ncct0sio4ase.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mad5conference.conventus",
+            "certificate_hash": "9ffbbe2e92b75281b82f482b3091b4aed6a01226"
+          }
+        },
+        {
+          "client_id": "566031276304-86qq969vqb1k3kuovkct5adni08m09pq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAFikHAbtiSYkZm8DCgzDuomTkwAopkRsg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "566031276304-86qq969vqb1k3kuovkct5adni08m09pq.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "566031276304-288mtnf9s8nt0e6d7kl24j6mkor1623g.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.mad5conference.conventus",
+                "app_store_id": "6471044993"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:566031276304:android:bf68a5115ee3799680ad95",
+        "android_client_info": {
+          "package_name": "com.wesimplex.simplexconference"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "566031276304-8r1l0rdd41su0oeagf9e7978cl4979oc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.wesimplex.simplexconference",
+            "certificate_hash": "9ffbbe2e92b75281b82f482b3091b4aed6a01226"
+          }
+        },
+        {
+          "client_id": "566031276304-jl97bm8o4gl2d16legr3ieia4rr51hv1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.wesimplex.simplexconference",
+            "certificate_hash": "647109c28e6f8e958714f9b49770ac3baf2961e0"
+          }
+        },
+        {
+          "client_id": "566031276304-patomgb5il54hfuqk31jhbkpnqs7nr84.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.wesimplex.simplexconference",
+            "certificate_hash": "79533e6fe2a79c0677b03bc2301ce9ee35f67e41"
+          }
+        },
+        {
+          "client_id": "566031276304-86qq969vqb1k3kuovkct5adni08m09pq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAFikHAbtiSYkZm8DCgzDuomTkwAopkRsg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "566031276304-86qq969vqb1k3kuovkct5adni08m09pq.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "566031276304-288mtnf9s8nt0e6d7kl24j6mkor1623g.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.mad5conference.conventus",
+                "app_store_id": "6471044993"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

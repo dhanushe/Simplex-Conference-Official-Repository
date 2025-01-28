@@ -9,7 +9,7 @@ import 'package:flutter/material.dart';
 
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:simplex_conference_redo_repo/app/login/conference_view.dart';
+import 'conference_view.dart';
 import '../../api/logic/API.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -134,10 +134,10 @@ class _CreateAccountState extends State<CreateAccount> {
                         ),
                         const SizedBox(width: 10),
                         Text(
-                          'Sielify',
+                          'Simplex Conference',
                           style: GoogleFonts.getFont('Poppins',
                               fontWeight: FontWeight.w600,
-                              fontSize: 30,
+                              fontSize: 24,
                               color: Colors.white),
                         )
                       ],
@@ -1295,7 +1295,7 @@ class _CreateAccountState extends State<CreateAccount> {
                       child: InkWell(
                         onTap: () async {
                           var uri = Uri.parse(
-                              "https://github.com/MahirEmran/Sielify/blob/main/Sielify_Terms_and_Conditions.md");
+                              "https://sites.google.com/wesimplex.com/hello/terms-of-service?authuser=0");
                           if (await canLaunchUrl(uri)) {
                             await launchUrl(uri,
                                 mode: LaunchMode.externalApplication);
@@ -1345,7 +1345,7 @@ class _CreateAccountState extends State<CreateAccount> {
                     const Padding(
                       padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
                       child: Text(
-                        'By opening this, you are about to be redirected to an external service. Sielify is not responsible for any infringement on third party platforms.',
+                        'By opening this, you are about to be redirected to an external service. Simplex is not responsible for any infringement on third party platforms.',
                         style: TextStyle(
                           color: Colors.black,
                           fontFamily: 'ClashGrotesk',
@@ -1426,7 +1426,7 @@ class _CreateAccountState extends State<CreateAccount> {
                       child: InkWell(
                         onTap: () async {
                           var uri = Uri.parse(
-                              "https://github.com/MahirEmran/Sielify/blob/main/Sielify_Privacy_Policy.md");
+                              "https://sites.google.com/wesimplex.com/hello/privacy-policy?authuser=0");
                           if (await canLaunchUrl(uri)) {
                             await launchUrl(uri,
                                 mode: LaunchMode.externalApplication);
@@ -1476,7 +1476,7 @@ class _CreateAccountState extends State<CreateAccount> {
                     const Padding(
                       padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
                       child: Text(
-                        'By opening this, you are about to be redirected to an external service. Sielify is not responsible for any infringement on third party platforms.',
+                        'By opening this, you are about to be redirected to an external service. Simplex is not responsible for any infringement on third party platforms.',
                         style: TextStyle(
                           color: Colors.black,
                           fontFamily: 'ClashGrotesk',

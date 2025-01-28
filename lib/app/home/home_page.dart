@@ -12,8 +12,8 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
-import 'package:simplex_conference_redo_repo/app/home/about_conference_page.dart';
-import 'package:simplex_conference_redo_repo/app/home/all_agenda_items.dart';
+import 'about_conference_page.dart';
+import 'all_agenda_items.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../api/logic/bottom_sheets.dart';
@@ -120,8 +120,9 @@ class _HomePageState extends State<HomePage> {
                           color: Colors.black,
                           image: DecorationImage(
                             fit: BoxFit.cover,
-                            image: CachedNetworkImageProvider(
-                                AppInfo.conference.homeBg),
+                            image: Image.asset(
+                              'assets/images/homebg.png',
+                            ).image,
                           ),
                         ),
                       ),
@@ -843,7 +844,7 @@ class _HomePageState extends State<HomePage> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'You are being directed to an external third-party application by opening this link. Sielify bears no responsibility for any violations on third-party platforms.\n\nLink: $s',
+                      'You are being directed to an external third-party application by opening this link. Simplex bears no responsibility for any violations on third-party platforms.\n\nLink: $s',
                       style: GoogleFonts.getFont(
                         fontSize: 14,
                         color: const Color.fromARGB(255, 0, 0, 0),

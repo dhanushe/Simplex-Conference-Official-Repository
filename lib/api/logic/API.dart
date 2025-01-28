@@ -6,7 +6,7 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_app_badger/flutter_app_badger.dart';
+import 'package:flutter_app_badge_control/flutter_app_badge_control.dart';
 import 'package:simplex_conference_redo_repo/api/objects/conference_data.dart';
 import 'package:simplex_conference_redo_repo/main.dart';
 import '../../main_default.dart';
@@ -470,7 +470,7 @@ class API {
     FirebaseMessaging.onBackgroundMessage(firebaseMessagingBackgroundHandler);
 
     FirebaseMessaging.onMessageOpenedApp.listen((RemoteMessage message) {
-      FlutterAppBadger.removeBadge();
+      FlutterAppBadgeControl.removeBadge();
     });
 
     if (settings.authorizationStatus == AuthorizationStatus.authorized) {

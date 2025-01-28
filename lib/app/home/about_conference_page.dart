@@ -1,9 +1,6 @@
 // ignore_for_file: use_build_context_synchronously
 
-import 'dart:io';
-
-import 'package:cached_network_image/cached_network_image.dart';
-import 'package:simplex_conference_redo_repo/app/home/conf_map.dart';
+import 'conf_map.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../api/app_info.dart';
@@ -11,7 +8,6 @@ import '../../api/logic/API.dart';
 import '../navigation/navigation.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:external_app_launcher/external_app_launcher.dart';
 
 class AboutConferencePage extends StatefulWidget {
   const AboutConferencePage({super.key});
@@ -168,7 +164,7 @@ class _AboutConferencePageState extends State<AboutConferencePage> {
         backgroundColor: const Color(0xFFFBFBFB),
         body: PopScope(
           canPop: false,
-          onPopInvoked: (b) {
+          onPopInvokedWithResult: (b, d) {
             // Handle back button press here
             Navigator.pushAndRemoveUntil(
               context,
@@ -232,8 +228,9 @@ class _AboutConferencePageState extends State<AboutConferencePage> {
                               color: Colors.black,
                               image: DecorationImage(
                                 fit: BoxFit.cover,
-                                image: CachedNetworkImageProvider(
-                                    AppInfo.conference.homeBg),
+                                image: Image.asset(
+                                  'assets/images/homebg.png',
+                                ).image,
                               ),
                             ),
                           ),
@@ -414,21 +411,21 @@ class _AboutConferencePageState extends State<AboutConferencePage> {
                                   ],
                                 ),
                               )
-                            : SizedBox(),
+                            : const SizedBox(),
                         AppInfo.conference.specificLoc != ""
                             ? Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     25, 9, 25, 0),
                                 child: Container(
                                     width:
                                         MediaQuery.sizeOf(context).width * 0.88,
                                     height: 200,
-                                    child: MapScreen()),
+                                    child: const MapScreen()),
                               )
-                            : SizedBox(),
+                            : const SizedBox(),
                         AppInfo.conference.specificLoc != ""
                             ? Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     25, 3, 25, 0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
@@ -438,7 +435,7 @@ class _AboutConferencePageState extends State<AboutConferencePage> {
                                     Flexible(
                                       child: Text(
                                         AppInfo.conference.specificLoc,
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                           fontFamily: 'Poppins',
                                           color: Colors.black,
                                           fontWeight: FontWeight.w400,
@@ -449,60 +446,60 @@ class _AboutConferencePageState extends State<AboutConferencePage> {
                                   ],
                                 ),
                               )
-                            : SizedBox(),
-                        const Padding(
-                          padding:
-                              EdgeInsetsDirectional.fromSTEB(25, 15, 25, 0),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Flexible(
-                                child: Text(
-                                  'SielifyAR',
-                                  style: TextStyle(
-                                    fontFamily: 'ClashGrotesk',
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.w500,
-                                    fontSize: 26,
-                                    height: 1.1,
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        SizedBox(height: 10),
-                        Platform.isIOS
-                            ? Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                    InkWell(
-                                      onTap: () async {
-                                        await LaunchApp.openApp(
-                                          iosUrlScheme: 'SelifyARExperience://',
-                                        );
-                                      },
-                                      child: Container(
-                                          width: 300,
-                                          height: 48,
-                                          decoration: BoxDecoration(
-                                              border: Border.all(
-                                                color: Colors.black,
-                                                width: 2.0,
-                                              ),
-                                              borderRadius:
-                                                  BorderRadius.circular(40)),
-                                          child: Align(
-                                              alignment: Alignment.center,
-                                              child: Text('Open SielifyAR',
-                                                  style: TextStyle(
-                                                      fontFamily: 'Poppins',
-                                                      color: Colors.black)))),
-                                    ),
-                                  ])
-                            : SizedBox(),
+                            : const SizedBox(),
+                        // const Padding(
+                        //   padding:
+                        //       EdgeInsetsDirectional.fromSTEB(25, 15, 25, 0),
+                        //   child: Row(
+                        //     mainAxisSize: MainAxisSize.max,
+                        //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        //     children: [
+                        //       Flexible(
+                        //         child: Text(
+                        //           'SielifyAR',
+                        //           style: TextStyle(
+                        //             fontFamily: 'ClashGrotesk',
+                        //             color: Colors.black,
+                        //             fontWeight: FontWeight.w500,
+                        //             fontSize: 26,
+                        //             height: 1.1,
+                        //           ),
+                        //         ),
+                        //       ),
+                        //     ],
+                        //   ),
+                        // ),
+                        // SizedBox(height: 10),
+                        // Platform.isIOS
+                        //     ? Row(
+                        //         mainAxisAlignment: MainAxisAlignment.center,
+                        //         mainAxisSize: MainAxisSize.max,
+                        //         children: [
+                        //             InkWell(
+                        //               onTap: () async {
+                        //                 await LaunchApp.openApp(
+                        //                   iosUrlScheme: 'SelifyARExperience://',
+                        //                 );
+                        //               },
+                        //               child: Container(
+                        //                   width: 300,
+                        //                   height: 48,
+                        //                   decoration: BoxDecoration(
+                        //                       border: Border.all(
+                        //                         color: Colors.black,
+                        //                         width: 2.0,
+                        //                       ),
+                        //                       borderRadius:
+                        //                           BorderRadius.circular(40)),
+                        //                   child: Align(
+                        //                       alignment: Alignment.center,
+                        //                       child: Text('Open SielifyAR',
+                        //                           style: TextStyle(
+                        //                               fontFamily: 'Poppins',
+                        //                               color: Colors.black)))),
+                        //             ),
+                        //           ])
+                        //     : SizedBox(),
                         const Padding(
                           padding:
                               EdgeInsetsDirectional.fromSTEB(25, 20, 25, 0),
@@ -569,7 +566,7 @@ class _AboutConferencePageState extends State<AboutConferencePage> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'You are being directed to an external third-party application by opening this link. Sielify bears no responsibility for any violations on third-party platforms.\n\nLink: $s',
+                      'You are being directed to an external third-party application by opening this link. Simplex bears no responsibility for any violations on third-party platforms.\n\nLink: $s',
                       style: GoogleFonts.getFont(
                         fontSize: 14,
                         color: Colors.black,

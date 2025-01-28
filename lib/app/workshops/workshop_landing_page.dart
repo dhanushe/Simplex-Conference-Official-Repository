@@ -654,7 +654,8 @@ class _WorkshopCardState extends State<WorkshopCard> {
                               endDate: time2,
                               iosParams: IOSParams(
                                 reminder: Duration(
-                                    minutes: 30), // on iOS, you can set alarm notification after your event.
+                                    minutes:
+                                        30), // on iOS, you can set alarm notification after your event.
                                 // on iOS, you can set url to your event.
                               ),
                             );
@@ -730,87 +731,87 @@ class _WorkshopCardState extends State<WorkshopCard> {
                         ),
                       ]),
                   SizedBox(height: 20),
-                 Authentication.googleSignInAccount != null ? Row(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        InkWell(
-                          onTap: () {
-                            DateTime time1 = Dates.parseDateTime(date, start);
-                            DateTime time2 = Dates.parseDateTime(date, end);
-                            if (time2.isBefore(time1)) {
-                              time2 = time2.add(Duration(days: 1));
-                            }
-                            Authentication.addEventToGoogleCalendar(name, desc, loc, time1, time2);
-                            // if(w.type == "Event") {
-                            //      Fluttertoast.showToast(
-                            //                 msg: "You cannot remove mandatory items from your agenda.",
-                            //                 toastLength: Toast.LENGTH_SHORT,
-                            //                 backgroundColor: Colors.red,
-                            //                 textColor: Colors.white,
-                            //                 fontSize: 16.0,
-                            //               );
-                            // }
-                            // else {
+                  //  Authentication.googleSignInAccount != null ? Row(
+                  //       mainAxisSize: MainAxisSize.max,
+                  //       mainAxisAlignment: MainAxisAlignment.center,
+                  //       children: [
+                  //         InkWell(
+                  //           onTap: () {
+                  //             DateTime time1 = Dates.parseDateTime(date, start);
+                  //             DateTime time2 = Dates.parseDateTime(date, end);
+                  //             if (time2.isBefore(time1)) {
+                  //               time2 = time2.add(Duration(days: 1));
+                  //             }
+                  //             Authentication.addEventToGoogleCalendar(name, desc, loc, time1, time2);
+                  //             // if(w.type == "Event") {
+                  //             //      Fluttertoast.showToast(
+                  //             //                 msg: "You cannot remove mandatory items from your agenda.",
+                  //             //                 toastLength: Toast.LENGTH_SHORT,
+                  //             //                 backgroundColor: Colors.red,
+                  //             //                 textColor: Colors.white,
+                  //             //                 fontSize: 16.0,
+                  //             //               );
+                  //             // }
+                  //             // else {
 
-                            // if (AppInfo.currentConferenceUser.agendaItems
-                            //     .containsKey(w.id)) {
-                            //   int index = AppInfo
-                            //       .currentConferenceUser.agendaItems[w.id]!;
-                            //   if (index == -1 || index == i) {
-                            //     AppInfo.currentConferenceUser.agendaItems
-                            //         .remove(w.id);
-                            //   } else {
-                            //     AppInfo.currentConferenceUser
-                            //         .agendaItems[w.id] = i;
-                            //   }
-                            //   API().updateAgendaUser(
-                            //       AppInfo.currentConferenceUser);
-                            //   setState(() {});
-                            // } else {
-                            //   AppInfo.currentConferenceUser.agendaItems[w.id] =
-                            //       i;
-                            //   API().updateAgendaUser(
-                            //       AppInfo.currentConferenceUser);
-                            //   setState(() {});
-                            // }
-                            // }
-                          },
-                          child: Container(
-                            width: MediaQuery.sizeOf(context).width * 0.68,
-                            height: 41,
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(26),
-                              border: Border.all(
-                                color: const Color(0xFF18AE9F),
-                                width: 2,
-                              ),
-                            ),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Icon(Symbols.add,
-                                    color: const Color(0xFF18AE9F),
-                                    size: 22,
-                                    fill: 1.0),
-                                Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
-                                      4, 0, 0, 0),
-                                  child: Text(
-                                    "Add to Google Calendar",
-                                    style: GoogleFonts.getFont('Poppins',
-                                        fontWeight: FontWeight.w600,
-                                        fontSize: 15,
-                                        color: const Color(0xFF18AE9F)),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ]) : SizedBox(),
+                  //             // if (AppInfo.currentConferenceUser.agendaItems
+                  //             //     .containsKey(w.id)) {
+                  //             //   int index = AppInfo
+                  //             //       .currentConferenceUser.agendaItems[w.id]!;
+                  //             //   if (index == -1 || index == i) {
+                  //             //     AppInfo.currentConferenceUser.agendaItems
+                  //             //         .remove(w.id);
+                  //             //   } else {
+                  //             //     AppInfo.currentConferenceUser
+                  //             //         .agendaItems[w.id] = i;
+                  //             //   }
+                  //             //   API().updateAgendaUser(
+                  //             //       AppInfo.currentConferenceUser);
+                  //             //   setState(() {});
+                  //             // } else {
+                  //             //   AppInfo.currentConferenceUser.agendaItems[w.id] =
+                  //             //       i;
+                  //             //   API().updateAgendaUser(
+                  //             //       AppInfo.currentConferenceUser);
+                  //             //   setState(() {});
+                  //             // }
+                  //             // }
+                  //           },
+                  //           child: Container(
+                  //             width: MediaQuery.sizeOf(context).width * 0.68,
+                  //             height: 41,
+                  //             decoration: BoxDecoration(
+                  //               color: Colors.white,
+                  //               borderRadius: BorderRadius.circular(26),
+                  //               border: Border.all(
+                  //                 color: const Color(0xFF18AE9F),
+                  //                 width: 2,
+                  //               ),
+                  //             ),
+                  //             child: Row(
+                  //               mainAxisSize: MainAxisSize.max,
+                  //               mainAxisAlignment: MainAxisAlignment.center,
+                  //               children: [
+                  //                 Icon(Symbols.add,
+                  //                     color: const Color(0xFF18AE9F),
+                  //                     size: 22,
+                  //                     fill: 1.0),
+                  //                 Padding(
+                  //                   padding: const EdgeInsetsDirectional.fromSTEB(
+                  //                       4, 0, 0, 0),
+                  //                   child: Text(
+                  //                     "Add to Google Calendar",
+                  //                     style: GoogleFonts.getFont('Poppins',
+                  //                         fontWeight: FontWeight.w600,
+                  //                         fontSize: 15,
+                  //                         color: const Color(0xFF18AE9F)),
+                  //                   ),
+                  //                 ),
+                  //               ],
+                  //             ),
+                  //           ),
+                  //         ),
+                  //       ]) : SizedBox(),
                 ],
               ));
         });

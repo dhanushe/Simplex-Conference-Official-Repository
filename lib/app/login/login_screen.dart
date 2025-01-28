@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:simplex_conference_redo_repo/app/login/reset_password.dart';
+import 'reset_password.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../api/logic/API.dart';
@@ -106,10 +106,10 @@ class _LoginScreenState extends State<LoginScreen> {
                           ),
                           const SizedBox(width: 10),
                           Text(
-                            'Sielify',
+                            'Simplex Conference',
                             style: GoogleFonts.getFont('Poppins',
                                 fontWeight: FontWeight.w600,
-                                fontSize: 30,
+                                fontSize: 24,
                                 color: Colors.white),
                           )
                         ],
@@ -739,7 +739,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               recognizer: TapGestureRecognizer()
                                 ..onTap = () async {
                                   var uri = Uri.parse(
-                                      "https://github.com/MahirEmran/Sielify/blob/main/Sielify_Terms_and_Conditions.md");
+                                      "https://sites.google.com/wesimplex.com/hello/terms-of-service?authuser=0");
                                   if (await canLaunchUrl(uri)) {
                                     await launchUrl(uri,
                                         mode: LaunchMode.externalApplication);
@@ -761,7 +761,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               recognizer: TapGestureRecognizer()
                                 ..onTap = () async {
                                   var uri = Uri.parse(
-                                      "https://github.com/MahirEmran/Sielify/blob/main/Sielify_Privacy_Policy.md");
+                                      "https://sites.google.com/wesimplex.com/hello/privacy-policy?authuser=0");
                                   if (await canLaunchUrl(uri)) {
                                     await launchUrl(uri,
                                         mode: LaunchMode.externalApplication);

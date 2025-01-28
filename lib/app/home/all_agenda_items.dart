@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'dart:io';
 
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/foundation.dart';
 import 'package:intl/intl.dart';
 
@@ -53,7 +52,7 @@ class _AllagendaWidgetState extends State<AllagendaWidget> {
       backgroundColor: const Color(0xFFF9f9f9),
       body: PopScope(
         canPop: false,
-        onPopInvoked: (b) {
+        onPopInvokedWithResult: (b, d) {
           // Handle back button press here
           Navigator.pushAndRemoveUntil(
             context,
@@ -115,8 +114,9 @@ class _AllagendaWidgetState extends State<AllagendaWidget> {
                             color: Colors.black,
                             image: DecorationImage(
                               fit: BoxFit.cover,
-                              image: CachedNetworkImageProvider(
-                                  AppInfo.conference.homeBg),
+                              image: Image.asset(
+                                'assets/images/homebg.png',
+                              ).image,
                             ),
                           ),
                         ),
