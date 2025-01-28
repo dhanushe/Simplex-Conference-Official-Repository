@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:material_symbols_icons/symbols.dart';
-import 'package:simplex_conference_redo_repo/app/workshops/workshop_browse.dart';
+import 'workshop_browse.dart';
 
 import '../../api/app_info.dart';
 import '../../api/logic/API.dart';

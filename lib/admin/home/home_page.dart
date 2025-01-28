@@ -1,14 +1,14 @@
 // ignore_for_file: no_logic_in_create_state, must_be_immutable, use_build_context_synchronously
 import 'package:flutter/material.dart';
-import 'package:simplex_conference_redo_repo/admin/announcements/announcements_page.dart';
-import 'package:simplex_conference_redo_repo/admin/edit/about_conf.dart';
-import 'package:simplex_conference_redo_repo/admin/edit/conf_map.dart';
-import 'package:simplex_conference_redo_repo/admin/edit/edit_conf.dart';
-import 'package:simplex_conference_redo_repo/admin/edit/tile_edit.dart';
-import 'package:simplex_conference_redo_repo/admin/events/add_events.dart';
-import 'package:simplex_conference_redo_repo/admin/events/add_workshops.dart';
-import 'package:simplex_conference_redo_repo/admin/login/login_page.dart';
-import 'package:simplex_conference_redo_repo/api/logic/authentication.dart';
+import '../announcements/announcements_page.dart';
+import '../edit/about_conf.dart';
+import '../edit/conf_map.dart';
+import '../edit/edit_conf.dart';
+import '../edit/tile_edit.dart';
+import '../events/add_events.dart';
+import '../events/add_workshops.dart';
+import '../login/login_page.dart';
+import '../../api/logic/authentication.dart';
 
 import '../../api/app_info.dart';
 

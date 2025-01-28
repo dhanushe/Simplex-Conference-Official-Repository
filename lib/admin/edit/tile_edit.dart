@@ -1,7 +1,7 @@
 // ignore_for_file: must_be_immutable, use_build_context_synchronously, no_logic_in_create_state
 
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:simplex_conference_redo_repo/flutter_flow%20copy/flutter_flow_drop_down.dart';
+import '../../flutter_flow%20copy/flutter_flow_drop_down.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../api/logic/API.dart';
@@ -10,7 +10,6 @@ import '../../api/app_info.dart';
 import 'package:flutter/material.dart';
 
 import 'package:google_fonts/google_fonts.dart';
-
 
 class TileEditPage extends StatefulWidget {
   const TileEditPage({

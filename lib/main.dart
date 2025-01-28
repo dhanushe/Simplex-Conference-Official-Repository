@@ -12,8 +12,8 @@ import 'package:flutter/services.dart';
 import 'package:flutter_app_badge_control/flutter_app_badge_control.dart';
 
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
-import 'package:simplex_conference_redo_repo/admin/login/welcome_screen.dart';
-import 'package:simplex_conference_redo_repo/app/login/conference_view.dart';
+import 'admin/login/welcome_screen.dart';
+import 'app/login/conference_view.dart';
 import 'api/logic/API.dart';
 
 import 'api/app_info.dart';

@@ -9,7 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'package:intl/intl.dart';
-import 'package:simplex_conference_redo_repo/admin/home/home_page.dart';
+import '../home/home_page.dart';
 
 import 'package:url_launcher/url_launcher.dart';
 

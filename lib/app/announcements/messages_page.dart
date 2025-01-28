@@ -8,7 +8,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import 'package:material_symbols_icons/symbols.dart';
-import 'package:simplex_conference_redo_repo/app/announcements/announcements.dart';
+import 'announcements.dart';
 import '../../api/logic/API.dart';
 
 class MessagesPage extends StatefulWidget {

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:simplex_conference_redo_repo/admin/login/login_page.dart';
-import 'package:simplex_conference_redo_repo/app/login/login_screen.dart';
+import 'login_page.dart';
+import '../../app/login/login_screen.dart';
 
 class AdminWelcomePage extends StatefulWidget {
   const AdminWelcomePage({super.key});

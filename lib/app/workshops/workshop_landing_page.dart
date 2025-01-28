@@ -9,7 +9,6 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:material_symbols_icons/symbols.dart';
-import 'package:simplex_conference_redo_repo/api/logic/authentication.dart';
 
 import '../../api/app_info.dart';
 import '../../api/logic/API.dart';
