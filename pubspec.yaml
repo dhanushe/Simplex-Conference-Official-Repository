@@ -64,6 +64,7 @@ dependencies:
   google_maps_flutter: ^2.7.0
   geocoding: ^3.0.0
   flutter_app_badge_control: ^0.0.2
+  sign_in_with_apple: ^6.1.4
 
 
 dev_dependencies:

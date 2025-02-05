@@ -1,5 +1,7 @@
 // ignore_for_file: use_build_context_synchronously
 
+import 'dart:math';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/foundation.dart';
@@ -7,8 +9,12 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:googleapis/calendar/v3.dart' as calendar;
+// import 'package:googleapis/chat/v1.dart';
 import 'package:googleapis_auth/auth_io.dart';
 import 'package:http/http.dart' as http;
+import 'package:sign_in_with_apple/sign_in_with_apple.dart';
+import 'package:crypto/crypto.dart';
+import 'dart:convert';
 import 'dart:developer';
 
 class Authentication {
@@ -40,12 +46,74 @@ class Authentication {
     }
   }
 
+  static Future<User?> signInWithApple(BuildContext context) async {
+    try {
+      final rawNonce = _generateNonce();
+      FirebaseAuth auth = FirebaseAuth.instance;
+      final nonce = _sha256ofString(rawNonce);
+
+      final appleCredential = await SignInWithApple.getAppleIDCredential(
+        webAuthenticationOptions: WebAuthenticationOptions(
+            clientId: "com.wesimplex.mad5-bb404",
+            redirectUri: Uri.parse(
+                "https://mad5-bb404.firebaseapp.com/__/auth/handler")),
+        scopes: [
+          AppleIDAuthorizationScopes.email,
+          AppleIDAuthorizationScopes.fullName,
+        ],
+        nonce: nonce,
+      );
+
+      if (appleCredential == null) {
+        return null;
+      }
+
+      final oauthCredential = OAuthProvider("apple.com").credential(
+          idToken: appleCredential.identityToken,
+          rawNonce: rawNonce,
+          accessToken: appleCredential.authorizationCode);
+
+      if (oauthCredential == null) {
+        return null;
+      }
+
+      UserCredential userCredential =
+          await auth.signInWithCredential(oauthCredential);
+      return userCredential.user;
+    } on SignInWithAppleAuthorizationException catch (e) {
+      print('Apple Sign-In Authorization Error:');
+      print('Error code: ${e.code}');
+      print('Error message: ${e.message}');
+    } on FirebaseAuthException catch (e) {
+      print('Firebase Auth Error:');
+      print('Error code: ${e.code}');
+      print('Error message: ${e.message}');
+    } catch (e) {
+      print('Unexpected error during Apple Sign-In: $e');
+    }
+    return null;
+  }
+
+  static String _generateNonce([int length = 32]) {
+    const charset =
+        '0123456789ABCDEFGHIJKLMNOPQRSTUVXYZabcdefghijklmnopqrstuvwxyz-._';
+    final random = Random.secure();
+    return List.generate(length, (_) => charset[random.nextInt(charset.length)])
+        .join();
+  }
+
+  static String _sha256ofString(String input) {
+    final bytes = utf8.encode(input);
+    final digest = sha256.convert(bytes);
+    return digest.toString();
+  }
+
   static Future<User?> signInWithGoogle({required BuildContext context}) async {
     FirebaseAuth auth = FirebaseAuth.instance;
     User? user;
 
     try {
-      log(calendar.CalendarApi.calendarScope);
+      // log(calendar.CalendarApi.calendarScope);
       googleSignInAccount = await GoogleSignIn(scopes: [
         'profile',
         'email',
@@ -202,9 +270,9 @@ class Authentication {
 
     try {
       await calendarApi.events.insert(event, 'primary');
-      log('Event added to Google Calendar');
+      // log('Event added to Google Calendar');
     } catch (e) {
-      log('Error creating event $e');
+      // log('Error creating event $e');
     }
   }
 

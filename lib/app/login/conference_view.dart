@@ -42,6 +42,7 @@ class _ConferenceViewState extends State<ConferenceView> {
   bool dataLoaded = false;
   bool linkGoogle = false;
   bool isLinking = false;
+  bool isDeleting = false;
 
   _ConferenceViewState() {
     API().getConferences().then((value) {
@@ -119,6 +120,11 @@ class _ConferenceViewState extends State<ConferenceView> {
                                 'Account Info',
                                 Icons.account_circle_outlined,
                                 2,
+                              ),
+                              _buildPopupMenuItem(
+                                'Delete Account',
+                                Icons.delete,
+                                3,
                               )
                             ],
                             child: Container(
@@ -765,7 +771,159 @@ class _ConferenceViewState extends State<ConferenceView> {
           "https://github.com/MahirEmran/Sielify/blob/main/Sielify_Privacy_Policy.md");
     } else if (value == 2) {
       _accountDialog(context);
+    } else if (value == 3) {
+      await _deleteDialog(context);
+
+      if (isDeleting) {
+        await API().deleteUserById(AppInfo.currentUser.id);
+        await Authentication.signOut(context: context);
+
+        AppInfo.isAdmin = false;
+        Navigator.of(context).pushAndRemoveUntil(
+          PageRouteBuilder(
+            transitionDuration: const Duration(milliseconds: 200),
+            reverseTransitionDuration: const Duration(milliseconds: 200),
+            pageBuilder: (context, animation, secondaryAnimation) =>
+                const WelcomeScreen(),
+            transitionsBuilder:
+                (context, animation, secondaryAnimation, child) {
+              const begin = Offset(-1.0, 0.0);
+              const end = Offset.zero;
+              final tween = Tween(begin: begin, end: end);
+              final offsetAnimation = animation.drive(tween);
+
+              return SlideTransition(
+                position: offsetAnimation,
+                child: child,
+              );
+            },
+          ),
+          (route) => false,
+        );
+        isDeleting = false;
+      }
     }
+  }
+
+  Future<bool> _deleteDialog(BuildContext context) async {
+    bool okPressed = false;
+    return showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            backgroundColor: const Color(0xFFFFFFFF),
+            // title: const Text(
+            //   'New Account',
+            //   style: TextStyle(
+            //     fontSize: 20,
+            //     color: Color.fromARGB(255, 0, 0, 0),
+            //     fontFamily: 'ClashGrotesk',
+            //     fontWeight: FontWeight.w500,
+            //   ),
+            // ),
+            content: SizedBox(
+              width: MediaQuery.of(context).size.width * .9,
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: const EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+                    child: Text(
+                        "Are you sure you want to delete your account? This action cannot be reversed.",
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontFamily: 'ClashGrotesk',
+                          fontSize: 16,
+                          fontWeight: FontWeight.w400,
+                        )),
+                  ),
+                  const SizedBox(height: 10),
+                ],
+              ),
+            ),
+            actions: <Widget>[
+              Center(
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    TextButton(
+                      style: TextButton.styleFrom(
+                        foregroundColor: Colors.black,
+                        backgroundColor: Color(0xFF92190C),
+                        elevation: 2,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12),
+                          // side: BorderSide(
+                          //   color: Color(0xFFEFEFEF), // Border color
+                          //   width: 2, // Border width
+                          // ),
+                        ),
+                      ),
+                      child: Padding(
+                        padding: EdgeInsets.fromLTRB(16, 6, 16, 6),
+                        child: Text(
+                          "Yes, delete my account.",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontFamily: 'ClashGrotesk',
+                            fontSize: 16,
+                            fontWeight: FontWeight.w400,
+                          ),
+                        ),
+                      ),
+                      onPressed: () {
+                        isDeleting = true;
+                        Navigator.pop(context);
+                      },
+                    ),
+                    SizedBox(height: 15),
+                    TextButton(
+                      style: TextButton.styleFrom(
+                        foregroundColor: Colors.black,
+                        backgroundColor: Colors.white,
+                        elevation: 2,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12),
+                          side: BorderSide(
+                            color: Color(0xFFEFEFEF), // Border color
+                            width: 2, // Border width
+                          ),
+                        ),
+                      ),
+                      child: Padding(
+                        padding: EdgeInsets.fromLTRB(16, 6, 16, 6),
+                        child: Text(
+                          "No, go back.",
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontFamily: 'ClashGrotesk',
+                            fontSize: 16,
+                            fontWeight: FontWeight.w400,
+                          ),
+                        ),
+                      ),
+                      onPressed: () {
+                        okPressed = true;
+                        isDeleting = false;
+                        Navigator.pop(context);
+                      },
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          );
+        }).then((val) async {
+      if (!okPressed) {
+        return false;
+      }
+      isDeleting = false;
+
+      return true;
+    });
   }
 
   List<Widget> getConferenceWidgets() {

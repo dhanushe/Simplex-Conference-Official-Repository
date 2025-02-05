@@ -622,6 +622,140 @@ class _LoginScreenState extends State<LoginScreen> {
                         padding: EdgeInsetsDirectional.fromSTEB(0, 15, 0, 0),
                         child: CircularProgressIndicator(color: Colors.black)),
 
+                !isSigningIn
+                    ? Padding(
+                        padding:
+                            const EdgeInsetsDirectional.fromSTEB(0, 15, 0, 0),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            GestureDetector(
+                              onTap: () async {
+                                setState(() {
+                                  isSigningIn = true;
+                                });
+                                User? u = await Authentication.signInWithApple(
+                                    context);
+
+                                if (u == null) {
+                                  setState(() {
+                                    isSigningIn = false;
+                                  });
+                                  return;
+                                }
+
+                                DocumentSnapshot userExists =
+                                    await FirebaseFirestore.instance
+                                        .collection('users')
+                                        .doc(u.uid)
+                                        .get();
+                                bool b = userExists.exists;
+                                if (b) {
+                                  await API().loadUser(_auth.currentUser!.uid);
+                                  if (AppInfo.currentUser.lastOpened != "") {
+                                    await API().loadData(
+                                        AppInfo.currentUser.lastOpened);
+                                    Navigator.pushAndRemoveUntil(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => Navigation(
+                                              reNav: false, pIndex: 0)),
+                                      (route) =>
+                                          false, // This condition removes all previous routes
+                                    );
+                                    return;
+                                  }
+
+                                  Navigator.pushAndRemoveUntil(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            const ConferenceView()),
+                                    (route) =>
+                                        false, // This condition removes all previous routes
+                                  );
+                                } else {
+                                  if (await _agreeDialog(context)) {
+                                    String name =
+                                        "${_auth.currentUser!.displayName!.split(" ")[0]} ${_auth.currentUser!.displayName!.split(" ").last}";
+                                    await API().addUser(
+                                        name,
+                                        _auth.currentUser!.uid,
+                                        _auth.currentUser!.email!);
+                                    AppInfo.currentUser = UserData(
+                                        name: name,
+                                        id: _auth.currentUser!.uid,
+                                        email: _auth.currentUser!.email!,
+                                        lastOpened: "",
+                                        conferences: []);
+
+                                    Navigator.pushAndRemoveUntil(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              const ConferenceView()),
+                                      (route) =>
+                                          false, // This condition removes all previous routes
+                                    );
+                                  }
+                                }
+                              },
+                              child: Container(
+                                width: MediaQuery.sizeOf(context).width * 0.88,
+                                height: 45,
+                                decoration: BoxDecoration(
+                                  color: Colors.black,
+                                  borderRadius: BorderRadius.circular(25),
+                                  border: Border.all(
+                                    color: const Color(0xFFE0E0E0),
+                                    width: 0,
+                                  ),
+                                ),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Align(
+                                      alignment:
+                                          const AlignmentDirectional(0, 0),
+                                      child: Padding(
+                                        padding: const EdgeInsetsDirectional
+                                            .fromSTEB(0, 0, 10, 3),
+                                        child: ClipRRect(
+                                          borderRadius:
+                                              BorderRadius.circular(0),
+                                          child: Image.asset(
+                                            'assets/images/apple_logo.png',
+                                            width: 23,
+                                            height: 23,
+                                            fit: BoxFit.cover,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    Align(
+                                      alignment: AlignmentDirectional(0, 0),
+                                      child: Text(
+                                        'Sign in with Apple',
+                                        style: GoogleFonts.getFont(
+                                          'Poppins',
+                                          color: const Color(0xFFFFFFFF),
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      )
+                    : const Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(0, 15, 0, 0),
+                        child: CircularProgressIndicator(color: Colors.black)),
+
                 const Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(25, 80, 25, 0),
                   child: Row(

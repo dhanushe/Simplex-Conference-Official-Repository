@@ -61,6 +61,16 @@ class API {
     USER METHODS
   */
 
+  Future<void> deleteUserById(String userId) async {
+    database.collection('users').doc(userId).delete();
+    CollectionReference chapters = database.collection('conferences');
+    QuerySnapshot querySnapshot = await chapters.get();
+
+    for (QueryDocumentSnapshot doc in querySnapshot.docs) {
+      await chapters.doc(doc.id).collection('users').doc(userId).delete();
+    }
+  }
+
   Future<bool> loginConference(String password, String name) async {
     QuerySnapshot c = await FirebaseFirestore.instance
         .collection('conferences')
