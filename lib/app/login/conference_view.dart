@@ -765,10 +765,10 @@ class _ConferenceViewState extends State<ConferenceView> {
   _onMenuItemSelected(int value) async {
     if (value == 0) {
       _confirmOpenLinkDialog(context,
-          "https://github.com/MahirEmran/Sielify/blob/main/Sielify_Terms_and_Conditions.md");
+          "https://sites.google.com/wesimplex.com/home/terms-of-service");
     } else if (value == 1) {
       _confirmOpenLinkDialog(context,
-          "https://github.com/MahirEmran/Sielify/blob/main/Sielify_Privacy_Policy.md");
+          "https://sites.google.com/wesimplex.com/home/privacy-policy");
     } else if (value == 2) {
       _accountDialog(context);
     } else if (value == 3) {
