@@ -1,0 +1,2 @@
+/Users/mahiremran/Desktop/GitHub/Simplex-Conference-Official-Repository/android/app/.cxx/RelWithDebInfo/5d6r5j3t/x86/CMakeFiles/edit_cache.dir
+/Users/mahiremran/Desktop/GitHub/Simplex-Conference-Official-Repository/android/app/.cxx/RelWithDebInfo/5d6r5j3t/x86/CMakeFiles/rebuild_cache.dir
