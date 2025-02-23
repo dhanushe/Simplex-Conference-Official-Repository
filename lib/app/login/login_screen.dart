@@ -1,5 +1,7 @@
 // ignore_for_file: use_build_context_synchronously
 
+import 'dart:developer';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -529,6 +531,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                     .doc(u.uid)
                                     .get();
                             bool b = userExists.exists;
+                            log(b.toString());
                             if (b) {
                               await API().loadUser(_auth.currentUser!.uid);
                               if (AppInfo.currentUser.lastOpened != "") {
@@ -555,6 +558,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               );
                             } else {
                               if (await _agreeDialog(context)) {
+                                log(_auth.currentUser.toString());
                                 String name =
                                     "${_auth.currentUser!.displayName!.split(" ")[0]} ${_auth.currentUser!.displayName!.split(" ").last}";
                                 await API().addUser(
@@ -644,6 +648,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                   });
                                   return;
                                 }
+                                log(u.toString());
 
                                 DocumentSnapshot userExists =
                                     await FirebaseFirestore.instance
@@ -651,6 +656,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                         .doc(u.uid)
                                         .get();
                                 bool b = userExists.exists;
+                                log(b.toString());
                                 if (b) {
                                   await API().loadUser(_auth.currentUser!.uid);
                                   if (AppInfo.currentUser.lastOpened != "") {
@@ -677,6 +683,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                   );
                                 } else {
                                   if (await _agreeDialog(context)) {
+                                    log(_auth.currentUser.toString());
                                     String name =
                                         "${_auth.currentUser!.displayName!.split(" ")[0]} ${_auth.currentUser!.displayName!.split(" ").last}";
                                     await API().addUser(

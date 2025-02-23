@@ -15,7 +15,7 @@ import 'package:http/http.dart' as http;
 import 'package:sign_in_with_apple/sign_in_with_apple.dart';
 import 'package:crypto/crypto.dart';
 import 'dart:convert';
-import 'dart:developer';
+import 'dart:developer' as dv;
 
 class Authentication {
   static User? user;
@@ -68,6 +68,10 @@ class Authentication {
         return null;
       }
 
+      dv.log(appleCredential.familyName.toString());
+      dv.log(appleCredential.givenName.toString());
+      dv.log(appleCredential.toString());
+
       final oauthCredential = OAuthProvider("apple.com").credential(
           idToken: appleCredential.identityToken,
           rawNonce: rawNonce,
@@ -77,8 +81,16 @@ class Authentication {
         return null;
       }
 
+
+
+
       UserCredential userCredential =
           await auth.signInWithCredential(oauthCredential);
+      if (appleCredential.familyName != null && appleCredential.givenName != null) {
+        await userCredential.user!.updateDisplayName(
+            appleCredential.givenName! + " " + appleCredential.familyName!);
+      }
+          
       return userCredential.user;
     } on SignInWithAppleAuthorizationException catch (e) {
       print('Apple Sign-In Authorization Error:');
