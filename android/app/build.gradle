@@ -32,7 +32,7 @@ if (keystorePropertiesFile.exists()) {
     keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
 }
 android {
-    namespace = "com.wesimplex.simplex"
+    namespace = "com.wesimplex.simplexconference"
     compileSdk = flutter.compileSdkVersion
     ndkVersion = flutter.ndkVersion
 
