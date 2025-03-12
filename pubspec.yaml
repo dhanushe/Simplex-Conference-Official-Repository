@@ -16,7 +16,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
 # In Windows, build-name is used as the major, minor, and patch parts
 # of the product and file versions while build-number is used as the build suffix.
-version: 1.0.0+10
+version: 1.0.0+13
 
 environment:
   sdk: ^3.6.0
@@ -43,7 +43,6 @@ dependencies:
   file_picker: ^9.0.0
   auto_size_text: 3.0.0
   font_awesome_flutter: ^10.4.0
-  google_fonts: ^6.2.1
   intl: 0.19.0
   json_path: ^0.7.1
   page_transition: ^2.0.9
@@ -77,12 +76,12 @@ flutter_launcher_icons:
   android: true
   ios: true
   remove_alpha_ios: true
-  adaptive_icon_background: "#104fff"
+  adaptive_icon_background: "#FFFFFF"
   adaptive_icon_foreground: "assets/images/android12icon.png"
   image_path: "assets/images/appicon.png"
   min_sdk_android: 19
   web:
-    generate: false
+    generate: true
     image_path: "assets/images/webimage.png"
   windows:
     generate: false
@@ -100,20 +99,90 @@ flutter:
   uses-material-design: true
 
   fonts:
-    - family: ClashGrotesk
+    - family: RedHatDisplay
       fonts:
-        - asset: assets/fonts/ClashGrotesk-Extralight.ttf
-          weight: 200
-        - asset: assets/fonts/ClashGrotesk-Light.ttf
+        - asset: assets/fonts/RedHatDisplay-Light.ttf
           weight: 300
-        - asset: assets/fonts/ClashGrotesk-Regular.ttf
+        - asset: assets/fonts/RedHatDisplay-LightItalic.ttf
+          weight: 300
+          style: italic
+        - asset: assets/fonts/RedHatDisplay-Regular.ttf
           weight: 400
-        - asset: assets/fonts/ClashGrotesk-Medium.ttf
+        - asset: assets/fonts/RedHatDisplay-Italic.ttf
+          weight: 400
+          style: italic
+        - asset: assets/fonts/RedHatDisplay-Medium.ttf
           weight: 500
-        - asset: assets/fonts/ClashGrotesk-Semibold.ttf
+        - asset: assets/fonts/RedHatDisplay-MediumItalic.ttf
+          weight: 500
+          style: italic
+        - asset: assets/fonts/RedHatDisplay-SemiBold.ttf
           weight: 600
-        - asset: assets/fonts/ClashGrotesk-Bold.ttf
+        - asset: assets/fonts/RedHatDisplay-SemiBoldItalic.ttf
+          weight: 600
+          style: italic
+        - asset: assets/fonts/RedHatDisplay-Bold.ttf
           weight: 700
+        - asset: assets/fonts/RedHatDisplay-BoldItalic.ttf
+          weight: 700
+          style: italic
+        - asset: assets/fonts/RedHatDisplay-ExtraBold.ttf
+          weight: 800
+        - asset: assets/fonts/RedHatDisplay-ExtraBoldItalic.ttf
+          weight: 800
+          style: italic
+        - asset: assets/fonts/RedHatDisplay-Black.ttf
+          weight: 900
+        - asset: assets/fonts/RedHatDisplay-BlackItalic.ttf
+          weight: 900
+          style: italic
+    - family: DM Sans
+      fonts:
+        - asset: assets/fonts/DMSans-Thin.ttf
+          weight: 100
+        - asset: assets/fonts/DMSans-ExtraLight.ttf
+          weight: 200
+        - asset: assets/fonts/DMSans-Light.ttf
+          weight: 300
+        - asset: assets/fonts/DMSans-ThinItalic.ttf
+          weight: 100
+          style: italic
+        - asset: assets/fonts/DMSans-ExtraLightItalic.ttf
+          weight: 200
+          style: italic
+        - asset: assets/fonts/DMSans-LightItalic.ttf
+          weight: 300
+          style: italic
+        - asset: assets/fonts/DMSans-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/DMSans-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/DMSans-Italic.ttf
+          weight: 400
+          style: italic
+        - asset: assets/fonts/DMSans-MediumItalic.ttf
+          weight: 500
+          style: italic
+        - asset: assets/fonts/DMSans-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/DMSans-SemiBoldItalic.ttf
+          weight: 600
+          style: italic
+        - asset: assets/fonts/DMSans-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/DMSans-BoldItalic.ttf
+          weight: 700
+          style: italic
+        - asset: assets/fonts/DMSans-ExtraBold.ttf
+          weight: 800
+        - asset: assets/fonts/DMSans-ExtraBoldItalic.ttf
+          weight: 800
+          style: italic
+        - asset: assets/fonts/DMSans-Black.ttf
+          weight: 900
+        - asset: assets/fonts/DMSans-BlackItalic.ttf
+          weight: 900
+          style: italic
 
   assets:
     - assets/images/

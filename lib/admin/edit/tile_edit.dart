@@ -9,7 +9,6 @@ import '../../api/app_info.dart';
 
 import 'package:flutter/material.dart';
 
-import 'package:google_fonts/google_fonts.dart';
 
 class TileEditPage extends StatefulWidget {
   const TileEditPage({
@@ -69,10 +68,10 @@ class _TileEditPageState extends State<TileEditPage> {
           backgroundColor: const Color.fromARGB(255, 11, 43, 31),
           content: Text(
               'Changes Saved! Refresh the app and look at the \'Home\' Page to view changes.',
-              style: GoogleFonts.getFont(
+              style: TextStyle(fontFamily: 'DM Sans', 
                 fontSize: 16,
                 color: const Color(0xFFe9e9e9),
-                'Poppins',
+                
               ))));
       setState(() {
         saving = false;
@@ -144,25 +143,25 @@ class _TileEditPageState extends State<TileEditPage> {
                                 ? TextButton(
                                     onPressed: () => save(),
                                     style: ButtonStyle(
-                                        shape: const MaterialStatePropertyAll(
+                                        shape: const WidgetStatePropertyAll(
                                             RoundedRectangleBorder(
                                                 borderRadius: BorderRadius.all(
                                                     Radius.circular(5)))),
                                         overlayColor:
                                             // only show lighter color if hovered
-                                            MaterialStateProperty.resolveWith(
+                                            WidgetStateProperty.resolveWith(
                                                 (states) {
                                           if (states.contains(
-                                                  MaterialState.hovered) &&
+                                                  WidgetState.hovered) &&
                                               !states.contains(
-                                                  MaterialState.focused) &&
+                                                  WidgetState.focused) &&
                                               !states.contains(
-                                                  MaterialState.pressed)) {
+                                                  WidgetState.pressed)) {
                                             return const Color.fromARGB(
                                                 255, 138, 91, 240);
                                             // this is a hacky way to accomplish the ink effect
                                           } else if (states.contains(
-                                              MaterialState.pressed)) {
+                                              WidgetState.pressed)) {
                                             return const Color.fromARGB(
                                                 255, 94, 28, 236);
                                           } else {
@@ -170,10 +169,10 @@ class _TileEditPageState extends State<TileEditPage> {
                                           }
                                         }),
                                         foregroundColor:
-                                            const MaterialStatePropertyAll(
+                                            const WidgetStatePropertyAll(
                                                 Colors.white),
                                         backgroundColor:
-                                            const MaterialStatePropertyAll(
+                                            const WidgetStatePropertyAll(
                                                 Color.fromARGB(
                                                     255, 115, 57, 237))),
                                     child: const Padding(
@@ -204,9 +203,9 @@ class _TileEditPageState extends State<TileEditPage> {
                       children: [
                         Text(
                           'Type',
-                          style: GoogleFonts.getFont(
+                          style: TextStyle(fontFamily: 'DM Sans', 
                             color: Colors.black,
-                            'DM Sans',
+                            
                             fontWeight: FontWeight.normal,
                             fontSize: 18,
                           ),
@@ -233,9 +232,9 @@ class _TileEditPageState extends State<TileEditPage> {
                             initialOption: type,
                             width: MediaQuery.sizeOf(context).width * 0.25,
                             height: 65,
-                            textStyle: GoogleFonts.getFont(
+                            textStyle: TextStyle(fontFamily: 'DM Sans', 
                               color: Colors.black,
-                              'DM Sans',
+                              
                               fontSize: 16,
                             ),
                             icon: const Icon(
@@ -272,9 +271,9 @@ class _TileEditPageState extends State<TileEditPage> {
                           const SizedBox(height: 15),
                           Text(
                             'Display Name',
-                            style: GoogleFonts.getFont(
+                            style: TextStyle(fontFamily: 'DM Sans', 
                               color: Colors.black,
-                              'DM Sans',
+                              
                               fontWeight: FontWeight.normal,
                               fontSize: 18,
                             ),
@@ -292,8 +291,8 @@ class _TileEditPageState extends State<TileEditPage> {
                                 },
                                 decoration: InputDecoration(
                                   hintText: 'Put name here...',
-                                  hintStyle: GoogleFonts.getFont(
-                                    'Poppins',
+                                  hintStyle: TextStyle(fontFamily: 'DM Sans', 
+                                    
                                     color: Colors.black,
                                     fontSize: 14,
                                   ),
@@ -331,8 +330,8 @@ class _TileEditPageState extends State<TileEditPage> {
                                       const EdgeInsetsDirectional.fromSTEB(
                                           25, 15, 25, 15),
                                 ),
-                                style: GoogleFonts.getFont(
-                                  'Poppins',
+                                style: TextStyle(fontFamily: 'DM Sans', 
+                                  
                                   color: Colors.black,
                                   fontSize: 14,
                                 ),
@@ -354,9 +353,9 @@ class _TileEditPageState extends State<TileEditPage> {
                                 children: [
                                   Text(
                                     'Display Name #2',
-                                    style: GoogleFonts.getFont(
+                                    style: TextStyle(fontFamily: 'DM Sans', 
                                       color: Colors.black,
-                                      'DM Sans',
+                                      
                                       fontWeight: FontWeight.normal,
                                       fontSize: 18,
                                     ),
@@ -376,8 +375,8 @@ class _TileEditPageState extends State<TileEditPage> {
                                         },
                                         decoration: InputDecoration(
                                           hintText: 'Put name here...',
-                                          hintStyle: GoogleFonts.getFont(
-                                            'Poppins',
+                                          hintStyle: TextStyle(fontFamily: 'DM Sans', 
+                                            
                                             color: Colors.black,
                                             fontSize: 14,
                                           ),
@@ -420,8 +419,8 @@ class _TileEditPageState extends State<TileEditPage> {
                                               const EdgeInsetsDirectional
                                                   .fromSTEB(25, 15, 25, 15),
                                         ),
-                                        style: GoogleFonts.getFont(
-                                          'Poppins',
+                                        style: TextStyle(fontFamily: 'DM Sans', 
+                                          
                                           color: Colors.black,
                                           fontSize: 14,
                                         ),
@@ -450,9 +449,9 @@ class _TileEditPageState extends State<TileEditPage> {
                         children: [
                           Text(
                             'Embed Link (link the tile opens on click)',
-                            style: GoogleFonts.getFont(
+                            style: TextStyle(fontFamily: 'DM Sans', 
                               color: Colors.black,
-                              'DM Sans',
+                              
                               fontWeight: FontWeight.normal,
                               fontSize: 18,
                             ),
@@ -470,8 +469,8 @@ class _TileEditPageState extends State<TileEditPage> {
                                 },
                                 decoration: InputDecoration(
                                   hintText: 'Put link here...',
-                                  hintStyle: GoogleFonts.getFont(
-                                    'Poppins',
+                                  hintStyle: TextStyle(fontFamily: 'DM Sans', 
+                                    
                                     color: Colors.black,
                                     fontSize: 14,
                                   ),
@@ -509,8 +508,8 @@ class _TileEditPageState extends State<TileEditPage> {
                                       const EdgeInsetsDirectional.fromSTEB(
                                           25, 15, 25, 15),
                                 ),
-                                style: GoogleFonts.getFont(
-                                  'Poppins',
+                                style: TextStyle(fontFamily: 'DM Sans', 
+                                  
                                   color: Colors.black,
                                   fontSize: 14,
                                 ),
@@ -532,9 +531,9 @@ class _TileEditPageState extends State<TileEditPage> {
                                 children: [
                                   Text(
                                     'Embed Link #2',
-                                    style: GoogleFonts.getFont(
+                                    style: TextStyle(fontFamily: 'DM Sans', 
                                       color: Colors.black,
-                                      'DM Sans',
+                                      
                                       fontWeight: FontWeight.normal,
                                       fontSize: 18,
                                     ),
@@ -554,8 +553,8 @@ class _TileEditPageState extends State<TileEditPage> {
                                         },
                                         decoration: InputDecoration(
                                           hintText: 'Put link here...',
-                                          hintStyle: GoogleFonts.getFont(
-                                            'Poppins',
+                                          hintStyle: TextStyle(fontFamily: 'DM Sans', 
+                                            
                                             color: Colors.black,
                                             fontSize: 14,
                                           ),
@@ -598,8 +597,8 @@ class _TileEditPageState extends State<TileEditPage> {
                                               const EdgeInsetsDirectional
                                                   .fromSTEB(25, 15, 25, 15),
                                         ),
-                                        style: GoogleFonts.getFont(
-                                          'Poppins',
+                                        style: TextStyle(fontFamily: 'DM Sans', 
+                                          
                                           color: Colors.black,
                                           fontSize: 14,
                                         ),
@@ -628,9 +627,9 @@ class _TileEditPageState extends State<TileEditPage> {
                         children: [
                           Text(
                             'Color Select (background of tile)',
-                            style: GoogleFonts.getFont(
+                            style: TextStyle(fontFamily: 'DM Sans', 
                               color: Colors.black,
-                              'DM Sans',
+                              
                               fontWeight: FontWeight.normal,
                               fontSize: 18,
                             ),
@@ -853,9 +852,9 @@ class _TileEditPageState extends State<TileEditPage> {
                                 children: [
                                   Text(
                                     'Color Select #2',
-                                    style: GoogleFonts.getFont(
+                                    style: TextStyle(fontFamily: 'DM Sans', 
                                       color: Colors.black,
-                                      'DM Sans',
+                                      
                                       fontWeight: FontWeight.normal,
                                       fontSize: 18,
                                     ),
@@ -1087,9 +1086,9 @@ class _TileEditPageState extends State<TileEditPage> {
                       children: [
                         Text(
                           'Preview',
-                          style: GoogleFonts.getFont(
+                          style: TextStyle(fontFamily: 'DM Sans', 
                             color: Colors.black,
-                            'DM Sans',
+                            
                             fontWeight: FontWeight.bold,
                             fontSize: 19,
                           ),
@@ -1114,10 +1113,10 @@ class _TileEditPageState extends State<TileEditPage> {
                                 backgroundColor:
                                     const Color.fromARGB(255, 43, 11, 11),
                                 content: Text('The link provided is not valid.',
-                                    style: GoogleFonts.getFont(
+                                    style: TextStyle(fontFamily: 'DM Sans', 
                                       fontSize: 16,
                                       color: const Color(0xFFe9e9e9),
-                                      'Poppins',
+                                      
                                     ))));
                           } else {
                             if (name1 == "") {
@@ -1128,10 +1127,10 @@ class _TileEditPageState extends State<TileEditPage> {
                                           const Color.fromARGB(255, 43, 11, 11),
                                       content:
                                           Text('The display name is blank.',
-                                              style: GoogleFonts.getFont(
+                                              style: TextStyle(fontFamily: 'DM Sans', 
                                                 fontSize: 16,
                                                 color: const Color(0xFFe9e9e9),
-                                                'Poppins',
+                                                
                                               ))));
                             } else {
                               tiles.add({
@@ -1146,10 +1145,10 @@ class _TileEditPageState extends State<TileEditPage> {
                                       backgroundColor:
                                           const Color.fromARGB(255, 11, 43, 31),
                                       content: Text('Tile Added!',
-                                          style: GoogleFonts.getFont(
+                                          style: TextStyle(fontFamily: 'DM Sans', 
                                             fontSize: 16,
                                             color: const Color(0xFFe9e9e9),
-                                            'Poppins',
+                                            
                                           ))));
                               setState(() {
                                 name1 = "";
@@ -1174,10 +1173,10 @@ class _TileEditPageState extends State<TileEditPage> {
                                     const Color.fromARGB(255, 43, 11, 11),
                                 content: Text(
                                     'One of the links provided are not valid.',
-                                    style: GoogleFonts.getFont(
+                                    style: TextStyle(fontFamily: 'DM Sans', 
                                       fontSize: 16,
                                       color: const Color(0xFFe9e9e9),
-                                      'Poppins',
+                                      
                                     ))));
                           } else {
                             if (name1 == "" || name2 == "") {
@@ -1188,10 +1187,10 @@ class _TileEditPageState extends State<TileEditPage> {
                                           const Color.fromARGB(255, 43, 11, 11),
                                       content: Text(
                                           'One of the display names are blank.',
-                                          style: GoogleFonts.getFont(
+                                          style: TextStyle(fontFamily: 'DM Sans', 
                                             fontSize: 16,
                                             color: const Color(0xFFe9e9e9),
-                                            'Poppins',
+                                            
                                           ))));
                             } else {
                               tiles.add({
@@ -1209,10 +1208,10 @@ class _TileEditPageState extends State<TileEditPage> {
                                       backgroundColor:
                                           const Color.fromARGB(255, 11, 43, 31),
                                       content: Text('Tile Added!',
-                                          style: GoogleFonts.getFont(
+                                          style: TextStyle(fontFamily: 'DM Sans', 
                                             fontSize: 16,
                                             color: const Color(0xFFe9e9e9),
-                                            'Poppins',
+                                            
                                           ))));
                               setState(() {
                                 text1!.text = "";
@@ -1262,8 +1261,8 @@ class _TileEditPageState extends State<TileEditPage> {
                                   children: [
                                     Text(
                                       'Add',
-                                      style: GoogleFonts.getFont(
-                                        'Poppins',
+                                      style: TextStyle(fontFamily: 'DM Sans', 
+                                        
                                         color: Colors.black,
                                         fontSize: 18,
                                       ),
@@ -1289,9 +1288,9 @@ class _TileEditPageState extends State<TileEditPage> {
                       children: [
                         Text(
                           'Adjust Existing Tiles',
-                          style: GoogleFonts.getFont(
+                          style: TextStyle(fontFamily: 'DM Sans', 
                             color: Colors.black,
-                            'DM Sans',
+                            
                             fontWeight: FontWeight.bold,
                             fontSize: 22,
                           ),
@@ -1311,9 +1310,9 @@ class _TileEditPageState extends State<TileEditPage> {
                       children: [
                         Text(
                           'A more accurate visual can be seen in the actual app on the bottom of the Home page.',
-                          style: GoogleFonts.getFont(
+                          style: TextStyle(fontFamily: 'DM Sans', 
                             color: Colors.black,
-                            'DM Sans',
+                            
                             fontWeight: FontWeight.normal,
                             fontSize: 14,
                             fontStyle: FontStyle.italic,
@@ -1334,9 +1333,9 @@ class _TileEditPageState extends State<TileEditPage> {
                       children: [
                         Text(
                           'The Conference Maps, and About this Conference tiles cannot be moved.',
-                          style: GoogleFonts.getFont(
+                          style: TextStyle(fontFamily: 'DM Sans', 
                             color: Colors.black,
-                            'DM Sans',
+                            
                             fontWeight: FontWeight.normal,
                             fontSize: 14,
                             fontStyle: FontStyle.italic,
@@ -1386,8 +1385,8 @@ class _TileEditPageState extends State<TileEditPage> {
                                       overflow: TextOverflow.ellipsis,
                                       maxLines: 2,
                                       'Building\nMaps',
-                                      style: GoogleFonts.getFont(
-                                        'Poppins',
+                                      style: TextStyle(fontFamily: 'DM Sans', 
+                                        
                                         color: const Color(0xFF8A00DE),
                                         fontWeight: FontWeight.w400,
                                         fontSize: 15,
@@ -1455,8 +1454,8 @@ class _TileEditPageState extends State<TileEditPage> {
                                       overflow: TextOverflow.ellipsis,
                                       maxLines: 2,
                                       'About This\nConference',
-                                      style: GoogleFonts.getFont(
-                                        'Poppins',
+                                      style: TextStyle(fontFamily: 'DM Sans', 
+                                        
                                         color: const Color(0xFF0081F4),
                                         fontWeight: FontWeight.w400,
                                         fontSize: 15,
@@ -1618,8 +1617,8 @@ class _TileEditPageState extends State<TileEditPage> {
                                   overflow: TextOverflow.ellipsis,
                                   maxLines: 2,
                                   tile['name1']!,
-                                  style: GoogleFonts.getFont(
-                                    'Poppins',
+                                  style: TextStyle(fontFamily: 'DM Sans', 
+                                    
                                     color: c,
                                     fontWeight: FontWeight.w400,
                                     fontSize: 15,
@@ -1692,8 +1691,8 @@ class _TileEditPageState extends State<TileEditPage> {
                                     overflow: TextOverflow.ellipsis,
                                     maxLines: 2,
                                     tile['name2']!,
-                                    style: GoogleFonts.getFont(
-                                      'Poppins',
+                                    style: TextStyle(fontFamily: 'DM Sans', 
+                                      
                                       color: c3,
                                       fontWeight: FontWeight.w400,
                                       fontSize: 15,
@@ -1735,10 +1734,10 @@ class _TileEditPageState extends State<TileEditPage> {
                             backgroundColor:
                                 const Color.fromARGB(255, 43, 11, 11),
                             content: Text('Cannot move the top tile up.',
-                                style: GoogleFonts.getFont(
+                                style: TextStyle(fontFamily: 'DM Sans', 
                                   fontSize: 16,
                                   color: const Color(0xFFe9e9e9),
-                                  'Poppins',
+                                  
                                 ))));
                       } else {
                         Map<String, String> temp = tiles[i - 1];
@@ -1776,10 +1775,10 @@ class _TileEditPageState extends State<TileEditPage> {
                             backgroundColor:
                                 const Color.fromARGB(255, 43, 11, 11),
                             content: Text('Cannot move the bottom tile down.',
-                                style: GoogleFonts.getFont(
+                                style: TextStyle(fontFamily: 'DM Sans', 
                                   fontSize: 16,
                                   color: const Color(0xFFe9e9e9),
-                                  'Poppins',
+                                  
                                 ))));
                       } else {
                         Map<String, String> temp = tiles[i + 1];
@@ -1917,8 +1916,8 @@ class _TileEditPageState extends State<TileEditPage> {
                                 overflow: TextOverflow.ellipsis,
                                 maxLines: 2,
                                 tile['name']!,
-                                style: GoogleFonts.getFont(
-                                  'Poppins',
+                                style: TextStyle(fontFamily: 'DM Sans', 
+                                  
                                   color: c,
                                   fontWeight: FontWeight.w400,
                                   fontSize: 16,
@@ -1959,10 +1958,10 @@ class _TileEditPageState extends State<TileEditPage> {
                           backgroundColor:
                               const Color.fromARGB(255, 43, 11, 11),
                           content: Text('Cannot move the top tile up.',
-                              style: GoogleFonts.getFont(
+                              style: TextStyle(fontFamily: 'DM Sans', 
                                 fontSize: 16,
                                 color: const Color(0xFFe9e9e9),
-                                'Poppins',
+                                
                               ))));
                     } else {
                       Map<String, String> temp = tiles[i - 1];
@@ -2000,10 +1999,10 @@ class _TileEditPageState extends State<TileEditPage> {
                           backgroundColor:
                               const Color.fromARGB(255, 43, 11, 11),
                           content: Text('Cannot move the bottom tile down.',
-                              style: GoogleFonts.getFont(
+                              style: TextStyle(fontFamily: 'DM Sans', 
                                 fontSize: 16,
                                 color: const Color(0xFFe9e9e9),
-                                'Poppins',
+                                
                               ))));
                     } else {
                       Map<String, String> temp = tiles[i + 1];
@@ -2136,8 +2135,8 @@ class _TileEditPageState extends State<TileEditPage> {
                             child: AutoSizeText(
                               maxLines: 2,
                               name1 == "" ? '[Name]' : name1,
-                              style: GoogleFonts.getFont(
-                                'Poppins',
+                              style: TextStyle(fontFamily: 'DM Sans', 
+                                
                                 color: c,
                                 fontWeight: FontWeight.w500,
                                 fontSize: 16,
@@ -2278,8 +2277,8 @@ class _TileEditPageState extends State<TileEditPage> {
                             child: AutoSizeText(
                               maxLines: 2,
                               name1 == "" ? "[Name]" : name1,
-                              style: GoogleFonts.getFont(
-                                'Poppins',
+                              style: TextStyle(fontFamily: 'DM Sans', 
+                                
                                 color: c,
                                 fontWeight: FontWeight.w500,
                                 fontSize: 16,
@@ -2341,8 +2340,8 @@ class _TileEditPageState extends State<TileEditPage> {
                               child: AutoSizeText(
                                 maxLines: 2,
                                 name2 == "" ? "[Name]" : name2,
-                                style: GoogleFonts.getFont(
-                                  'Poppins',
+                                style: TextStyle(fontFamily: 'DM Sans', 
+                                  
                                   color: c3,
                                   fontWeight: FontWeight.w600,
                                   fontSize: 16,

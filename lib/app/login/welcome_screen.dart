@@ -1,27 +1,34 @@
+
+
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 
 import 'login_screen.dart';
 
-import '../../api/logic/API.dart';
 
 class WelcomeScreen extends StatefulWidget {
   const WelcomeScreen({super.key});
 
+
   @override
-  State<WelcomeScreen> createState() => _WelcomeScreenState();
+  State<WelcomeScreen> createState() => _WelcomepageWidgetState();
 }
 
-class _WelcomeScreenState extends State<WelcomeScreen> {
+class _WelcomepageWidgetState extends State<WelcomeScreen> {
+
+
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
-    API.setDark();
     super.initState();
+
   }
 
   @override
   void dispose() {
+
+
     super.dispose();
   }
 
@@ -32,40 +39,81 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
       backgroundColor: Colors.white,
       body: Container(
         width: MediaQuery.sizeOf(context).width,
-        height: MediaQuery.sizeOf(context).height * 1,
+        height: MediaQuery.sizeOf(context).height,
         decoration: BoxDecoration(
           color: Colors.white,
           image: DecorationImage(
             fit: BoxFit.cover,
             image: Image.asset(
-              'assets/images/welcomebg.png',
+              'assets/images/welcomebg.jpeg',
             ).image,
           ),
         ),
         child: Padding(
-          padding: const EdgeInsetsDirectional.fromSTEB(0, 80, 0, 0),
+          padding: EdgeInsetsDirectional.fromSTEB(0, 80, 0, 0),
           child: Column(
             mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.end,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 60),
-                child: Row(
+                padding: EdgeInsetsDirectional.fromSTEB(30, 0, 30, 0),
+                child: Column(
                   mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text(
-                      'Get Started',
-                      style: TextStyle(
-                        fontFamily: 'ClashGrotesk',
-                        color: Colors.white,
-                        fontWeight: FontWeight.w500,
-                        fontSize: 40,
-                      ),
+                    Row(
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(0),
+                          child: Image.asset(
+                            'assets/images/whitelogoname.png',
+                            height: 50,
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      ],
                     ),
                     Padding(
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(20, 0, 0, 0),
+                      padding: EdgeInsetsDirectional.fromSTEB(0, 30, 0, 0),
+                      child: AutoSizeText(
+                        'WELCOME TO',
+                        textAlign: TextAlign.start,
+                        maxLines: 1,
+                        style: TextStyle(
+                              fontFamily: 'DM Sans',
+                              color: Colors.white,
+                              fontSize: 28,
+                              letterSpacing: 0.0,
+                              fontWeight: FontWeight.w500,
+                           
+                            ),
+                      ),
+                    ),
+                    AutoSizeText(
+                      'Conferences',
+                      textAlign: TextAlign.start,
+                      maxLines: 1,
+                      style: TextStyle(
+                            fontFamily: 'RedHatDisplay',
+                            color: Colors.white,
+                            fontSize: 48,
+                            letterSpacing: 0.0,
+                            fontWeight: FontWeight.bold,
+                            
+                          ),
+                    ),
+                  ],
+                ),
+              ),
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(0, 0, 30, 60),
+                child: Row(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(20, 0, 0, 0),
                       child: InkWell(
                         onTap: () {
                           Navigator.push(
@@ -95,20 +143,20 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                             // This condition removes all previous routes
                           );
                         },
-                        child: Container(
-                          width: 84,
-                          height: 84,
-                          decoration: const BoxDecoration(
-                            color: Color(0xFFD7E4F8),
-                            shape: BoxShape.circle,
-                          ),
-                          child: const Icon(
-                            Icons.arrow_forward_rounded,
-                            color: Color(0xFF226ADD),
-                            size: 40,
-                          ),
+                        child:Container(
+                        width: 89,
+                        height: 89,
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          shape: BoxShape.circle,
+                        ),
+                        child: Icon(
+                          Icons.arrow_forward_rounded,
+                          color: Color(0xFFFF6B4A),
+                          size: 50,
                         ),
                       ),
+                    ),
                     ),
                   ],
                 ),

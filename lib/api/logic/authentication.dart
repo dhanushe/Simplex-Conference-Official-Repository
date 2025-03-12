@@ -1,4 +1,4 @@
-// ignore_for_file: use_build_context_synchronously
+// ignore_for_file: use_build_context_synchronously, unused_element
 
 import 'dart:math';
 
@@ -64,10 +64,6 @@ class Authentication {
         nonce: nonce,
       );
 
-      if (appleCredential == null) {
-        return null;
-      }
-
       dv.log(appleCredential.familyName.toString());
       dv.log(appleCredential.givenName.toString());
       dv.log(appleCredential.toString());
@@ -77,10 +73,6 @@ class Authentication {
           rawNonce: rawNonce,
           accessToken: appleCredential.authorizationCode);
 
-      if (oauthCredential == null) {
-        return null;
-      }
-
 
 
 
@@ -88,7 +80,7 @@ class Authentication {
           await auth.signInWithCredential(oauthCredential);
       if (appleCredential.familyName != null && appleCredential.givenName != null) {
         await userCredential.user!.updateDisplayName(
-            appleCredential.givenName! + " " + appleCredential.familyName!);
+            "${appleCredential.givenName!} ${appleCredential.familyName!}");
       }
           
       return userCredential.user;
@@ -193,10 +185,10 @@ class Authentication {
     return user;
   }
 
-  static Future<void> _handleSignIn(GoogleSignInAccount? _currentUser) async {
+  static Future<void> _handleSignIn(GoogleSignInAccount? currentUser) async {
     try {
       final GoogleSignInAuthentication auth =
-          await _currentUser!.authentication;
+          await currentUser!.authentication;
       final AccessCredentials credentials = AccessCredentials(
         AccessToken(
           'Bearer',

@@ -5,8 +5,7 @@ import 'dart:io';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter/widgets.dart';
-import 'package:google_fonts/google_fonts.dart';
+
 
 import 'package:intl/intl.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -137,13 +136,13 @@ class _ConferenceSettingsPageState extends State<ConferenceSettingsPage> {
                       child: TextButton(
                           onPressed: () => discard(),
                           style: const ButtonStyle(
-                              shape: MaterialStatePropertyAll(
+                              shape: WidgetStatePropertyAll(
                                   RoundedRectangleBorder(
                                       borderRadius: BorderRadius.all(
                                           Radius.circular(5)))),
-                              foregroundColor: MaterialStatePropertyAll(
+                              foregroundColor: WidgetStatePropertyAll(
                                   Color.fromARGB(255, 115, 57, 237)),
-                              backgroundColor: MaterialStatePropertyAll(
+                              backgroundColor: WidgetStatePropertyAll(
                                   Color.fromARGB(255, 243, 237, 254))),
                           child: const Padding(
                             padding: EdgeInsets.all(8.0),
@@ -161,25 +160,25 @@ class _ConferenceSettingsPageState extends State<ConferenceSettingsPage> {
                           ? TextButton(
                               onPressed: () => save(),
                               style: ButtonStyle(
-                                  shape: const MaterialStatePropertyAll(
+                                  shape: const WidgetStatePropertyAll(
                                       RoundedRectangleBorder(
                                           borderRadius: BorderRadius.all(
                                               Radius.circular(5)))),
                                   overlayColor:
                                       // only show lighter color if hovered
-                                      MaterialStateProperty.resolveWith(
+                                      WidgetStateProperty.resolveWith(
                                           (states) {
                                     if (states
-                                            .contains(MaterialState.hovered) &&
+                                            .contains(WidgetState.hovered) &&
                                         !states
-                                            .contains(MaterialState.focused) &&
+                                            .contains(WidgetState.focused) &&
                                         !states
-                                            .contains(MaterialState.pressed)) {
+                                            .contains(WidgetState.pressed)) {
                                       return const Color.fromARGB(
                                           255, 138, 91, 240);
                                       // this is a hacky way to accomplish the ink effect
                                     } else if (states
-                                        .contains(MaterialState.pressed)) {
+                                        .contains(WidgetState.pressed)) {
                                       return const Color.fromARGB(
                                           255, 94, 28, 236);
                                     } else {
@@ -187,10 +186,10 @@ class _ConferenceSettingsPageState extends State<ConferenceSettingsPage> {
                                     }
                                   }),
                                   foregroundColor:
-                                      const MaterialStatePropertyAll(
+                                      const WidgetStatePropertyAll(
                                           Colors.white),
                                   backgroundColor:
-                                      const MaterialStatePropertyAll(
+                                      const WidgetStatePropertyAll(
                                           Color.fromARGB(255, 115, 57, 237))),
                               child: const Padding(
                                 padding: EdgeInsets.all(8.0),
@@ -414,6 +413,11 @@ class _ConferenceSettingsPageState extends State<ConferenceSettingsPage> {
                               Container(
                                 width: 280,
                                 constraints: BoxConstraints(maxHeight: 150),
+                                decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  border: Border.all(
+                                      color: Colors.grey.shade300, width: 2),
+                                ),
                                 child: Padding(
                                     padding: EdgeInsets.all(15),
                                     child: Column(
@@ -427,11 +431,6 @@ class _ConferenceSettingsPageState extends State<ConferenceSettingsPage> {
                                             : specificLoc)
                                       ],
                                     )),
-                                decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  border: Border.all(
-                                      color: Colors.grey.shade300, width: 2),
-                                ),
                               ),
                             ],
                           ),
@@ -537,7 +536,7 @@ class _ConferenceSettingsPageState extends State<ConferenceSettingsPage> {
                                                               255,
                                                               255), // color of the calendar background
                                                         ).copyWith(
-                                                                background:
+                                                                surface:
                                                                     Colors
                                                                         .black),
                                                       ),
@@ -637,7 +636,7 @@ class _ConferenceSettingsPageState extends State<ConferenceSettingsPage> {
                                                               255,
                                                               255), // color of the calendar background
                                                         ).copyWith(
-                                                                background:
+                                                                surface:
                                                                     Colors
                                                                         .black),
                                                       ),
@@ -841,8 +840,8 @@ class _ConferenceSettingsPageState extends State<ConferenceSettingsPage> {
                                           ),
                                           Text(
                                             'Upload New',
-                                            style: GoogleFonts.getFont(
-                                              'Poppins',
+                                            style: TextStyle(fontFamily: 'DM Sans',
+                                              
                                               color: const Color(0xff000000),
                                               fontSize: 18,
                                             ),
@@ -951,8 +950,8 @@ class _ConferenceSettingsPageState extends State<ConferenceSettingsPage> {
                                           ),
                                           Text(
                                             'Upload New',
-                                            style: GoogleFonts.getFont(
-                                              'Poppins',
+                                            style: TextStyle(fontFamily: 'DM Sans',
+                                              
                                               color: const Color(0xff000000),
                                               fontSize: 18,
                                             ),
@@ -990,7 +989,7 @@ class _ConferenceSettingsPageState extends State<ConferenceSettingsPage> {
     //                 'Conference Logo',
     //                 style: TextStyle(
     //                   color: Colors.white,
-    //                   fontFamily: 'Poppins',
+    //                   fontFamily: 
     //                   fontSize: 18,
     //                 ),
     //               ),
@@ -1053,7 +1052,7 @@ class _ConferenceSettingsPageState extends State<ConferenceSettingsPage> {
     //                                     Text(
     //                                       'Upload New',
     //                                       style: TextStyle(
-    //                                         fontFamily: 'Poppins',
+    //                                         fontFamily: 
     //                                         color: Color(0xFFE9E9E9),
     //                                         fontSize: 18,
     //                                       ),
@@ -1081,7 +1080,7 @@ class _ConferenceSettingsPageState extends State<ConferenceSettingsPage> {
     //                 'Location',
     //                 style: TextStyle(
     //                   color: Colors.white,
-    //                   fontFamily: 'Poppins',
+    //                   fontFamily: 
     //                   fontSize: 18,
     //                 ),
     //               ),
@@ -1106,7 +1105,7 @@ class _ConferenceSettingsPageState extends State<ConferenceSettingsPage> {
     //                     decoration: InputDecoration(
     //                       hintText: 'Put location here...',
     //                       hintStyle: const TextStyle(
-    //                         fontFamily: 'Poppins',
+    //                         fontFamily: 
     //                         color: Color(0xFFE9E9E9),
     //                         fontSize: 14,
     //                       ),
@@ -1144,7 +1143,7 @@ class _ConferenceSettingsPageState extends State<ConferenceSettingsPage> {
     //                           25, 15, 25, 15),
     //                     ),
     //                     style: const TextStyle(
-    //                       fontFamily: 'Poppins',
+    //                       fontFamily: 
     //                       color: Color(0xFFE9E9E9),
     //                       fontSize: 14,
     //                     ),
@@ -1164,7 +1163,7 @@ class _ConferenceSettingsPageState extends State<ConferenceSettingsPage> {
     //                 'Help Desk Link',
     //                 style: TextStyle(
     //                   color: Colors.white,
-    //                   fontFamily: 'Poppins',
+    //                   fontFamily: 
     //                   fontSize: 18,
     //                 ),
     //               ),
@@ -1189,7 +1188,7 @@ class _ConferenceSettingsPageState extends State<ConferenceSettingsPage> {
     //                     decoration: InputDecoration(
     //                       hintText: 'Put link here...',
     //                       hintStyle: const TextStyle(
-    //                         fontFamily: 'Poppins',
+    //                         fontFamily: 
     //                         color: Color(0xFFE9E9E9),
     //                         fontSize: 14,
     //                       ),
@@ -1227,7 +1226,7 @@ class _ConferenceSettingsPageState extends State<ConferenceSettingsPage> {
     //                           25, 15, 25, 15),
     //                     ),
     //                     style: const TextStyle(
-    //                       fontFamily: 'Poppins',
+    //                       fontFamily: 
     //                       color: Color(0xFFE9E9E9),
     //                       fontSize: 14,
     //                     ),
@@ -1247,7 +1246,7 @@ class _ConferenceSettingsPageState extends State<ConferenceSettingsPage> {
     //                 'Start Date',
     //                 style: TextStyle(
     //                   color: Colors.white,
-    //                   fontFamily: 'Poppins',
+    //                   fontFamily: 
     //                   fontSize: 18,
     //                 ),
     //               ),
@@ -1257,7 +1256,7 @@ class _ConferenceSettingsPageState extends State<ConferenceSettingsPage> {
     //                   'End Date',
     //                   style: TextStyle(
     //                     color: Colors.white,
-    //                     fontFamily: 'Poppins',
+    //                     fontFamily: 
     //                     fontSize: 18,
     //                   ),
     //                 ),
@@ -1292,7 +1291,7 @@ class _ConferenceSettingsPageState extends State<ConferenceSettingsPage> {
     //                       Text(
     //                         formatDate(startDate),
     //                         style: const TextStyle(
-    //                           fontFamily: 'Poppins',
+    //                           fontFamily: 
     //                           color: Color(0xFFE9E9E9),
     //                           fontSize: 14,
     //                         ),
@@ -1356,7 +1355,7 @@ class _ConferenceSettingsPageState extends State<ConferenceSettingsPage> {
     //                               Text(
     //                                 'Select New',
     //                                 style: TextStyle(
-    //                                   fontFamily: 'Poppins',
+    //                                   fontFamily: 
     //                                   color: Color(0xFFE9E9E9),
     //                                   fontSize: 16,
     //                                 ),
@@ -1392,7 +1391,7 @@ class _ConferenceSettingsPageState extends State<ConferenceSettingsPage> {
     //                         Text(
     //                           formatDate(endDate),
     //                           style: const TextStyle(
-    //                             fontFamily: 'Poppins',
+    //                             fontFamily: 
     //                             color: Color(0xFFE9E9E9),
     //                             fontSize: 14,
     //                           ),
@@ -1457,7 +1456,7 @@ class _ConferenceSettingsPageState extends State<ConferenceSettingsPage> {
     //                                 Text(
     //                                   'Select New',
     //                                   style: TextStyle(
-    //                                     fontFamily: 'Poppins',
+    //                                     fontFamily: 
     //                                     color: Color(0xFFE9E9E9),
     //                                     fontSize: 16,
     //                                   ),
@@ -1496,7 +1495,7 @@ class _ConferenceSettingsPageState extends State<ConferenceSettingsPage> {
     //                   'Save',
     //                   style: TextStyle(
     //                     color: Colors.white,
-    //                     fontFamily: 'Poppins',
+    //                     fontFamily: 
     //                     fontSize: 20,
     //                   ),
     //                 ),
@@ -1539,10 +1538,10 @@ class _ConferenceSettingsPageState extends State<ConferenceSettingsPage> {
             duration: const Duration(seconds: 1),
             backgroundColor: const Color.fromARGB(255, 11, 43, 31),
             content: Text('Image Uploaded!',
-                style: GoogleFonts.getFont(
+                style: TextStyle(fontFamily: 'DM Sans',
                   fontSize: 16,
                   color: const Color(0xFFe9e9e9),
-                  'Poppins',
+                  
                 ))));
 
         setState(() {
@@ -1566,10 +1565,10 @@ class _ConferenceSettingsPageState extends State<ConferenceSettingsPage> {
             duration: const Duration(seconds: 1),
             backgroundColor: const Color.fromARGB(255, 11, 43, 31),
             content: Text('Image Uploaded!',
-                style: GoogleFonts.getFont(
+                style: TextStyle(fontFamily: 'DM Sans',
                   fontSize: 16,
                   color: const Color(0xFFe9e9e9),
-                  'Poppins',
+                  
                 ))));
 
         setState(() {});
@@ -1610,10 +1609,10 @@ class _ConferenceSettingsPageState extends State<ConferenceSettingsPage> {
             duration: const Duration(seconds: 1),
             backgroundColor: const Color.fromARGB(255, 11, 43, 31),
             content: Text('Image Uploaded!',
-                style: GoogleFonts.getFont(
+                style: TextStyle(fontFamily: 'DM Sans',
                   fontSize: 16,
                   color: const Color(0xFFe9e9e9),
-                  'Poppins',
+                  
                 ))));
 
         setState(() {
@@ -1637,10 +1636,10 @@ class _ConferenceSettingsPageState extends State<ConferenceSettingsPage> {
             duration: const Duration(seconds: 1),
             backgroundColor: const Color.fromARGB(255, 11, 43, 31),
             content: Text('Image Uploaded!',
-                style: GoogleFonts.getFont(
+                style: TextStyle(fontFamily: 'DM Sans',
                   fontSize: 16,
                   color: const Color(0xFFe9e9e9),
-                  'Poppins',
+                  
                 ))));
 
         setState(() {});
@@ -1694,10 +1693,10 @@ class _ConferenceSettingsPageState extends State<ConferenceSettingsPage> {
             duration: const Duration(seconds: 1),
             backgroundColor: const Color.fromARGB(255, 43, 11, 11),
             content: Text('Conference code must be 6 characters.',
-                style: GoogleFonts.getFont(
+                style: TextStyle(fontFamily: 'DM Sans',
                   fontSize: 16,
                   color: const Color(0xFFe9e9e9),
-                  'Poppins',
+                  
                 ))));
       } else {
         if (_nameController!.text.isEmpty ||
@@ -1707,10 +1706,10 @@ class _ConferenceSettingsPageState extends State<ConferenceSettingsPage> {
               duration: const Duration(seconds: 1),
               backgroundColor: const Color.fromARGB(255, 43, 11, 11),
               content: Text('One or more fields are empty.',
-                  style: GoogleFonts.getFont(
+                  style: TextStyle(fontFamily: 'DM Sans',
                     fontSize: 16,
                     color: const Color(0xFFe9e9e9),
-                    'Poppins',
+                    
                   ))));
         } else {
           if (checkDates(reversePrettifyDate(_startDateController!.text),
@@ -1719,10 +1718,10 @@ class _ConferenceSettingsPageState extends State<ConferenceSettingsPage> {
                 duration: const Duration(seconds: 1),
                 backgroundColor: const Color.fromARGB(255, 43, 11, 11),
                 content: Text('End date is before start date.',
-                    style: GoogleFonts.getFont(
+                    style: TextStyle(fontFamily: 'DM Sans',
                       fontSize: 16,
                       color: const Color(0xFFe9e9e9),
-                      'Poppins',
+                      
                     ))));
           } else {
             if (!await canLaunchUrl(Uri.parse(_helpLinkController!.text))) {
@@ -1730,10 +1729,10 @@ class _ConferenceSettingsPageState extends State<ConferenceSettingsPage> {
                   duration: const Duration(seconds: 1),
                   backgroundColor: const Color.fromARGB(255, 43, 11, 11),
                   content: Text('Help Desk link is invalid.',
-                      style: GoogleFonts.getFont(
+                      style: TextStyle(fontFamily: 'DM Sans',
                         fontSize: 16,
                         color: const Color(0xFFe9e9e9),
-                        'Poppins',
+                        
                       ))));
             } else {
               setState(() {
@@ -1763,10 +1762,10 @@ class _ConferenceSettingsPageState extends State<ConferenceSettingsPage> {
                   duration: const Duration(seconds: 3),
                   backgroundColor: const Color.fromARGB(255, 15, 155, 45),
                   content: Text('Changes Saved!',
-                      style: GoogleFonts.getFont(
+                      style: TextStyle(fontFamily: 'DM Sans',
                         fontSize: 16,
                         color: const Color(0xFFe9e9e9),
-                        'Poppins',
+                        
                       ))));
             }
           }

@@ -6,7 +6,6 @@ import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
 import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 import 'package:intl/intl.dart';
 import '../home/home_page.dart';
@@ -88,9 +87,9 @@ class _AdminAnnouncementsState extends State<AdminAnnouncements> {
                 children: [
                   Text(
                     'Send Announcement',
-                    style: GoogleFonts.getFont(
+                    style: TextStyle(fontFamily: 'DM Sans',
                       color: Colors.black,
-                      'Poppins',
+                      
                       fontSize: 22,
                     ),
                   ),
@@ -105,9 +104,9 @@ class _AdminAnnouncementsState extends State<AdminAnnouncements> {
                 children: [
                   Text(
                     'Name (First & Last Only)',
-                    style: GoogleFonts.getFont(
+                    style: TextStyle(fontFamily: 'DM Sans',
                       color: Colors.black,
-                      'Poppins',
+                      
                       fontSize: 18,
                     ),
                   ),
@@ -133,8 +132,8 @@ class _AdminAnnouncementsState extends State<AdminAnnouncements> {
                         },
                         decoration: InputDecoration(
                           hintText: 'Put name here...',
-                          hintStyle: GoogleFonts.getFont(
-                            'Poppins',
+                          hintStyle: TextStyle(fontFamily: 'DM Sans',
+                            
                             color: const Color(0xff000000),
                             fontSize: 14,
                           ),
@@ -171,8 +170,8 @@ class _AdminAnnouncementsState extends State<AdminAnnouncements> {
                           contentPadding: const EdgeInsetsDirectional.fromSTEB(
                               25, 15, 25, 15),
                         ),
-                        style: GoogleFonts.getFont(
-                          'Poppins',
+                        style: TextStyle(fontFamily: 'DM Sans',
+                          
                           color: const Color(0xff000000),
                           fontSize: 14,
                         ),
@@ -190,9 +189,9 @@ class _AdminAnnouncementsState extends State<AdminAnnouncements> {
                 children: [
                   Text(
                     'Announcement Text',
-                    style: GoogleFonts.getFont(
+                    style: TextStyle(fontFamily: 'DM Sans',
                       color: Colors.black,
-                      'Poppins',
+                      
                       fontSize: 18,
                     ),
                   ),
@@ -218,8 +217,8 @@ class _AdminAnnouncementsState extends State<AdminAnnouncements> {
                         obscureText: false,
                         decoration: InputDecoration(
                           hintText: 'Put text here...',
-                          hintStyle: GoogleFonts.getFont(
-                            'Poppins',
+                          hintStyle: TextStyle(fontFamily: 'DM Sans',
+                            
                             color: const Color.fromARGB(255, 0, 0, 0),
                             fontSize: 14,
                           ),
@@ -256,8 +255,8 @@ class _AdminAnnouncementsState extends State<AdminAnnouncements> {
                           contentPadding: const EdgeInsetsDirectional.fromSTEB(
                               25, 20, 25, 20),
                         ),
-                        style: GoogleFonts.getFont(
-                          'Poppins',
+                        style: TextStyle(fontFamily: 'DM Sans',
+                          
                           color: const Color(0xff000000),
                           fontSize: 14,
                         ),
@@ -276,9 +275,9 @@ class _AdminAnnouncementsState extends State<AdminAnnouncements> {
                 children: [
                   Text(
                     'File (Optional)',
-                    style: GoogleFonts.getFont(
+                    style: TextStyle(fontFamily: 'DM Sans',
                       color: Colors.black,
-                      'Poppins',
+                      
                       fontSize: 18,
                     ),
                   ),
@@ -333,8 +332,8 @@ class _AdminAnnouncementsState extends State<AdminAnnouncements> {
                                         ),
                                         Text(
                                           'Upload New',
-                                          style: GoogleFonts.getFont(
-                                            'Poppins',
+                                          style: TextStyle(fontFamily: 'DM Sans',
+                                            
                                             color: const Color(0xff000000),
                                             fontSize: 18,
                                           ),
@@ -372,8 +371,8 @@ class _AdminAnnouncementsState extends State<AdminAnnouncements> {
                                               const AlignmentDirectional(0, 0),
                                           child: Text(
                                             'Open Current',
-                                            style: GoogleFonts.getFont(
-                                              'DM Sans',
+                                            style: TextStyle(fontFamily: 'DM Sans',
+                        
                                               color: Colors.black,
                                             ),
                                           ),
@@ -401,8 +400,8 @@ class _AdminAnnouncementsState extends State<AdminAnnouncements> {
                                               const AlignmentDirectional(0, 0),
                                           child: Text(
                                             'Remove',
-                                            style: GoogleFonts.getFont(
-                                              'DM Sans',
+                                            style: TextStyle(fontFamily: 'DM Sans',
+                                         
                                               color: Colors.black,
                                             ),
                                           ),
@@ -426,8 +425,8 @@ class _AdminAnnouncementsState extends State<AdminAnnouncements> {
                                           const AlignmentDirectional(0, 0),
                                       child: Text(
                                         'None',
-                                        style: GoogleFonts.getFont(
-                                          'DM Sans',
+                                        style: TextStyle(fontFamily: 'DM Sans',
+                                
                                           color: Colors.black,
                                         ),
                                       ),
@@ -449,9 +448,9 @@ class _AdminAnnouncementsState extends State<AdminAnnouncements> {
                 children: [
                   Text(
                     'Preview',
-                    style: GoogleFonts.getFont(
+                    style: TextStyle(fontFamily: 'DM Sans',
                       color: Colors.black,
-                      'Poppins',
+                      
                       fontSize: 18,
                     ),
                   ),
@@ -466,9 +465,9 @@ class _AdminAnnouncementsState extends State<AdminAnnouncements> {
                 children: [
                   Text(
                     'Initials are shown as a preview here, in the app they will be corrected to the inputted name\'s initials. In addition, links are also not shown here, but do work in the actual app.',
-                    style: GoogleFonts.getFont(
+                    style: TextStyle(fontFamily: 'DM Sans',
                       color: Colors.black,
-                      'Poppins',
+                      
                       fontStyle: FontStyle.italic,
                       fontSize: 13,
                     ),
@@ -509,8 +508,8 @@ class _AdminAnnouncementsState extends State<AdminAnnouncements> {
                                     alignment: const AlignmentDirectional(0, 0),
                                     child: Text(
                                       'ME',
-                                      style: GoogleFonts.getFont(
-                                        'Poppins',
+                                      style: TextStyle(fontFamily: 'DM Sans',
+                                        
                                         color: const Color(0xFF2B2B2B),
                                         fontWeight: FontWeight.w500,
                                         fontSize: 16,
@@ -530,8 +529,8 @@ class _AdminAnnouncementsState extends State<AdminAnnouncements> {
                                   children: [
                                     Text(
                                       name != "" ? name : "[Name]",
-                                      style: GoogleFonts.getFont(
-                                        'Poppins',
+                                      style: TextStyle(fontFamily: 'DM Sans',
+                                        
                                         color: const Color(0xFF323232),
                                         fontWeight: FontWeight.w600,
                                         fontSize: 15,
@@ -543,9 +542,9 @@ class _AdminAnnouncementsState extends State<AdminAnnouncements> {
                                               0, 3, 0, 0),
                                       child: Text(
                                         text != "" ? text : '[Text]',
-                                        style: GoogleFonts.getFont(
+                                        style: TextStyle(fontFamily: 'DM Sans',
                                           color: const Color(0xFF717171),
-                                          'Poppins',
+                                          
                                           fontSize: 12,
                                           fontWeight: FontWeight.w500,
                                         ),
@@ -560,8 +559,8 @@ class _AdminAnnouncementsState extends State<AdminAnnouncements> {
                                         children: [
                                           Text(
                                             'Just Now',
-                                            style: GoogleFonts.getFont(
-                                              'Poppins',
+                                            style: TextStyle(fontFamily: 'DM Sans',
+                                              
                                               color: const Color(0xFF0088D4),
                                               fontSize: 12,
                                             ),
@@ -618,9 +617,8 @@ class _AdminAnnouncementsState extends State<AdminAnnouncements> {
                                                               child: Text(
                                                                 'Attachment',
                                                                 style:
-                                                                    GoogleFonts
-                                                                        .getFont(
-                                                                  'Poppins',
+                                                                    TextStyle(fontFamily: 'DM Sans',
+                                                                  
                                                                   color: const Color(
                                                                       0xFF616161),
                                                                   fontSize: 10,
@@ -680,10 +678,10 @@ class _AdminAnnouncementsState extends State<AdminAnnouncements> {
                               backgroundColor:
                                   const Color.fromARGB(255, 11, 43, 31),
                               content: Text('Announcement Sent!',
-                                  style: GoogleFonts.getFont(
+                                  style: TextStyle(fontFamily: 'DM Sans',
                                     fontSize: 16,
                                     color: const Color(0xFFe9e9e9),
-                                    'Poppins',
+                                    
                                   ))));
                           Navigator.pushAndRemoveUntil(
                             context,
@@ -700,10 +698,10 @@ class _AdminAnnouncementsState extends State<AdminAnnouncements> {
                                   const Color.fromARGB(255, 43, 11, 11),
                               content: Text(
                                   'Name is empty or needs to have first AND last name.',
-                                  style: GoogleFonts.getFont(
+                                  style: TextStyle(fontFamily: 'DM Sans',
                                     fontSize: 16,
                                     color: const Color(0xFFe9e9e9),
-                                    'Poppins',
+                                    
                                   ))));
                           setState(() {
                             sending = false;
@@ -725,9 +723,9 @@ class _AdminAnnouncementsState extends State<AdminAnnouncements> {
                           alignment: const AlignmentDirectional(0, 0),
                           child: Text(
                             'Post',
-                            style: GoogleFonts.getFont(
+                            style: TextStyle(fontFamily: 'DM Sans',
                               color: Colors.black,
-                              'Poppins',
+                              
                               fontSize: 20,
                             ),
                           ),
@@ -743,9 +741,9 @@ class _AdminAnnouncementsState extends State<AdminAnnouncements> {
                 children: [
                   Text(
                     'Previous Announcements',
-                    style: GoogleFonts.getFont(
+                    style: TextStyle(fontFamily: 'DM Sans',
                       color: Colors.black,
-                      'Poppins',
+                      
                       fontSize: 22,
                     ),
                   ),
@@ -771,9 +769,9 @@ class _AdminAnnouncementsState extends State<AdminAnnouncements> {
                             alignment: const AlignmentDirectional(0, 0),
                             child: Text(
                               showAnnouncements ? 'Hide' : 'Show',
-                              style: GoogleFonts.getFont(
+                              style: TextStyle(fontFamily: 'DM Sans',
                                 color: Colors.black,
-                                'Poppins',
+                                
                                 fontSize: 15,
                               ),
                             ),
@@ -830,9 +828,9 @@ class _AdminAnnouncementsState extends State<AdminAnnouncements> {
                             "\n"
                     ? "\n"
                     : " ",
-                style: GoogleFonts.getFont(
+                style: TextStyle(fontFamily: 'DM Sans',
                   color: const Color(0xFF717171),
-                  'Poppins',
+                  
                   fontSize: 12,
                   fontWeight: FontWeight.w500,
                 ),
@@ -841,9 +839,9 @@ class _AdminAnnouncementsState extends State<AdminAnnouncements> {
             msgText.add(
               TextSpan(
                 text: t,
-                style: GoogleFonts.getFont(
+                style: TextStyle(fontFamily: 'DM Sans',
                   color: const Color.fromARGB(255, 41, 41, 255),
-                  'Poppins',
+                  
                   fontSize: 12,
                   fontWeight: FontWeight.w500,
                   decoration: TextDecoration.underline,
@@ -867,9 +865,9 @@ class _AdminAnnouncementsState extends State<AdminAnnouncements> {
                             "\n"
                     ? "\n" "$t "
                     : "$t ",
-                style: GoogleFonts.getFont(
+                style: TextStyle(fontFamily: 'DM Sans',
                   color: const Color(0xFF717171),
-                  'Poppins',
+                  
                   fontSize: 12,
                   fontWeight: FontWeight.w500,
                 ),
@@ -919,8 +917,8 @@ class _AdminAnnouncementsState extends State<AdminAnnouncements> {
                                   alignment: const AlignmentDirectional(0, 0),
                                   child: Text(
                                     '${a['name']!.split(" ").first[0]}${a['name']!.split(" ").last[0]}',
-                                    style: GoogleFonts.getFont(
-                                      'Poppins',
+                                    style: TextStyle(fontFamily: 'DM Sans',
+                                      
                                       color: const Color(0xFF2B2B2B),
                                       fontWeight: FontWeight.w500,
                                       fontSize: 16,
@@ -940,8 +938,8 @@ class _AdminAnnouncementsState extends State<AdminAnnouncements> {
                                 children: [
                                   Text(
                                     a['name']!,
-                                    style: GoogleFonts.getFont(
-                                      'Poppins',
+                                    style: TextStyle(fontFamily: 'DM Sans',
+                                      
                                       color: const Color(0xFF323232),
                                       fontWeight: FontWeight.w600,
                                       fontSize: 15,
@@ -963,8 +961,8 @@ class _AdminAnnouncementsState extends State<AdminAnnouncements> {
                                       children: [
                                         Text(
                                           time,
-                                          style: GoogleFonts.getFont(
-                                            'Poppins',
+                                          style: TextStyle(fontFamily: 'DM Sans',
+                                            
                                             color: const Color(0xFF0088D4),
                                             fontSize: 12,
                                           ),
@@ -1018,9 +1016,8 @@ class _AdminAnnouncementsState extends State<AdminAnnouncements> {
                                                                     4, 0, 0, 0),
                                                             child: Text(
                                                               'Attachment',
-                                                              style: GoogleFonts
-                                                                  .getFont(
-                                                                'Poppins',
+                                                              style: TextStyle(fontFamily: 'DM Sans',
+                                                                
                                                                 color: const Color(
                                                                     0xFF616161),
                                                                 fontSize: 10,
@@ -1149,10 +1146,10 @@ class _AdminAnnouncementsState extends State<AdminAnnouncements> {
             duration: const Duration(seconds: 1),
             backgroundColor: const Color.fromARGB(255, 11, 43, 31),
             content: Text('File Uploaded!',
-                style: GoogleFonts.getFont(
+                style: TextStyle(fontFamily: 'DM Sans',
                   fontSize: 16,
                   color: const Color(0xFFe9e9e9),
-                  'Poppins',
+                  
                 ))));
 
         setState(() {

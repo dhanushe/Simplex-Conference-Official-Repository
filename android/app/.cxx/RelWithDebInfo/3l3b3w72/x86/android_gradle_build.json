@@ -1,0 +1,28 @@
+{
+  "buildFiles": [
+    "/Users/mahiremran/.shorebird/bin/cache/flutter/8c1a3ee6d9319bd5c202f73972a6d03bba335402/packages/flutter_tools/gradle/src/main/groovy/CMakeLists.txt"
+  ],
+  "cleanCommandsComponents": [
+    [
+      "/Users/mahiremran/Library/Android/sdk/cmake/3.22.1/bin/ninja",
+      "-C",
+      "/Users/mahiremran/Desktop/GitHub/Simplex-Conference-Official-Repository/android/app/.cxx/RelWithDebInfo/3l3b3w72/x86",
+      "clean"
+    ]
+  ],
+  "buildTargetsCommandComponents": [
+    "/Users/mahiremran/Library/Android/sdk/cmake/3.22.1/bin/ninja",
+    "-C",
+    "/Users/mahiremran/Desktop/GitHub/Simplex-Conference-Official-Repository/android/app/.cxx/RelWithDebInfo/3l3b3w72/x86",
+    "{LIST_OF_TARGETS_TO_BUILD}"
+  ],
+  "libraries": {},
+  "toolchains": {
+    "toolchain": {
+      "cCompilerExecutable": "/Users/mahiremran/Library/Android/sdk/ndk/26.3.11579264/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang.lld",
+      "cppCompilerExecutable": "/Users/mahiremran/Library/Android/sdk/ndk/26.3.11579264/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang++.lld"
+    }
+  },
+  "cFileExtensions": [],
+  "cppFileExtensions": []
+}

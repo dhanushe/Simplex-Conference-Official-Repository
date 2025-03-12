@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 // ignore_for_file: use_build_context_synchronously, library_private_types_in_public_api
 
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:google_fonts/google_fonts.dart';
+
 import 'conference_view.dart';
 import '../../api/logic/API.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -126,20 +126,13 @@ class _CreateAccountState extends State<CreateAccount> {
                             colorFilter: const ColorFilter.mode(
                                 Colors.white, BlendMode.srcIn),
                             child: Image.asset(
-                              'assets/images/appicondisplay.png',
-                              height: 35,
+                              'assets/images/whitelogoname.png',
+                              height: 40,
                               fit: BoxFit.cover,
                             ),
                           ),
                         ),
-                        const SizedBox(width: 10),
-                        Text(
-                          'Simplex Conference',
-                          style: GoogleFonts.getFont('Poppins',
-                              fontWeight: FontWeight.w600,
-                              fontSize: 24,
-                              color: Colors.white),
-                        )
+                    
                       ],
                     ),
                   ),
@@ -196,7 +189,7 @@ class _CreateAccountState extends State<CreateAccount> {
                                     child: Text(
                                       'Back',
                                       style: TextStyle(
-                                          fontFamily: 'ClashGrotesk',
+                                          fontFamily: 'RedHatDisplay',
                                           fontWeight: FontWeight.w400,
                                           fontSize: 14,
                                           color: Color(0xFF4E4E4E)),
@@ -217,7 +210,7 @@ class _CreateAccountState extends State<CreateAccount> {
                         maxLines: 1,
                         'Create an Account',
                         style: TextStyle(
-                          fontFamily: 'ClashGrotesk',
+                          fontFamily: 'RedHatDisplay',
                           color: Colors.black,
                           fontWeight: FontWeight.w500,
                           fontSize: 34,
@@ -239,15 +232,15 @@ class _CreateAccountState extends State<CreateAccount> {
                           children: [
                             const TextSpan(
                               text:
-                                  'By creating an account with Google, you accept our ',
+                                  'By creating an account with Google or Apple, you accept our ',
                               style: TextStyle(
-                                fontFamily: 'ClashGrotesk',
+                                fontFamily: 'RedHatDisplay',
                               ),
                             ),
                             TextSpan(
                               text: 'Terms of Service',
                               style: const TextStyle(
-                                fontFamily: 'ClashGrotesk',
+                                fontFamily: 'RedHatDisplay',
                                 decoration: TextDecoration.underline,
                               ),
                               recognizer: TapGestureRecognizer()
@@ -258,13 +251,13 @@ class _CreateAccountState extends State<CreateAccount> {
                             const TextSpan(
                               text: ' and ',
                               style: TextStyle(
-                                fontFamily: 'ClashGrotesk',
+                                fontFamily: 'RedHatDisplay',
                               ),
                             ),
                             TextSpan(
                               text: 'Privacy Policy.',
                               style: const TextStyle(
-                                fontFamily: 'ClashGrotesk',
+                                fontFamily: 'RedHatDisplay',
                                 decoration: TextDecoration.underline,
                               ),
                               recognizer: TapGestureRecognizer()
@@ -274,7 +267,7 @@ class _CreateAccountState extends State<CreateAccount> {
                             ),
                           ],
                           style: const TextStyle(
-                            fontFamily: 'ClashGrotesk',
+                            fontFamily: 'RedHatDisplay',
                             color: Colors.black,
                             fontWeight: FontWeight.w400,
                             fontSize: 15,
@@ -388,8 +381,8 @@ class _CreateAccountState extends State<CreateAccount> {
                                     10, 0, 0, 0),
                                 child: Text(
                                   'Create with Google',
-                                  style: GoogleFonts.getFont(
-                                    'Poppins',
+                                  style: TextStyle(fontFamily: 'DM Sans',
+                                    
                                     color: const Color(0xFF585858),
                                     fontSize: 15,
                                   ),
@@ -506,8 +499,8 @@ class _CreateAccountState extends State<CreateAccount> {
                                     10, 0, 0, 0),
                                 child: Text(
                                   'Create with Apple',
-                                  style: GoogleFonts.getFont(
-                                    'Poppins',
+                                  style: TextStyle(fontFamily: 'DM Sans',
+                                    
                                     color: const Color(0xFFFFFFFF),
                                     fontSize: 15,
                                   ),
@@ -541,8 +534,8 @@ class _CreateAccountState extends State<CreateAccount> {
                       padding: const EdgeInsetsDirectional.fromSTEB(8, 0, 8, 0),
                       child: Text(
                         'OR',
-                        style: GoogleFonts.getFont(
-                          'Poppins',
+                        style: TextStyle(fontFamily: 'DM Sans',
+                          
                           color: const Color(0xFF959595),
                           fontSize: 11,
                         ),
@@ -569,7 +562,7 @@ class _CreateAccountState extends State<CreateAccount> {
                     Text(
                       'Your Name*',
                       style: TextStyle(
-                        fontFamily: 'ClashGrotesk',
+                        fontFamily: 'RedHatDisplay',
                         fontWeight: FontWeight.w500,
                         fontSize: 16,
                       ),
@@ -611,9 +604,9 @@ class _CreateAccountState extends State<CreateAccount> {
                     controller: text1,
                     decoration: InputDecoration(
                       hintText: 'First Name*',
-                      hintStyle: GoogleFonts.getFont(
+                      hintStyle: TextStyle(fontFamily: 'DM Sans',
                         fontWeight: FontWeight.w400,
-                        'Poppins',
+                        
                         color: const Color(0xFF7E7E7E),
                         fontSize: 15,
                       ),
@@ -648,8 +641,8 @@ class _CreateAccountState extends State<CreateAccount> {
                       contentPadding:
                           const EdgeInsetsDirectional.fromSTEB(22, 6, 15, 6),
                     ),
-                    style: GoogleFonts.getFont(
-                      'Poppins',
+                    style: TextStyle(fontFamily: 'DM Sans',
+                      
                       color: f!.hasFocus || f!.hasPrimaryFocus
                           ? const Color(0xFF226ADD)
                           : const Color(0xFF585858),
@@ -692,9 +685,9 @@ class _CreateAccountState extends State<CreateAccount> {
                     controller: text2,
                     decoration: InputDecoration(
                       hintText: 'Last Name*',
-                      hintStyle: GoogleFonts.getFont(
+                      hintStyle: TextStyle(fontFamily: 'DM Sans',
                         fontWeight: FontWeight.w400,
-                        'Poppins',
+                        
                         color: const Color(0xFF7E7E7E),
                         fontSize: 15,
                       ),
@@ -729,8 +722,8 @@ class _CreateAccountState extends State<CreateAccount> {
                       contentPadding:
                           const EdgeInsetsDirectional.fromSTEB(22, 6, 15, 6),
                     ),
-                    style: GoogleFonts.getFont(
-                      'Poppins',
+                    style: TextStyle(fontFamily: 'DM Sans',
+                      
                       color: f2!.hasFocus || f2!.hasPrimaryFocus
                           ? const Color(0xFF226ADD)
                           : const Color(0xFF585858),
@@ -747,7 +740,7 @@ class _CreateAccountState extends State<CreateAccount> {
                     Text(
                       'Account Information*',
                       style: TextStyle(
-                        fontFamily: 'ClashGrotesk',
+                        fontFamily: 'RedHatDisplay',
                         fontWeight: FontWeight.w500,
                         fontSize: 16,
                       ),
@@ -787,9 +780,9 @@ class _CreateAccountState extends State<CreateAccount> {
                     controller: text3,
                     decoration: InputDecoration(
                       hintText: 'Email*',
-                      hintStyle: GoogleFonts.getFont(
+                      hintStyle: TextStyle(fontFamily: 'DM Sans',
                         fontWeight: FontWeight.w400,
-                        'Poppins',
+                        
                         color: const Color(0xFF7E7E7E),
                         fontSize: 15,
                       ),
@@ -824,8 +817,8 @@ class _CreateAccountState extends State<CreateAccount> {
                       contentPadding:
                           const EdgeInsetsDirectional.fromSTEB(22, 6, 15, 6),
                     ),
-                    style: GoogleFonts.getFont(
-                      'Poppins',
+                    style: TextStyle(fontFamily: 'DM Sans',
+                      
                       color: f3!.hasFocus || f3!.hasPrimaryFocus
                           ? const Color(0xFF226ADD)
                           : const Color(0xFF585858),
@@ -882,9 +875,9 @@ class _CreateAccountState extends State<CreateAccount> {
                         },
                       ),
                       hintText: 'Password*',
-                      hintStyle: GoogleFonts.getFont(
+                      hintStyle: TextStyle(fontFamily: 'DM Sans',
                         fontWeight: FontWeight.w400,
-                        'Poppins',
+                        
                         color: const Color(0xFF7E7E7E),
                         fontSize: 15,
                       ),
@@ -919,8 +912,8 @@ class _CreateAccountState extends State<CreateAccount> {
                       contentPadding:
                           const EdgeInsetsDirectional.fromSTEB(22, 6, 15, 6),
                     ),
-                    style: GoogleFonts.getFont(
-                      'Poppins',
+                    style: TextStyle(fontFamily: 'DM Sans',
+                      
                       color: f4!.hasFocus || f4!.hasPrimaryFocus
                           ? const Color(0xFF226ADD)
                           : const Color(0xFF585858),
@@ -976,9 +969,9 @@ class _CreateAccountState extends State<CreateAccount> {
                           });
                         },
                       ),
-                      hintStyle: GoogleFonts.getFont(
+                      hintStyle: TextStyle(fontFamily: 'DM Sans',
                         fontWeight: FontWeight.w400,
-                        'Poppins',
+                        
                         color: const Color(0xFF7E7E7E),
                         fontSize: 15,
                       ),
@@ -1013,8 +1006,8 @@ class _CreateAccountState extends State<CreateAccount> {
                       contentPadding:
                           const EdgeInsetsDirectional.fromSTEB(22, 6, 15, 6),
                     ),
-                    style: GoogleFonts.getFont(
-                      'Poppins',
+                    style: TextStyle(fontFamily: 'DM Sans',
+                      
                       color: f5!.hasFocus || f5!.hasPrimaryFocus
                           ? const Color(0xFF226ADD)
                           : const Color(0xFF585858),
@@ -1084,14 +1077,14 @@ class _CreateAccountState extends State<CreateAccount> {
                           children: [
                             TextSpan(
                               text: 'I accept the ',
-                              style: GoogleFonts.getFont(
-                                'Poppins',
+                              style: TextStyle(fontFamily: 'DM Sans',
+                                
                               ),
                             ),
                             TextSpan(
                               text: 'Terms of Service',
-                              style: GoogleFonts.getFont(
-                                'Poppins',
+                              style: TextStyle(fontFamily: 'DM Sans',
+                                
                                 decoration: TextDecoration.underline,
                               ),
                               recognizer: TapGestureRecognizer()
@@ -1100,8 +1093,8 @@ class _CreateAccountState extends State<CreateAccount> {
                                 },
                             ),
                           ],
-                          style: GoogleFonts.getFont(
-                            'Poppins',
+                          style: TextStyle(fontFamily: 'DM Sans',
+                            
                             color: const Color(0xFF7E7E7E),
                             fontWeight: FontWeight.w400,
                             fontSize: 15,
@@ -1174,14 +1167,14 @@ class _CreateAccountState extends State<CreateAccount> {
                           children: [
                             TextSpan(
                               text: 'I accept the ',
-                              style: GoogleFonts.getFont(
-                                'Poppins',
+                              style: TextStyle(fontFamily: 'DM Sans',
+                                
                               ),
                             ),
                             TextSpan(
                               text: 'Privacy Policy',
-                              style: GoogleFonts.getFont(
-                                'Poppins',
+                              style: TextStyle(fontFamily: 'DM Sans',
+                                
                                 decoration: TextDecoration.underline,
                               ),
                               recognizer: TapGestureRecognizer()
@@ -1190,8 +1183,8 @@ class _CreateAccountState extends State<CreateAccount> {
                                 },
                             )
                           ],
-                          style: GoogleFonts.getFont(
-                            'Poppins',
+                          style: TextStyle(fontFamily: 'DM Sans',
+                            
                             color: const Color(0xFF7e7e7e),
                             fontWeight: FontWeight.w400,
                             fontSize: 15,
@@ -1359,8 +1352,8 @@ class _CreateAccountState extends State<CreateAccount> {
                                           const AlignmentDirectional(0, 0),
                                       child: Text(
                                         'Done',
-                                        style: GoogleFonts.getFont(
-                                          'Poppins',
+                                        style: TextStyle(fontFamily: 'DM Sans',
+                                          
                                           color: Colors.white,
                                           fontWeight: FontWeight.w500,
                                           fontSize: 14,
@@ -1396,7 +1389,7 @@ class _CreateAccountState extends State<CreateAccount> {
               style: TextStyle(
                 fontSize: 20,
                 color: Color.fromARGB(255, 0, 0, 0),
-                fontFamily: 'ClashGrotesk',
+                fontFamily: 'RedHatDisplay',
                 fontWeight: FontWeight.w500,
               ),
             ),
@@ -1446,9 +1439,9 @@ class _CreateAccountState extends State<CreateAccount> {
                                       8, 0, 0, 0),
                                   child: Text(
                                     'Open Terms of Service',
-                                    style: GoogleFonts.getFont(
+                                    style: TextStyle(fontFamily: 'DM Sans',
                                       color: Colors.black,
-                                      'Poppins',
+                                      
                                       fontSize: 14,
                                       fontWeight: FontWeight.w500,
                                     ),
@@ -1466,7 +1459,7 @@ class _CreateAccountState extends State<CreateAccount> {
                         'By opening this, you are about to be redirected to an external service. Simplex is not responsible for any infringement on third party platforms.',
                         style: TextStyle(
                           color: Colors.black,
-                          fontFamily: 'ClashGrotesk',
+                          fontFamily: 'RedHatDisplay',
                           fontSize: 14,
                           fontWeight: FontWeight.normal,
                         ),
@@ -1490,7 +1483,7 @@ class _CreateAccountState extends State<CreateAccount> {
                             const Color.fromARGB(255, 164, 151, 255),
                       ),
                       child: Text('I Agree',
-                          style: GoogleFonts.getFont('Poppins',
+                          style: TextStyle(fontFamily: 'DM Sans',
                               fontWeight: FontWeight.w400,
                               color: Colors.black)),
                       onPressed: () {
@@ -1527,7 +1520,7 @@ class _CreateAccountState extends State<CreateAccount> {
               style: TextStyle(
                 fontSize: 20,
                 color: Color.fromARGB(255, 0, 0, 0),
-                fontFamily: 'ClashGrotesk',
+                fontFamily: 'RedHatDisplay',
                 fontWeight: FontWeight.w500,
               ),
             ),
@@ -1577,9 +1570,9 @@ class _CreateAccountState extends State<CreateAccount> {
                                       8, 0, 0, 0),
                                   child: Text(
                                     'Open Privacy Policy',
-                                    style: GoogleFonts.getFont(
+                                    style: TextStyle(fontFamily: 'DM Sans',
                                       color: Colors.black,
-                                      'Poppins',
+                                      
                                       fontSize: 14,
                                       fontWeight: FontWeight.w500,
                                     ),
@@ -1597,7 +1590,7 @@ class _CreateAccountState extends State<CreateAccount> {
                         'By opening this, you are about to be redirected to an external service. Simplex is not responsible for any infringement on third party platforms.',
                         style: TextStyle(
                           color: Colors.black,
-                          fontFamily: 'ClashGrotesk',
+                          fontFamily: 'RedHatDisplay',
                           fontSize: 14,
                           fontWeight: FontWeight.normal,
                         ),
@@ -1621,7 +1614,7 @@ class _CreateAccountState extends State<CreateAccount> {
                             const Color.fromARGB(255, 164, 151, 255),
                       ),
                       child: Text('I Agree',
-                          style: GoogleFonts.getFont('Poppins',
+                          style: TextStyle(fontFamily: 'DM Sans',
                               fontWeight: FontWeight.w400,
                               color: Colors.black)),
                       onPressed: () {

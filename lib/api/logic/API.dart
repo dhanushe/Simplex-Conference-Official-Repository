@@ -9,7 +9,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_app_badge_control/flutter_app_badge_control.dart';
 import '../objects/conference_data.dart';
 import 'package:simplex_conference_redo_repo/main.dart';
-import '../../main_default.dart';
+
 import '../app_info.dart';
 
 import '../objects/conference_user_data.dart';

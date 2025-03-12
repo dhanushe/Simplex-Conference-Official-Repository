@@ -74,7 +74,7 @@ class _HomePageAdminState extends State<HomePageAdmin> {
                                   height: 24),
                               const SizedBox(width: 7),
                               const Text(
-                                'Sielify Admin',
+                                'Simplex Admin',
                                 style: TextStyle(fontSize: 24),
                               )
                             ],
@@ -126,14 +126,14 @@ class _HomePageAdminState extends State<HomePageAdmin> {
                                             const EdgeInsets.only(right: 10.0),
                                         child: TextButton(
                                             style: const ButtonStyle(
-                                                shape: MaterialStatePropertyAll(
+                                                shape: WidgetStatePropertyAll(
                                                     RoundedRectangleBorder(
                                                         borderRadius:
                                                             BorderRadius.all(
                                                                 Radius.circular(
                                                                     5)))),
                                                 backgroundColor:
-                                                    MaterialStatePropertyAll(
+                                                    WidgetStatePropertyAll(
                                                         Color.fromARGB(255, 115,
                                                             57, 237))),
                                             child: const Text('Log Out',
@@ -311,21 +311,21 @@ class PageButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextButton.icon(
       style: ButtonStyle(
-          shadowColor: const MaterialStatePropertyAll(Colors.transparent),
+          shadowColor: const WidgetStatePropertyAll(Colors.transparent),
           splashFactory: NoSplash.splashFactory,
-          surfaceTintColor: const MaterialStatePropertyAll(Colors.transparent),
-          foregroundColor: MaterialStateProperty.resolveWith((states) {
-            if (states.contains(MaterialState.hovered) ||
-                states.contains(MaterialState.selected) ||
+          surfaceTintColor: const WidgetStatePropertyAll(Colors.transparent),
+          foregroundColor: WidgetStateProperty.resolveWith((states) {
+            if (states.contains(WidgetState.hovered) ||
+                states.contains(WidgetState.selected) ||
                 pIndex == myIndex) {
               return const Color.fromARGB(255, 115, 57, 237);
             } else {
               return Colors.grey;
             }
           }),
-          textStyle: MaterialStateProperty.resolveWith((states) {
-            if (states.contains(MaterialState.hovered) ||
-                states.contains(MaterialState.selected) ||
+          textStyle: WidgetStateProperty.resolveWith((states) {
+            if (states.contains(WidgetState.hovered) ||
+                states.contains(WidgetState.selected) ||
                 pIndex == myIndex) {
               return const TextStyle(
                   color: Color.fromARGB(255, 115, 57, 237),

@@ -11,7 +11,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:google_fonts/google_fonts.dart';
+
 import '../../admin/login/welcome_screen.dart';
 import 'welcome_screen.dart';
 
@@ -24,7 +24,6 @@ import '../../api/objects/conference_data.dart';
 import '../../api/logic/dates.dart';
 import '../navigation/navigation.dart';
 import '../../api/logic/authentication.dart';
-import 'welcome_screen.dart';
 
 class ConferenceView extends StatefulWidget {
   const ConferenceView({super.key});
@@ -94,8 +93,8 @@ class _ConferenceViewState extends State<ConferenceView> {
                     ClipRRect(
                       borderRadius: BorderRadius.circular(0),
                       child: Image.asset(
-                        'assets/images/confviewasset.png',
-                        height: 28,
+                        'assets/images/darklogoname.png',
+                        height: 32,
                         fit: BoxFit.cover,
                       ),
                     ),
@@ -191,8 +190,8 @@ class _ConferenceViewState extends State<ConferenceView> {
                                       4, 0, 0, 0),
                                   child: Text(
                                     'Logout',
-                                    style: GoogleFonts.getFont(
-                                      'Poppins',
+                                    style: TextStyle(fontFamily: 'DM Sans',
+                                      
                                       color: Colors.white,
                                       fontSize: 12,
                                     ),
@@ -215,7 +214,7 @@ class _ConferenceViewState extends State<ConferenceView> {
                     Text(
                       'Welcome,',
                       style: TextStyle(
-                        fontFamily: 'ClashGrotesk',
+                        fontFamily: 'RedHatDisplay',
                         fontWeight: FontWeight.w400,
                         fontSize: 26,
                       ),
@@ -232,7 +231,7 @@ class _ConferenceViewState extends State<ConferenceView> {
                       AppInfo.currentUser.name,
                       maxLines: 1,
                       style: TextStyle(
-                        fontFamily: 'ClashGrotesk',
+                        fontFamily: 'RedHatDisplay',
                         fontWeight: FontWeight.w600,
                         fontSize: (!kIsWeb && Platform.isIOS) ? 32 : 28,
                       ),
@@ -247,8 +246,8 @@ class _ConferenceViewState extends State<ConferenceView> {
                   children: [
                     Text(
                       'Active Conferences',
-                      style: GoogleFonts.getFont(
-                        'Poppins',
+                      style: TextStyle(fontFamily: 'DM Sans',
+                        
                         fontWeight: FontWeight.normal,
                         fontSize: 15,
                       ),
@@ -284,7 +283,7 @@ class _ConferenceViewState extends State<ConferenceView> {
                               alignment: Alignment.center,
                               child: Text('Join a Conference',
                                   style: TextStyle(
-                                      fontFamily: 'Poppins',
+                                      fontFamily: 'DM Sans',
                                       color: Color(0xFF070650))))),
                     ),
                   ]),
@@ -319,7 +318,7 @@ class _ConferenceViewState extends State<ConferenceView> {
               //                 alignment: Alignment.center,
               //                 child: Text('Browse Local Conferences',
               //                     style: TextStyle(
-              //                         fontFamily: 'Poppins',
+              //                         fontFamily: 
               //                         color: Color(0xFF070650))))),
               //       ),
               //     ]),
@@ -333,8 +332,8 @@ class _ConferenceViewState extends State<ConferenceView> {
                         children: [
                           Text(
                             'Link Google Account',
-                            style: GoogleFonts.getFont(
-                              'Poppins',
+                            style: TextStyle(fontFamily: 'DM Sans',
+                              
                               fontWeight: FontWeight.normal,
                               fontSize: 18,
                             ),
@@ -354,8 +353,8 @@ class _ConferenceViewState extends State<ConferenceView> {
                           Flexible(
                             child: Text(
                               'You can link your Google account to your Simplex Conference account so that next time you sign in, you can use your Google account.',
-                              style: GoogleFonts.getFont(
-                                'Poppins',
+                              style: TextStyle(fontFamily: 'DM Sans',
+                                
                                 fontWeight: FontWeight.normal,
                                 fontSize: 11,
                               ),
@@ -487,8 +486,8 @@ class _ConferenceViewState extends State<ConferenceView> {
                                             10, 0, 0, 0),
                                     child: Text(
                                       'Link Google Account',
-                                      style: GoogleFonts.getFont(
-                                        'Poppins',
+                                      style: TextStyle(fontFamily: 'DM Sans',
+                                        
                                         color: const Color(0xFF585858),
                                         fontSize: 15,
                                       ),
@@ -543,7 +542,7 @@ class _ConferenceViewState extends State<ConferenceView> {
               style: TextStyle(
                 fontSize: 18,
                 color: Color.fromARGB(255, 0, 0, 0),
-                fontFamily: 'ClashGrotesk',
+                fontFamily: 'RedHatDisplay',
                 fontWeight: FontWeight.w500,
               ),
             ),
@@ -556,11 +555,11 @@ class _ConferenceViewState extends State<ConferenceView> {
                   children: [
                     Text(
                       'You are being directed to an external third-party application by opening this link. Simplex bears no responsibility for any violations on third-party platforms.\n\nLink: $s',
-                      style: GoogleFonts.getFont(
+                      style: TextStyle(fontFamily: 'DM Sans',
                         fontSize: 14,
                         color: const Color.fromARGB(255, 0, 0, 0),
                         fontWeight: FontWeight.w400,
-                        'Poppins',
+                        
                       ),
                     ),
                     const SizedBox(height: 15),
@@ -579,8 +578,8 @@ class _ConferenceViewState extends State<ConferenceView> {
                       backgroundColor: const Color.fromARGB(255, 186, 186, 186),
                     ),
                     child: Text('Cancel',
-                        style: GoogleFonts.getFont(
-                            color: Colors.black, 'Poppins')),
+                        style: TextStyle(fontFamily: 'DM Sans',
+                            color: Colors.black, )),
                     onPressed: () {
                       setState(() {
                         okPressed = true;
@@ -595,8 +594,8 @@ class _ConferenceViewState extends State<ConferenceView> {
                       backgroundColor: const Color.fromARGB(255, 164, 151, 255),
                     ),
                     child: Text('Open',
-                        style: GoogleFonts.getFont(
-                            color: Colors.black, 'Poppins')),
+                        style: TextStyle(fontFamily: 'DM Sans',
+                            color: Colors.black, )),
                     onPressed: () async {
                       var uri = Uri.parse(s);
                       if (await canLaunchUrl(uri)) {
@@ -628,10 +627,10 @@ class _ConferenceViewState extends State<ConferenceView> {
             backgroundColor: const Color.fromARGB(255, 255, 255, 255),
             title: Text(
               'Account Information',
-              style: GoogleFonts.getFont(
+              style: TextStyle(fontFamily: 'DM Sans',
                 fontSize: 20,
                 color: const Color.fromARGB(255, 0, 0, 0),
-                'Poppins',
+                
                 fontWeight: FontWeight.w500,
               ),
             ),
@@ -753,7 +752,7 @@ class _ConferenceViewState extends State<ConferenceView> {
             title,
             style: const TextStyle(
               fontSize: 13,
-              fontFamily: 'ClashGrotesk',
+              fontFamily: 'RedHatDisplay',
               color: Colors.black,
             ),
           ),
@@ -817,7 +816,7 @@ class _ConferenceViewState extends State<ConferenceView> {
             //   style: TextStyle(
             //     fontSize: 20,
             //     color: Color.fromARGB(255, 0, 0, 0),
-            //     fontFamily: 'ClashGrotesk',
+            //     fontFamily: 'RedHatDisplay',
             //     fontWeight: FontWeight.w500,
             //   ),
             // ),
@@ -834,7 +833,7 @@ class _ConferenceViewState extends State<ConferenceView> {
                         "Are you sure you want to delete your account? This action cannot be reversed.",
                         style: TextStyle(
                           color: Colors.black,
-                          fontFamily: 'ClashGrotesk',
+                          fontFamily: 'RedHatDisplay',
                           fontSize: 16,
                           fontWeight: FontWeight.w400,
                         )),
@@ -868,7 +867,7 @@ class _ConferenceViewState extends State<ConferenceView> {
                           "Yes, delete my account.",
                           style: TextStyle(
                             color: Colors.white,
-                            fontFamily: 'ClashGrotesk',
+                            fontFamily: 'RedHatDisplay',
                             fontSize: 16,
                             fontWeight: FontWeight.w400,
                           ),
@@ -899,7 +898,7 @@ class _ConferenceViewState extends State<ConferenceView> {
                           "No, go back.",
                           style: TextStyle(
                             color: Colors.black,
-                            fontFamily: 'ClashGrotesk',
+                            fontFamily: 'RedHatDisplay',
                             fontSize: 16,
                             fontWeight: FontWeight.w400,
                           ),
@@ -992,7 +991,7 @@ class _ConferenceViewState extends State<ConferenceView> {
                                   c.name,
                                   maxLines: 2,
                                   style: const TextStyle(
-                                    fontFamily: 'ClashGrotesk',
+                                    fontFamily: 'RedHatDisplay',
                                     color: Colors.white,
                                     fontSize: 28,
                                   ),
@@ -1006,7 +1005,7 @@ class _ConferenceViewState extends State<ConferenceView> {
                                 c.desc,
                                 maxLines: 2,
                                 style: const TextStyle(
-                                  fontFamily: 'ClashGrotesk',
+                                  fontFamily: 'RedHatDisplay',
                                   color: Colors.white,
                                   fontWeight: FontWeight.w300,
                                   fontSize: 15,
@@ -1045,7 +1044,7 @@ class _ConferenceViewState extends State<ConferenceView> {
                                     Text(
                                       c.location,
                                       style: const TextStyle(
-                                        fontFamily: 'ClashGrotesk',
+                                        fontFamily: 'RedHatDisplay',
                                         color: Colors.white,
                                         fontWeight: FontWeight.w300,
                                         fontSize: 13,
@@ -1059,7 +1058,7 @@ class _ConferenceViewState extends State<ConferenceView> {
                                         Dates.formatDateRange(
                                             c.startDate, c.endDate),
                                         style: const TextStyle(
-                                          fontFamily: 'ClashGrotesk',
+                                          fontFamily: 'RedHatDisplay',
                                           color: Colors.white,
                                           fontWeight: FontWeight.w300,
                                           fontSize: 13,
@@ -1126,7 +1125,7 @@ class _ConferenceViewState extends State<ConferenceView> {
                                             child: Text(
                                               'Join',
                                               style: TextStyle(
-                                                fontFamily: 'ClashGrotesk',
+                                                fontFamily: 'RedHatDisplay',
                                                 color: Color(0xFF226ADD),
                                                 fontWeight: FontWeight.w500,
                                                 fontSize: 12,

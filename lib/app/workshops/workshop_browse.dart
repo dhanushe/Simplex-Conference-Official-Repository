@@ -1,7 +1,6 @@
 // ignore_for_file: must_be_immutable, no_logic_in_create_state
 
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:material_symbols_icons/symbols.dart';
 
@@ -51,7 +50,7 @@ class _WorkshopBrowsePageState extends State<WorkshopBrowsePage> {
         backgroundColor: const Color(0xFFF9f9f9),
         body: PopScope(
           canPop: false,
-          onPopInvoked: (b) {
+          onPopInvokedWithResult: (b, a) {
             // Handle back button press here
             Navigator.pushAndRemoveUntil(
               context,
@@ -143,7 +142,7 @@ class _WorkshopBrowsePageState extends State<WorkshopBrowsePage> {
                               child: Text(
                                 'Conference Agenda',
                                 style: TextStyle(
-                                  fontFamily: 'ClashGrotesk',
+                                  fontFamily: 'RedHatDisplay',
                                   color: Colors.black,
                                   fontSize: 20,
                                 ),
@@ -167,7 +166,7 @@ class _WorkshopBrowsePageState extends State<WorkshopBrowsePage> {
                               child: Text(
                                 w.name,
                                 style: const TextStyle(
-                                  fontFamily: 'ClashGrotesk',
+                                  fontFamily: 'RedHatDisplay',
                                   color: Colors.black,
                                   fontWeight: FontWeight.w500,
                                   fontSize: 26,
@@ -207,8 +206,8 @@ class _WorkshopBrowsePageState extends State<WorkshopBrowsePage> {
                               children: [
                                 Text(
                                   '${w.startTime.replaceAll(':', '.').toUpperCase()} - ${w.endTime.replaceAll(':', '.').toUpperCase()}',
-                                  style: GoogleFonts.getFont(
-                                    'Poppins',
+                                  style: TextStyle(fontFamily: 'DM Sans',
+                                    
                                     fontWeight: FontWeight.w600,
                                     fontSize: 13,
                                   ),
@@ -223,8 +222,8 @@ class _WorkshopBrowsePageState extends State<WorkshopBrowsePage> {
                                                   w.date.replaceAll('/', '-')))
                                               .split(" ")
                                               .last)),
-                                  style: GoogleFonts.getFont(
-                                    'Poppins',
+                                  style: TextStyle(fontFamily: 'DM Sans',
+                                    
                                     color: const Color(0xFF8A8A8A),
                                     fontSize: 13,
                                   ),
@@ -243,8 +242,8 @@ class _WorkshopBrowsePageState extends State<WorkshopBrowsePage> {
                         children: [
                           Text(
                             'Available Sessions',
-                            style: GoogleFonts.getFont(
-                              'Poppins',
+                            style: TextStyle(fontFamily: 'DM Sans',
+                              
                               color: const Color(0xFF8A8A8A),
                               fontSize: 13,
                             ),
@@ -313,8 +312,8 @@ class _WorkshopBrowsePageState extends State<WorkshopBrowsePage> {
                               w.sessions[i]['name']!,
                               overflow: TextOverflow.ellipsis,
                               maxLines: 2,
-                              style: GoogleFonts.getFont(
-                                'Poppins',
+                              style: TextStyle(fontFamily: 'DM Sans',
+                                
                                 color: Colors.black,
                                 fontWeight: FontWeight.w500,
                                 fontSize: 17,
@@ -326,8 +325,8 @@ class _WorkshopBrowsePageState extends State<WorkshopBrowsePage> {
                               w.sessions[i]['desc']!,
                               maxLines: 2,
                               overflow: TextOverflow.ellipsis,
-                              style: GoogleFonts.getFont(
-                                'Poppins',
+                              style: TextStyle(fontFamily: 'DM Sans',
+                                
                                 color: const Color(0xFF717171),
                                 fontWeight: FontWeight.w300,
                                 fontSize: 10,
@@ -353,7 +352,7 @@ class _WorkshopBrowsePageState extends State<WorkshopBrowsePage> {
                                 maxLines: 1,
                                 style: const TextStyle(
                                   color: Colors.black,
-                                  fontFamily: 'ClashGrotesk',
+                                  fontFamily: 'RedHatDisplay',
                                   fontWeight: FontWeight.w500,
                                   fontSize: 11,
                                 ),
@@ -461,8 +460,8 @@ class _WorkshopBrowsePageState extends State<WorkshopBrowsePage> {
                     child: Text(
                       'There are no items available for the selected session.',
                       textAlign: TextAlign.center,
-                      style: GoogleFonts.getFont(
-                        'Poppins',
+                      style: TextStyle(fontFamily: 'DM Sans',
+                        
                         color: Colors.black,
                         fontWeight: FontWeight.normal,
                         fontSize: 15,

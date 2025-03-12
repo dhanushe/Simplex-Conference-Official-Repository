@@ -5,7 +5,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:google_fonts/google_fonts.dart';
+
 import 'login_screen.dart';
 
 import '../../api/logic/API.dart';
@@ -81,20 +81,13 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                               colorFilter: const ColorFilter.mode(
                                   Colors.white, BlendMode.srcIn),
                               child: Image.asset(
-                                'assets/images/appicondisplay.png',
-                                height: 35,
+                                'assets/images/whitelogoname.png',
+                                height: 40,
                                 fit: BoxFit.cover,
                               ),
                             ),
                           ),
-                          const SizedBox(width: 10),
-                          Text(
-                            'Simplex Conference',
-                            style: GoogleFonts.getFont('Poppins',
-                                fontWeight: FontWeight.w600,
-                                fontSize: 24,
-                                color: Colors.white),
-                          )
+                          
                         ],
                       ),
                     ),
@@ -152,7 +145,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                                       child: Text(
                                         'Back',
                                         style: TextStyle(
-                                            fontFamily: 'ClashGrotesk',
+                                            fontFamily: 'RedHatDisplay',
                                             fontWeight: FontWeight.w400,
                                             fontSize: 14,
                                             color: Color(0xFF4E4E4E)),
@@ -171,7 +164,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                       Text(
                         'Forgot Password?',
                         style: TextStyle(
-                          fontFamily: 'ClashGrotesk',
+                          fontFamily: 'RedHatDisplay',
                           color: Colors.black,
                           fontWeight: FontWeight.w500,
                           fontSize: 34,
@@ -188,7 +181,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                       Text(
                         'Enter your email to receive a reset link.',
                         style: TextStyle(
-                          fontFamily: 'ClashGrotesk',
+                          fontFamily: 'RedHatDisplay',
                           color: Colors.black,
                           fontWeight: FontWeight.w400,
                           fontSize: 15,
@@ -205,7 +198,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                       Text(
                         'Your Email',
                         style: TextStyle(
-                          fontFamily: 'ClashGrotesk',
+                          fontFamily: 'RedHatDisplay',
                           color: Colors.black,
                           fontWeight: FontWeight.w500,
                           fontSize: 16,
@@ -235,9 +228,9 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                       focusNode: f,
                       decoration: InputDecoration(
                         hintText: 'Enter Email',
-                        hintStyle: GoogleFonts.getFont(
+                        hintStyle: TextStyle(fontFamily: 'DM Sans',
                           fontWeight: FontWeight.w400,
-                          'Poppins',
+                          
                           color: const Color(0xFF7E7E7E),
                           fontSize: 15,
                         ),
@@ -272,8 +265,8 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                         contentPadding:
                             const EdgeInsetsDirectional.fromSTEB(22, 6, 15, 6),
                       ),
-                      style: GoogleFonts.getFont(
-                        'Poppins',
+                      style: TextStyle(fontFamily: 'DM Sans',
+                        
                         color: f!.hasFocus || f!.hasPrimaryFocus
                             ? const Color(0xFF226ADD)
                             : const Color(0xFF585858),
@@ -356,8 +349,8 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                             alignment: const AlignmentDirectional(0, 0),
                             child: Text(
                               'Reset Password',
-                              style: GoogleFonts.getFont(
-                                'Poppins',
+                              style: TextStyle(fontFamily: 'DM Sans',
+                                
                                 color: Colors.white,
                                 fontSize: 14,
                               ),

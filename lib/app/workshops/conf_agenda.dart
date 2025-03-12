@@ -5,7 +5,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import 'package:google_fonts/google_fonts.dart';
+
 import 'package:intl/intl.dart';
 import 'package:material_symbols_icons/symbols.dart';
 import 'workshop_browse.dart';
@@ -95,7 +95,7 @@ class _ConfAgendaPageState extends State<ConfAgendaPage> {
                         Text(
                           'Conference Agenda',
                           style: TextStyle(
-                            fontFamily: 'ClashGrotesk',
+                            fontFamily: 'RedHatDisplay',
                             fontWeight: FontWeight.w500,
                             fontSize: 28,
                           ),
@@ -126,7 +126,7 @@ class _ConfAgendaPageState extends State<ConfAgendaPage> {
                         DateFormat('EEEE, MMMM d')
                             .format(DateTime.parse(AppInfo.selectedDate)),
                         style: const TextStyle(
-                          fontFamily: 'ClashGrotesk',
+                          fontFamily: 'RedHatDisplay',
                           fontWeight: FontWeight.w500,
                           fontSize: 22,
                         ),
@@ -187,8 +187,8 @@ class _ConfAgendaPageState extends State<ConfAgendaPage> {
                                               children: [
                                                 Text(
                                                   'Schedule',
-                                                  style: GoogleFonts.getFont(
-                                                    'Poppins',
+                                                  style: TextStyle(fontFamily: 'DM Sans',
+                                                    
                                                     color: Colors.black,
                                                     fontWeight: FontWeight.w600,
                                                     fontSize: (!kIsWeb &&
@@ -223,8 +223,8 @@ class _ConfAgendaPageState extends State<ConfAgendaPage> {
                                                 children: [
                                                   Text(
                                                     'My Schedule',
-                                                    style: GoogleFonts.getFont(
-                                                      'Poppins',
+                                                    style: TextStyle(fontFamily: 'DM Sans',
+                                                      
                                                       color: Colors.black,
                                                       fontWeight:
                                                           FontWeight.normal,
@@ -263,8 +263,8 @@ class _ConfAgendaPageState extends State<ConfAgendaPage> {
                                                 children: [
                                                   Text(
                                                     'Schedule',
-                                                    style: GoogleFonts.getFont(
-                                                      'Poppins',
+                                                    style: TextStyle(fontFamily: 'DM Sans',
+                                                      
                                                       color: Colors.black,
                                                       fontWeight:
                                                           FontWeight.normal,
@@ -306,8 +306,8 @@ class _ConfAgendaPageState extends State<ConfAgendaPage> {
                                               children: [
                                                 Text(
                                                   'My Schedule',
-                                                  style: GoogleFonts.getFont(
-                                                    'Poppins',
+                                                  style: TextStyle(fontFamily: 'DM Sans',
+                                                    
                                                     color: Colors.black,
                                                     fontWeight: FontWeight.w600,
                                                     fontSize: 12,
@@ -340,7 +340,7 @@ class _ConfAgendaPageState extends State<ConfAgendaPage> {
                           child: Text(
                             'Past Items',
                             style: TextStyle(
-                              fontFamily: 'ClashGrotesk',
+                              fontFamily: 'RedHatDisplay',
                               fontWeight: FontWeight.w500,
                               fontSize: 18,
                             ),
@@ -367,8 +367,8 @@ class _ConfAgendaPageState extends State<ConfAgendaPage> {
                                     12, 0, 12, 0),
                                 child: Text(
                                   showPast ? 'Hide' : 'Show',
-                                  style: GoogleFonts.getFont(
-                                    'Poppins',
+                                  style: TextStyle(fontFamily: 'DM Sans',
+                                    
                                     color: const Color(0xFF585858),
                                     fontSize: 12,
                                   ),
@@ -457,8 +457,8 @@ class _ConfAgendaPageState extends State<ConfAgendaPage> {
                 alignment: const AlignmentDirectional(0, 0),
                 child: Text(
                   dates[i] == 'Today' ? 'Today' : formatDateString(dates[i]),
-                  style: GoogleFonts.getFont(
-                    'Poppins',
+                  style: TextStyle(fontFamily: 'DM Sans',
+                    
                     color: (dates[i] == "Today" &&
                                 AppInfo.selectedDate ==
                                     DateFormat('yyyy-MM-dd')
@@ -573,8 +573,8 @@ class _ConfAgendaPageState extends State<ConfAgendaPage> {
                         ),
                       )
                     ],
-                    style: GoogleFonts.getFont(
-                      'Poppins',
+                    style: TextStyle(fontFamily: 'DM Sans',
+                      
                       fontSize: (!kIsWeb && Platform.isIOS) ? 12 : 10,
                     ),
                   ),
@@ -612,8 +612,8 @@ class _ConfAgendaPageState extends State<ConfAgendaPage> {
                         ),
                       )
                     ],
-                    style: GoogleFonts.getFont(
-                      'Poppins',
+                    style: TextStyle(fontFamily: 'DM Sans',
+                      
                       fontSize: 10,
                     ),
                   ),
@@ -705,8 +705,8 @@ class _ConfAgendaPageState extends State<ConfAgendaPage> {
                                                       : w.type == "Session"
                                                           ? "Session"
                                                           : "Item",
-                                                  style: GoogleFonts.getFont(
-                                                    'Poppins',
+                                                  style: TextStyle(fontFamily: 'DM Sans',
+                                                    
                                                     color: w.type == "Event"
                                                         ? const Color(
                                                             0xFF0904F4)
@@ -744,8 +744,8 @@ class _ConfAgendaPageState extends State<ConfAgendaPage> {
                                                 w.name,
                                                 textAlign: TextAlign.start,
                                                 maxLines: 2,
-                                                style: GoogleFonts.getFont(
-                                                  'Poppins',
+                                                style: TextStyle(fontFamily: 'DM Sans',
+                                                  
                                                   color: Colors.black,
                                                   fontSize: 17,
                                                   height: 1.1,
@@ -783,7 +783,7 @@ class _ConfAgendaPageState extends State<ConfAgendaPage> {
                                                             style:
                                                                 const TextStyle(
                                                               fontFamily:
-                                                                  'ClashGrotesk',
+                                                                  'RedHatDisplay',
                                                               fontWeight:
                                                                   FontWeight
                                                                       .w500,
@@ -862,9 +862,8 @@ class _ConfAgendaPageState extends State<ConfAgendaPage> {
                                                                       'View Sessions',
                                                                       maxLines:
                                                                           1,
-                                                                      style: GoogleFonts
-                                                                          .getFont(
-                                                                        'Poppins',
+                                                                      style: TextStyle(fontFamily: 'DM Sans',
+                                                                       
                                                                         color: Colors
                                                                             .white,
                                                                         fontSize: (!kIsWeb &&
@@ -917,7 +916,7 @@ class _ConfAgendaPageState extends State<ConfAgendaPage> {
                                       child: Text(
                                         'Start',
                                         style: TextStyle(
-                                          fontFamily: 'ClashGrotesk',
+                                          fontFamily: 'RedHatDisplay',
                                           color: w.type == "Event"
                                               ? const Color.fromARGB(
                                                   180, 8, 4, 244)
@@ -937,8 +936,8 @@ class _ConfAgendaPageState extends State<ConfAgendaPage> {
                                           .toUpperCase()
                                           .replaceAll(":", "."),
                                       maxLines: 1,
-                                      style: GoogleFonts.getFont(
-                                        'Poppins',
+                                      style: TextStyle(fontFamily: 'DM Sans',
+                                        
                                         color: w.type == "Event"
                                             ? const Color.fromARGB(
                                                 255, 8, 4, 244)
@@ -958,7 +957,7 @@ class _ConfAgendaPageState extends State<ConfAgendaPage> {
                                       child: Text(
                                         'End',
                                         style: TextStyle(
-                                          fontFamily: 'ClashGrotesk',
+                                          fontFamily: 'RedHatDisplay',
                                           color: w.type == "Event"
                                               ? const Color.fromARGB(
                                                   180, 8, 4, 244)
@@ -978,8 +977,8 @@ class _ConfAgendaPageState extends State<ConfAgendaPage> {
                                           .toUpperCase()
                                           .replaceAll(":", "."),
                                       maxLines: 1,
-                                      style: GoogleFonts.getFont(
-                                        'Poppins',
+                                      style: TextStyle(fontFamily: 'DM Sans',
+                                        
                                         color: w.type == "Event"
                                             ? const Color.fromARGB(
                                                 255, 8, 4, 244)
@@ -1131,8 +1130,8 @@ class _ConfAgendaPageState extends State<ConfAgendaPage> {
                     child: Text(
                       'There are no more agenda items for this day.',
                       textAlign: TextAlign.center,
-                      style: GoogleFonts.getFont(
-                        'Poppins',
+                      style: TextStyle(fontFamily: 'DM Sans',
+                        
                         color: Colors.black,
                         fontSize: 14,
                       ),
@@ -1260,8 +1259,8 @@ class _ConfAgendaPageState extends State<ConfAgendaPage> {
                                                     : w.type == "Session"
                                                         ? "Session"
                                                         : "Item",
-                                                style: GoogleFonts.getFont(
-                                                  'Poppins',
+                                                style: TextStyle(fontFamily: 'DM Sans',
+                                                  
                                                   color: w.type == "Event"
                                                       ? const Color(0xFF0904F4)
                                                       : w.type == "Session"
@@ -1296,8 +1295,8 @@ class _ConfAgendaPageState extends State<ConfAgendaPage> {
                                               w.name,
                                               textAlign: TextAlign.start,
                                               maxLines: 2,
-                                              style: GoogleFonts.getFont(
-                                                'Poppins',
+                                              style: TextStyle(fontFamily: 'DM Sans',
+                                                
                                                 color: Colors.black,
                                                 fontSize: 17,
                                                 height: 1.1,
@@ -1333,7 +1332,7 @@ class _ConfAgendaPageState extends State<ConfAgendaPage> {
                                                           style:
                                                               const TextStyle(
                                                             fontFamily:
-                                                                'ClashGrotesk',
+                                                                'RedHatDisplay',
                                                             fontWeight:
                                                                 FontWeight.w500,
                                                             fontSize: 11,
@@ -1407,9 +1406,8 @@ class _ConfAgendaPageState extends State<ConfAgendaPage> {
                                                                   child: Text(
                                                                     'View Sessions',
                                                                     maxLines: 1,
-                                                                    style: GoogleFonts
-                                                                        .getFont(
-                                                                      'Poppins',
+                                                                    style: TextStyle(fontFamily: 'DM Sans',
+                                                                      
                                                                       color: Colors
                                                                           .white,
                                                                       fontSize: Platform
@@ -1462,7 +1460,7 @@ class _ConfAgendaPageState extends State<ConfAgendaPage> {
                                     child: Text(
                                       'Start',
                                       style: TextStyle(
-                                        fontFamily: 'ClashGrotesk',
+                                        fontFamily: 'RedHatDisplay',
                                         color: w.type == "Event"
                                             ? const Color.fromARGB(
                                                 180, 8, 4, 244)
@@ -1482,8 +1480,8 @@ class _ConfAgendaPageState extends State<ConfAgendaPage> {
                                         .toUpperCase()
                                         .replaceAll(":", "."),
                                     maxLines: 1,
-                                    style: GoogleFonts.getFont(
-                                      'Poppins',
+                                    style: TextStyle(fontFamily: 'DM Sans',
+                                      
                                       color: w.type == "Event"
                                           ? const Color.fromARGB(255, 8, 4, 244)
                                           : w.type == "Session"
@@ -1502,7 +1500,7 @@ class _ConfAgendaPageState extends State<ConfAgendaPage> {
                                     child: Text(
                                       'End',
                                       style: TextStyle(
-                                        fontFamily: 'ClashGrotesk',
+                                        fontFamily: 'RedHatDisplay',
                                         color: w.type == "Event"
                                             ? const Color.fromARGB(
                                                 180, 8, 4, 244)
@@ -1522,8 +1520,8 @@ class _ConfAgendaPageState extends State<ConfAgendaPage> {
                                         .toUpperCase()
                                         .replaceAll(":", "."),
                                     maxLines: 1,
-                                    style: GoogleFonts.getFont(
-                                      'Poppins',
+                                    style: TextStyle(fontFamily: 'DM Sans',
+                                      
                                       color: w.type == "Event"
                                           ? const Color.fromARGB(255, 8, 4, 244)
                                           : w.type == "Session"
@@ -1744,8 +1742,8 @@ class _ConfAgendaPageState extends State<ConfAgendaPage> {
                     child: Text(
                       'There are no past agenda items for this day.',
                       textAlign: TextAlign.center,
-                      style: GoogleFonts.getFont(
-                        'Poppins',
+                      style: TextStyle(fontFamily: 'DM Sans',
+                        
                         color: Colors.black,
                         fontSize: 14,
                       ),

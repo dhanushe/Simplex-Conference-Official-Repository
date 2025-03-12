@@ -6,7 +6,7 @@ import 'dart:io';
 import 'package:add_2_calendar/add_2_calendar.dart';
 import 'package:flutter/foundation.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:google_fonts/google_fonts.dart';
+
 import 'package:intl/intl.dart';
 import 'package:material_symbols_icons/symbols.dart';
 
@@ -161,8 +161,8 @@ class _WorkshopCardState extends State<WorkshopCard> {
                     ),
                   )
                 ],
-                style: GoogleFonts.getFont(
-                  'Poppins',
+                style: TextStyle(
+                  fontFamily: 'DM Sans',
                   fontSize: 12,
                 ),
               ),
@@ -201,8 +201,8 @@ class _WorkshopCardState extends State<WorkshopCard> {
                     ),
                   )
                 ],
-                style: GoogleFonts.getFont(
-                  'Poppins',
+                style: TextStyle(fontFamily: 'DM Sans',
+     
                   fontSize: 12,
                 ),
               ),
@@ -237,8 +237,8 @@ class _WorkshopCardState extends State<WorkshopCard> {
                     ),
                   )
                 ],
-                style: GoogleFonts.getFont(
-                  'Poppins',
+                style: TextStyle(fontFamily: 'DM Sans',
+                  
                   fontSize: 12,
                 ),
               ),
@@ -265,7 +265,7 @@ class _WorkshopCardState extends State<WorkshopCard> {
                           child: Text(
                             name,
                             style: const TextStyle(
-                              fontFamily: 'ClashGrotesk',
+                              fontFamily: 'RedHatDisplay',
                               color: Colors.black,
                               fontWeight: FontWeight.w500,
                               fontSize: 26,
@@ -301,8 +301,8 @@ class _WorkshopCardState extends State<WorkshopCard> {
                                   : w.type == "Session"
                                       ? "Session"
                                       : "Item",
-                              style: GoogleFonts.getFont(
-                                'Poppins',
+                              style: TextStyle(fontFamily: 'DM Sans',
+                                
                                 color: w.type == "Event"
                                     ? const Color(0xFF0904F4)
                                     : w.type == "Session"
@@ -334,8 +334,8 @@ class _WorkshopCardState extends State<WorkshopCard> {
                                   alignment: const AlignmentDirectional(0, 0),
                                   child: Text(
                                     "Selected",
-                                    style: GoogleFonts.getFont(
-                                      'Poppins',
+                                    style: TextStyle(fontFamily: 'DM Sans',
+                                      
                                       color: const Color(0xFF19A5AE),
                                       fontSize: 12,
                                     ),
@@ -379,8 +379,8 @@ class _WorkshopCardState extends State<WorkshopCard> {
                                               .fromSTEB(4, 0, 0, 0),
                                           child: Text(
                                             img,
-                                            style: GoogleFonts.getFont(
-                                              'Poppins',
+                                            style: TextStyle(fontFamily: 'DM Sans',
+                                              
                                               color: const Color(0xFF252C72),
                                               fontSize: 12,
                                             ),
@@ -423,8 +423,8 @@ class _WorkshopCardState extends State<WorkshopCard> {
                             children: [
                               Text(
                                 loc,
-                                style: GoogleFonts.getFont(
-                                  'Poppins',
+                                style: TextStyle(fontFamily: 'DM Sans',
+                                  
                                   fontWeight: FontWeight.w600,
                                   fontSize:
                                       (!kIsWeb && Platform.isIOS) ? 14 : 13,
@@ -432,8 +432,8 @@ class _WorkshopCardState extends State<WorkshopCard> {
                               ),
                               Text(
                                 AppInfo.conference.location,
-                                style: GoogleFonts.getFont(
-                                  'Poppins',
+                                style: TextStyle(fontFamily: 'DM Sans',
+                                  
                                   color: const Color(0xFF8A8A8A),
                                   fontSize:
                                       (!kIsWeb && Platform.isIOS) ? 14 : 13,
@@ -473,8 +473,8 @@ class _WorkshopCardState extends State<WorkshopCard> {
                             children: [
                               Text(
                                 "${start.replaceAll(":", ".").toUpperCase()} - ${end.replaceAll(":", ".").toUpperCase()}",
-                                style: GoogleFonts.getFont(
-                                  'Poppins',
+                                style: TextStyle(fontFamily: 'DM Sans',
+                                  
                                   fontWeight: FontWeight.w600,
                                   fontSize:
                                       (!kIsWeb && Platform.isIOS) ? 14 : 13,
@@ -483,8 +483,8 @@ class _WorkshopCardState extends State<WorkshopCard> {
                               Text(
                                 DateFormat("EEEE, MMMM d").format(
                                     DateTime.parse(date.replaceAll('/', '-'))),
-                                style: GoogleFonts.getFont(
-                                  'Poppins',
+                                style: TextStyle(fontFamily: 'DM Sans',
+                                  
                                   color: const Color(0xFF8A8A8A),
                                   fontSize:
                                       (!kIsWeb && Platform.isIOS) ? 14 : 13,
@@ -504,8 +504,8 @@ class _WorkshopCardState extends State<WorkshopCard> {
                         Flexible(
                           child: Text(
                             desc,
-                            style: GoogleFonts.getFont(
-                              'Poppins',
+                            style: TextStyle(fontFamily: 'DM Sans',
+                              
                               color: const Color(0xFF717171),
                               fontSize: (!kIsWeb && Platform.isIOS) ? 14 : 13,
                             ),
@@ -608,7 +608,7 @@ class _WorkshopCardState extends State<WorkshopCard> {
                                       4, 0, 0, 0),
                                   child: Text(
                                     "Add to My Agenda",
-                                    style: GoogleFonts.getFont('Poppins',
+                                    style: TextStyle(fontFamily: 'DM Sans',
                                         fontWeight: FontWeight.w600,
                                         fontSize: 15,
                                         color: (w.type != "Session" &&
@@ -718,7 +718,7 @@ class _WorkshopCardState extends State<WorkshopCard> {
                                       4, 0, 0, 0),
                                   child: Text(
                                     "Add to Calendar",
-                                    style: GoogleFonts.getFont('Poppins',
+                                    style: TextStyle(fontFamily: 'DM Sans',
                                         fontWeight: FontWeight.w600,
                                         fontSize: 15,
                                         color: const Color(0xFF18AE9F)),
@@ -800,7 +800,7 @@ class _WorkshopCardState extends State<WorkshopCard> {
                   //                       4, 0, 0, 0),
                   //                   child: Text(
                   //                     "Add to Google Calendar",
-                  //                     style: GoogleFonts.getFont('Poppins',
+                  //                     style: TextStyle(fontFamily: 'DM Sans',
                   //                         fontWeight: FontWeight.w600,
                   //                         fontSize: 15,
                   //                         color: const Color(0xFF18AE9F)),

@@ -9,7 +9,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:google_fonts/google_fonts.dart';
+
 import 'reset_password.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -100,20 +100,13 @@ class _LoginScreenState extends State<LoginScreen> {
                               colorFilter: const ColorFilter.mode(
                                   Colors.white, BlendMode.srcIn),
                               child: Image.asset(
-                                'assets/images/appicondisplay.png',
-                                height: 35,
+                                'assets/images/whitelogoname.png',
+                                height: 40,
                                 fit: BoxFit.cover,
                               ),
                             ),
                           ),
-                          const SizedBox(width: 10),
-                          Text(
-                            'Simplex Conference',
-                            style: GoogleFonts.getFont('Poppins',
-                                fontWeight: FontWeight.w600,
-                                fontSize: 24,
-                                color: Colors.white),
-                          )
+                          
                         ],
                       ),
                     ),
@@ -127,7 +120,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       Text(
                         'Login',
                         style: TextStyle(
-                          fontFamily: 'ClashGrotesk',
+                          fontFamily: 'RedHatDisplay',
                           color: Colors.black,
                           fontWeight: FontWeight.w500,
                           fontSize: 34,
@@ -163,8 +156,8 @@ class _LoginScreenState extends State<LoginScreen> {
                       focusNode: f,
                       decoration: InputDecoration(
                         hintText: 'Enter Email',
-                        hintStyle: GoogleFonts.getFont(
-                          'Poppins',
+                        hintStyle: TextStyle(fontFamily: 'DM Sans',
+                          
                           color: const Color(0xFF7E7E7E),
                           fontWeight: FontWeight.w400,
                           fontSize: 15,
@@ -200,8 +193,8 @@ class _LoginScreenState extends State<LoginScreen> {
                         contentPadding:
                             const EdgeInsetsDirectional.fromSTEB(22, 6, 15, 6),
                       ),
-                      style: GoogleFonts.getFont(
-                        'Poppins',
+                      style: TextStyle(fontFamily: 'DM Sans',
+                        
                         color: f!.hasFocus || f!.hasPrimaryFocus
                             ? const Color(0xFF226ADD)
                             : const Color(0xFF585858),
@@ -250,8 +243,8 @@ class _LoginScreenState extends State<LoginScreen> {
                           },
                         ),
                         hintText: 'Enter Password',
-                        hintStyle: GoogleFonts.getFont(
-                          'Poppins',
+                        hintStyle: TextStyle(fontFamily: 'DM Sans',
+                          
                           color: const Color(0xFF7E7E7E),
                           fontWeight: FontWeight.w400,
                           fontSize: 15,
@@ -287,8 +280,8 @@ class _LoginScreenState extends State<LoginScreen> {
                         contentPadding:
                             const EdgeInsetsDirectional.fromSTEB(22, 6, 15, 6),
                       ),
-                      style: GoogleFonts.getFont(
-                        'Poppins',
+                      style: TextStyle(fontFamily: 'DM Sans',
+                        
                         color: f2!.hasFocus || f2!.hasPrimaryFocus
                             ? const Color(0xFF226ADD)
                             : const Color(0xFF585858),
@@ -314,8 +307,8 @@ class _LoginScreenState extends State<LoginScreen> {
                         },
                         child: Text(
                           'Forgot your Password?',
-                          style: GoogleFonts.getFont(
-                            'Poppins',
+                          style: TextStyle(fontFamily: 'DM Sans',
+                            
                             fontWeight: FontWeight.w400,
                             fontSize: 14,
                             decoration: TextDecoration.underline,
@@ -448,8 +441,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                   alignment: const AlignmentDirectional(0, 0),
                                   child: Text(
                                     'Login',
-                                    style: GoogleFonts.getFont(
-                                      'Poppins',
+                                    style: TextStyle(fontFamily: 'DM Sans',
+                                      
                                       color: Colors.white,
                                       fontSize: 14,
                                     ),
@@ -485,8 +478,8 @@ class _LoginScreenState extends State<LoginScreen> {
                             const EdgeInsetsDirectional.fromSTEB(8, 0, 8, 0),
                         child: Text(
                           'OR',
-                          style: GoogleFonts.getFont(
-                            'Poppins',
+                          style: TextStyle(fontFamily: 'DM Sans',
+                            
                             color: const Color(0xFF959595),
                             fontSize: 11,
                           ),
@@ -557,7 +550,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                     false, // This condition removes all previous routes
                               );
                             } else {
-                              if (await _agreeDialog(context)) {
+                 
                                 log(_auth.currentUser.toString());
                                 String name =
                                     "${_auth.currentUser!.displayName!.split(" ")[0]} ${_auth.currentUser!.displayName!.split(" ").last}";
@@ -580,7 +573,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                   (route) =>
                                       false, // This condition removes all previous routes
                                 );
-                              }
+                              
                             }
                           },
                           child: Container(
@@ -610,8 +603,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                       10, 0, 0, 0),
                                   child: Text(
                                     'Sign in with Google',
-                                    style: GoogleFonts.getFont(
-                                      'Poppins',
+                                    style: TextStyle(fontFamily: 'DM Sans',
+                                      
                                       color: const Color(0xFF585858),
                                       fontSize: 15,
                                     ),
@@ -682,7 +675,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                         false, // This condition removes all previous routes
                                   );
                                 } else {
-                                  if (await _agreeDialog(context)) {
+              
                                     log(_auth.currentUser.toString());
                                     String name =
                                         "${_auth.currentUser!.displayName!.split(" ")[0]} ${_auth.currentUser!.displayName!.split(" ").last}";
@@ -706,7 +699,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                           false, // This condition removes all previous routes
                                     );
                                   }
-                                }
+                                
                               },
                               child: Container(
                                 width: MediaQuery.sizeOf(context).width * 0.88,
@@ -745,8 +738,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                       alignment: AlignmentDirectional(0, 0),
                                       child: Text(
                                         'Sign in with Apple',
-                                        style: GoogleFonts.getFont(
-                                          'Poppins',
+                                        style: TextStyle(fontFamily: 'DM Sans',
+                                          
                                           color: const Color(0xFFFFFFFF),
                                           fontSize: 15,
                                         ),
@@ -762,6 +755,64 @@ class _LoginScreenState extends State<LoginScreen> {
                     : const Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(0, 15, 0, 0),
                         child: CircularProgressIndicator(color: Colors.black)),
+                Padding(
+                padding: const EdgeInsetsDirectional.fromSTEB(25, 8, 25, 0),
+                child: Row(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    Flexible(
+                      child: RichText(
+                        textScaler: MediaQuery.of(context).textScaler,
+                        text: TextSpan(
+                          children: [
+                            const TextSpan(
+                              text:
+                                  'By using Google or Apple for your Simplex Conference account, you accept our ',
+                              style: TextStyle(
+                                fontFamily: 'RedHatDisplay',
+                              ),
+                            ),
+                            TextSpan(
+                              text: 'Terms of Service',
+                              style: const TextStyle(
+                                fontFamily: 'RedHatDisplay',
+                                decoration: TextDecoration.underline,
+                              ),
+                              recognizer: TapGestureRecognizer()
+                                ..onTap = () {
+                                  _termsDialog(context);
+                                },
+                            ),
+                            const TextSpan(
+                              text: ' and ',
+                              style: TextStyle(
+                                fontFamily: 'RedHatDisplay',
+                              ),
+                            ),
+                            TextSpan(
+                              text: 'Privacy Policy.',
+                              style: const TextStyle(
+                                fontFamily: 'RedHatDisplay',
+                                decoration: TextDecoration.underline,
+                              ),
+                              recognizer: TapGestureRecognizer()
+                                ..onTap = () {
+                                  _privacyDialog(context);
+                                },
+                            ),
+                          ],
+                          style: const TextStyle(
+                            fontFamily: 'RedHatDisplay',
+                            color: Colors.black,
+                            fontWeight: FontWeight.w400,
+                            fontSize: 15,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
 
                 const Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(25, 80, 25, 0),
@@ -771,7 +822,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       Text(
                         'New User?',
                         style: TextStyle(
-                          fontFamily: 'ClashGrotesk',
+                          fontFamily: 'RedHatDisplay',
                           fontWeight: FontWeight.w500,
                           fontSize: 34,
                         ),
@@ -810,8 +861,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                   alignment: const AlignmentDirectional(0, 0),
                                   child: Text(
                                     'Start Here!',
-                                    style: GoogleFonts.getFont(
-                                      'Poppins',
+                                    style: TextStyle(fontFamily: 'DM Sans',
+                                      
                                       color: const Color(0xFF226ADD),
                                       fontWeight: FontWeight.w500,
                                       fontSize: 15,
@@ -834,7 +885,8 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 
-  Future<bool> _agreeDialog(BuildContext context) async {
+
+  Future<void> _termsDialog(BuildContext context) async {
     bool okPressed = false;
     return showDialog(
         context: context,
@@ -842,11 +894,11 @@ class _LoginScreenState extends State<LoginScreen> {
           return AlertDialog(
             backgroundColor: const Color(0xFFFBFBFB),
             title: const Text(
-              'New Account',
+              'Terms of Service',
               style: TextStyle(
                 fontSize: 20,
                 color: Color.fromARGB(255, 0, 0, 0),
-                fontFamily: 'ClashGrotesk',
+                fontFamily: 'RedHatDisplay',
                 fontWeight: FontWeight.w500,
               ),
             ),
@@ -860,62 +912,65 @@ class _LoginScreenState extends State<LoginScreen> {
                     Padding(
                       padding:
                           const EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
-                      child: RichText(
-                        textScaler: MediaQuery.of(context).textScaler,
-                        text: TextSpan(
-                          children: [
-                            const TextSpan(
-                              text:
-                                  'By creating an account with Google, you accept our ',
-                              style: TextStyle(
-                                fontFamily: 'ClashGrotesk',
-                              ),
+                      child: InkWell(
+                        onTap: () async {
+                          var uri = Uri.parse(
+                              "https://sites.google.com/wesimplex.com/hello/terms-of-service?authuser=0");
+                          if (await canLaunchUrl(uri)) {
+                            await launchUrl(uri,
+                                mode: LaunchMode.externalApplication);
+                          } else {}
+                        },
+                        child: Container(
+                          height: 40,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(27),
+                            border: Border.all(
+                              color: const Color(0xFF001535),
+                              width: 2,
                             ),
-                            TextSpan(
-                              text: 'Terms of Service',
-                              style: const TextStyle(
-                                fontFamily: 'ClashGrotesk',
-                                decoration: TextDecoration.underline,
-                              ),
-                              recognizer: TapGestureRecognizer()
-                                ..onTap = () async {
-                                  var uri = Uri.parse(
-                                      "https://sites.google.com/wesimplex.com/hello/terms-of-service?authuser=0");
-                                  if (await canLaunchUrl(uri)) {
-                                    await launchUrl(uri,
-                                        mode: LaunchMode.externalApplication);
-                                  } else {}
-                                },
-                            ),
-                            const TextSpan(
-                              text: ' and ',
-                              style: TextStyle(
-                                fontFamily: 'ClashGrotesk',
-                              ),
-                            ),
-                            TextSpan(
-                              text: 'Privacy Policy.',
-                              style: const TextStyle(
-                                fontFamily: 'ClashGrotesk',
-                                decoration: TextDecoration.underline,
-                              ),
-                              recognizer: TapGestureRecognizer()
-                                ..onTap = () async {
-                                  var uri = Uri.parse(
-                                      "https://sites.google.com/wesimplex.com/hello/privacy-policy?authuser=0");
-                                  if (await canLaunchUrl(uri)) {
-                                    await launchUrl(uri,
-                                        mode: LaunchMode.externalApplication);
-                                  } else {}
-                                },
-                            ),
-                          ],
-                          style: const TextStyle(
-                            fontFamily: 'ClashGrotesk',
-                            color: Colors.black,
-                            fontWeight: FontWeight.w400,
-                            fontSize: 15,
                           ),
+                          child: Padding(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                15, 0, 15, 0),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                const Icon(
+                                  Icons.open_in_new,
+                                  color: Colors.black,
+                                  size: 20,
+                                ),
+                                Padding(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                      8, 0, 0, 0),
+                                  child: Text(
+                                    'Open Terms of Service',
+                                    style: TextStyle(fontFamily: 'DM Sans',
+                                      color: Colors.black,
+                                      
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    const Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+                      child: Text(
+                        'By opening this, you are about to be redirected to an external service. Simplex is not responsible for any infringement on third party platforms.',
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontFamily: 'RedHatDisplay',
+                          fontSize: 14,
+                          fontWeight: FontWeight.normal,
                         ),
                       ),
                     ),
@@ -937,14 +992,15 @@ class _LoginScreenState extends State<LoginScreen> {
                             const Color.fromARGB(255, 164, 151, 255),
                       ),
                       child: Text('I Agree',
-                          style: GoogleFonts.getFont('Poppins',
+                          style: TextStyle(fontFamily: 'DM Sans',
                               fontWeight: FontWeight.w400,
                               color: Colors.black)),
                       onPressed: () {
                         setState(() {
                           okPressed = true;
+                          Navigator.pop(context);
+         
                         });
-                        Navigator.pop(context);
                       },
                     ),
                   ],
@@ -954,14 +1010,142 @@ class _LoginScreenState extends State<LoginScreen> {
           );
         }).then((val) async {
       if (!okPressed) {
-        setState(() {
-          isSigningIn = false;
-        });
-        return false;
+        return;
       }
 
       setState(() {});
-      return true;
     });
   }
+
+  Future<void> _privacyDialog(BuildContext context) async {
+    bool okPressed = false;
+    return showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            backgroundColor: const Color(0xFFFBFBFB),
+            title: const Text(
+              'Privacy Policy',
+              style: TextStyle(
+                fontSize: 20,
+                color: Color.fromARGB(255, 0, 0, 0),
+                fontFamily: 'RedHatDisplay',
+                fontWeight: FontWeight.w500,
+              ),
+            ),
+            content: SingleChildScrollView(
+              child: SizedBox(
+                width: MediaQuery.of(context).size.width * .9,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+                      child: InkWell(
+                        onTap: () async {
+                          var uri = Uri.parse(
+                              "https://sites.google.com/wesimplex.com/hello/privacy-policy?authuser=0");
+                          if (await canLaunchUrl(uri)) {
+                            await launchUrl(uri,
+                                mode: LaunchMode.externalApplication);
+                          } else {}
+                        },
+                        child: Container(
+                          height: 40,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(27),
+                            border: Border.all(
+                              color: const Color(0xFF001535),
+                              width: 2,
+                            ),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                15, 0, 15, 0),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                const Icon(
+                                  Icons.open_in_new,
+                                  color: Colors.black,
+                                  size: 20,
+                                ),
+                                Padding(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                      8, 0, 0, 0),
+                                  child: Text(
+                                    'Open Privacy Policy',
+                                    style: TextStyle(fontFamily: 'DM Sans',
+                                      color: Colors.black,
+                                      
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    const Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+                      child: Text(
+                        'By opening this, you are about to be redirected to an external service. Simplex is not responsible for any infringement on third party platforms.',
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontFamily: 'RedHatDisplay',
+                          fontSize: 14,
+                          fontWeight: FontWeight.normal,
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 10),
+                  ],
+                ),
+              ),
+            ),
+            actions: <Widget>[
+              Center(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    TextButton(
+                      style: TextButton.styleFrom(
+                        foregroundColor: Colors.black,
+                        elevation: 2,
+                        backgroundColor:
+                            const Color.fromARGB(255, 164, 151, 255),
+                      ),
+                      child: Text('I Agree',
+                          style: TextStyle(fontFamily: 'DM Sans',
+                              fontWeight: FontWeight.w400,
+                              color: Colors.black)),
+                      onPressed: () {
+                        setState(() {
+                          okPressed = true;
+                          Navigator.pop(context);
+                  
+                        });
+                      },
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          );
+        }).then((val) async {
+      if (!okPressed) {
+        return;
+      }
+
+      setState(() {});
+    });
+  }
+
 }

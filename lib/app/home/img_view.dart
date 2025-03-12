@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:google_fonts/google_fonts.dart';
+
 
 import 'package:share_plus/share_plus.dart';
 import 'package:http/http.dart' as http;
@@ -93,8 +93,8 @@ class _ImgViewState extends State<ImgView> {
         ),
         title: img.length > 1
             ? Text("Swipe to view more...",
-                style: GoogleFonts.getFont(
-                  'Poppins',
+                style: TextStyle(fontFamily: 'DM Sans',
+                  
                   color: Colors.white,
                   fontSize: 13,
                 ))

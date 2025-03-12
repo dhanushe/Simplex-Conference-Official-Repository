@@ -13,7 +13,7 @@ import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:google_fonts/google_fonts.dart';
+
 
 class AboutConfPage extends StatefulWidget {
   const AboutConfPage({
@@ -83,10 +83,10 @@ class _AboutConfPageState extends State<AboutConfPage> {
             duration: const Duration(seconds: 2),
             backgroundColor: const Color.fromARGB(255, 43, 11, 11),
             content: Text('About link is invalid.',
-                style: GoogleFonts.getFont(
+                style: TextStyle(fontFamily: 'DM Sans',
                   fontSize: 16,
                   color: const Color(0xFFe9e9e9),
-                  'Poppins',
+                  
                 ))));
 
         setState(() {
@@ -107,10 +107,10 @@ class _AboutConfPageState extends State<AboutConfPage> {
             backgroundColor: const Color.fromARGB(255, 11, 43, 31),
             content: Text(
                 'Changes Saved! Refresh the app and look at the \'About this Conference\' Page to view changes.',
-                style: GoogleFonts.getFont(
+                style: TextStyle(fontFamily: 'DM Sans',
                   fontSize: 16,
                   color: const Color(0xFFe9e9e9),
-                  'Poppins',
+                  
                 ))));
         setState(() {
           saving = false;
@@ -193,13 +193,13 @@ class _AboutConfPageState extends State<AboutConfPage> {
                             child: TextButton(
                                 onPressed: () => discard(),
                                 style: const ButtonStyle(
-                                    shape: MaterialStatePropertyAll(
+                                    shape: WidgetStatePropertyAll(
                                         RoundedRectangleBorder(
                                             borderRadius: BorderRadius.all(
                                                 Radius.circular(5)))),
-                                    foregroundColor: MaterialStatePropertyAll(
+                                    foregroundColor: WidgetStatePropertyAll(
                                         Color.fromARGB(255, 115, 57, 237)),
-                                    backgroundColor: MaterialStatePropertyAll(
+                                    backgroundColor: WidgetStatePropertyAll(
                                         Color.fromARGB(255, 243, 237, 254))),
                                 child: const Padding(
                                   padding: EdgeInsets.all(8.0),
@@ -218,25 +218,25 @@ class _AboutConfPageState extends State<AboutConfPage> {
                                 ? TextButton(
                                     onPressed: () => save(),
                                     style: ButtonStyle(
-                                        shape: const MaterialStatePropertyAll(
+                                        shape: const WidgetStatePropertyAll(
                                             RoundedRectangleBorder(
                                                 borderRadius: BorderRadius.all(
                                                     Radius.circular(5)))),
                                         overlayColor:
                                             // only show lighter color if hovered
-                                            MaterialStateProperty.resolveWith(
+                                            WidgetStateProperty.resolveWith(
                                                 (states) {
                                           if (states.contains(
-                                                  MaterialState.hovered) &&
+                                                  WidgetState.hovered) &&
                                               !states.contains(
-                                                  MaterialState.focused) &&
+                                                  WidgetState.focused) &&
                                               !states.contains(
-                                                  MaterialState.pressed)) {
+                                                  WidgetState.pressed)) {
                                             return const Color.fromARGB(
                                                 255, 138, 91, 240);
                                             // this is a hacky way to accomplish the ink effect
                                           } else if (states.contains(
-                                              MaterialState.pressed)) {
+                                              WidgetState.pressed)) {
                                             return const Color.fromARGB(
                                                 255, 94, 28, 236);
                                           } else {
@@ -244,10 +244,10 @@ class _AboutConfPageState extends State<AboutConfPage> {
                                           }
                                         }),
                                         foregroundColor:
-                                            const MaterialStatePropertyAll(
+                                            const WidgetStatePropertyAll(
                                                 Colors.white),
                                         backgroundColor:
-                                            const MaterialStatePropertyAll(
+                                            const WidgetStatePropertyAll(
                                                 Color.fromARGB(
                                                     255, 115, 57, 237))),
                                     child: const Padding(
@@ -277,9 +277,9 @@ class _AboutConfPageState extends State<AboutConfPage> {
                       children: [
                         Text(
                           'Edit Conference About Section',
-                          style: GoogleFonts.getFont(
+                          style: TextStyle(fontFamily: 'DM Sans',
                             color: Colors.black,
-                            'DM Sans',
+                            
                             fontWeight: FontWeight.bold,
                             fontSize: 22,
                           ),
@@ -299,9 +299,9 @@ class _AboutConfPageState extends State<AboutConfPage> {
                       children: [
                         Text(
                           'Long Description (Shown on the About This Conference page)',
-                          style: GoogleFonts.getFont(
+                          style: TextStyle(fontFamily: 'DM Sans',
                             color: Colors.black,
-                            'DM Sans',
+
                             fontWeight: FontWeight.normal,
                             fontSize: 18,
                           ),
@@ -341,8 +341,8 @@ class _AboutConfPageState extends State<AboutConfPage> {
                                   fontStyle: FontStyle.italic, fontSize: 15),
                               hintStyle:
                                   const TextStyle(fontWeight: FontWeight.w200)),
-                          style: GoogleFonts.getFont(
-                            'Poppins',
+                          style: TextStyle(fontFamily: 'DM Sans',
+                            
                             color: Colors.black,
                             fontSize: 14,
                           ),
@@ -363,9 +363,9 @@ class _AboutConfPageState extends State<AboutConfPage> {
                       children: [
                         Text(
                           'Blue Pandas PDF (shown in Competitive Events)',
-                          style: GoogleFonts.getFont(
+                          style: TextStyle(fontFamily: 'DM Sans',
                             color: Colors.black,
-                            'DM Sans',
+            
                             fontWeight: FontWeight.normal,
                             fontSize: 18,
                           ),
@@ -420,8 +420,8 @@ class _AboutConfPageState extends State<AboutConfPage> {
                                     ),
                                     Text(
                                       'Upload New',
-                                      style: GoogleFonts.getFont(
-                                        'Poppins',
+                                      style: TextStyle(fontFamily: 'DM Sans',
+                                        
                                         color: const Color(0xff000000),
                                         fontSize: 18,
                                       ),
@@ -457,8 +457,8 @@ class _AboutConfPageState extends State<AboutConfPage> {
                                               const AlignmentDirectional(0, 0),
                                           child: Text(
                                             'Open Current',
-                                            style: GoogleFonts.getFont(
-                                              'DM Sans',
+                                            style: TextStyle(fontFamily: 'DM Sans',
+                      
                                               color: Colors.black,
                                             ),
                                           ),
@@ -482,8 +482,8 @@ class _AboutConfPageState extends State<AboutConfPage> {
                                             const AlignmentDirectional(0, 0),
                                         child: Text(
                                           'None',
-                                          style: GoogleFonts.getFont(
-                                            'DM Sans',
+                                          style: TextStyle(fontFamily: 'DM Sans',
+               
                                             color: Colors.white,
                                           ),
                                         ),
@@ -507,9 +507,9 @@ class _AboutConfPageState extends State<AboutConfPage> {
                       children: [
                         Text(
                           'Social Media Links (links MUST be saved using the small save icon before being added)',
-                          style: GoogleFonts.getFont(
+                          style: TextStyle(fontFamily: 'DM Sans',
                             color: Colors.black,
-                            'DM Sans',
+               
                             fontWeight: FontWeight.normal,
                             fontSize: 18,
                           ),
@@ -566,8 +566,8 @@ class _AboutConfPageState extends State<AboutConfPage> {
                                   fontStyle: FontStyle.italic, fontSize: 15),
                               hintStyle:
                                   const TextStyle(fontWeight: FontWeight.w200)),
-                          style: GoogleFonts.getFont(
-                            'Poppins',
+                          style: TextStyle(fontFamily: 'DM Sans',
+                            
                             color: Colors.black,
                             fontSize: 14,
                           ),
@@ -586,10 +586,10 @@ class _AboutConfPageState extends State<AboutConfPage> {
                                 backgroundColor:
                                     const Color.fromARGB(255, 11, 43, 31),
                                 content: Text('Instagram link saved!',
-                                    style: GoogleFonts.getFont(
+                                    style: TextStyle(fontFamily: 'DM Sans',
                                       fontSize: 16,
                                       color: const Color(0xFFe9e9e9),
-                                      'Poppins',
+                                      
                                     ))));
                           } else {
                             ScaffoldMessenger.of(context).showSnackBar(SnackBar(
@@ -597,10 +597,10 @@ class _AboutConfPageState extends State<AboutConfPage> {
                                 backgroundColor:
                                     const Color.fromARGB(255, 43, 11, 11),
                                 content: Text('The Instagram link is invalid.',
-                                    style: GoogleFonts.getFont(
+                                    style: TextStyle(fontFamily: 'DM Sans',
                                       fontSize: 16,
                                       color: const Color(0xFFe9e9e9),
-                                      'Poppins',
+                                      
                                     ))));
                           }
                         },
@@ -640,10 +640,10 @@ class _AboutConfPageState extends State<AboutConfPage> {
                               backgroundColor:
                                   const Color.fromARGB(255, 43, 11, 11),
                               content: Text('Instagram link removed.',
-                                  style: GoogleFonts.getFont(
+                                  style: TextStyle(fontFamily: 'DM Sans',
                                     fontSize: 16,
                                     color: const Color(0xFFe9e9e9),
-                                    'Poppins',
+                                    
                                   ))));
                         },
                         child: Container(
@@ -713,8 +713,8 @@ class _AboutConfPageState extends State<AboutConfPage> {
                                 fontStyle: FontStyle.italic, fontSize: 15),
                             hintStyle:
                                 const TextStyle(fontWeight: FontWeight.w200)),
-                        style: GoogleFonts.getFont(
-                          'Poppins',
+                        style: TextStyle(fontFamily: 'DM Sans',
+                          
                           color: Colors.black,
                           fontSize: 14,
                         ),
@@ -732,10 +732,10 @@ class _AboutConfPageState extends State<AboutConfPage> {
                                 backgroundColor:
                                     const Color.fromARGB(255, 11, 43, 31),
                                 content: Text('Facebook link saved!',
-                                    style: GoogleFonts.getFont(
+                                    style: TextStyle(fontFamily: 'DM Sans',
                                       fontSize: 16,
                                       color: const Color(0xFFe9e9e9),
-                                      'Poppins',
+                                      
                                     ))));
                           } else {
                             ScaffoldMessenger.of(context).showSnackBar(SnackBar(
@@ -743,10 +743,10 @@ class _AboutConfPageState extends State<AboutConfPage> {
                                 backgroundColor:
                                     const Color.fromARGB(255, 43, 11, 11),
                                 content: Text('The Facebook link is invalid.',
-                                    style: GoogleFonts.getFont(
+                                    style: TextStyle(fontFamily: 'DM Sans',
                                       fontSize: 16,
                                       color: const Color(0xFFe9e9e9),
-                                      'Poppins',
+                                      
                                     ))));
                           }
                         },
@@ -786,10 +786,10 @@ class _AboutConfPageState extends State<AboutConfPage> {
                               backgroundColor:
                                   const Color.fromARGB(255, 43, 11, 11),
                               content: Text('Facebook link removed.',
-                                  style: GoogleFonts.getFont(
+                                  style: TextStyle(fontFamily: 'DM Sans',
                                     fontSize: 16,
                                     color: const Color(0xFFe9e9e9),
-                                    'Poppins',
+                                    
                                   ))));
                         },
                         child: Container(
@@ -859,8 +859,8 @@ class _AboutConfPageState extends State<AboutConfPage> {
                                 fontStyle: FontStyle.italic, fontSize: 15),
                             hintStyle:
                                 const TextStyle(fontWeight: FontWeight.w200)),
-                        style: GoogleFonts.getFont(
-                          'Poppins',
+                        style: TextStyle(fontFamily: 'DM Sans',
+                          
                           color: Colors.black,
                           fontSize: 14,
                         ),
@@ -878,10 +878,10 @@ class _AboutConfPageState extends State<AboutConfPage> {
                                 backgroundColor:
                                     const Color.fromARGB(255, 11, 43, 31),
                                 content: Text('LinkedIn link saved!',
-                                    style: GoogleFonts.getFont(
+                                    style: TextStyle(fontFamily: 'DM Sans',
                                       fontSize: 16,
                                       color: const Color(0xFFe9e9e9),
-                                      'Poppins',
+                                      
                                     ))));
                           } else {
                             ScaffoldMessenger.of(context).showSnackBar(SnackBar(
@@ -889,10 +889,10 @@ class _AboutConfPageState extends State<AboutConfPage> {
                                 backgroundColor:
                                     const Color.fromARGB(255, 43, 11, 11),
                                 content: Text('The LinkedIn link is invalid.',
-                                    style: GoogleFonts.getFont(
+                                    style: TextStyle(fontFamily: 'DM Sans',
                                       fontSize: 16,
                                       color: const Color(0xFFe9e9e9),
-                                      'Poppins',
+                                      
                                     ))));
                           }
                         },
@@ -932,10 +932,10 @@ class _AboutConfPageState extends State<AboutConfPage> {
                               backgroundColor:
                                   const Color.fromARGB(255, 43, 11, 11),
                               content: Text('LinkedIn link removed.',
-                                  style: GoogleFonts.getFont(
+                                  style: TextStyle(fontFamily: 'DM Sans',
                                     fontSize: 16,
                                     color: const Color(0xFFe9e9e9),
-                                    'Poppins',
+                                    
                                   ))));
                         },
                         child: Container(
@@ -1005,8 +1005,8 @@ class _AboutConfPageState extends State<AboutConfPage> {
                                 fontStyle: FontStyle.italic, fontSize: 15),
                             hintStyle:
                                 const TextStyle(fontWeight: FontWeight.w200)),
-                        style: GoogleFonts.getFont(
-                          'Poppins',
+                        style: TextStyle(fontFamily: 'DM Sans',
+                          
                           color: Colors.black,
                           fontSize: 14,
                         ),
@@ -1025,10 +1025,10 @@ class _AboutConfPageState extends State<AboutConfPage> {
                                     const Color.fromARGB(255, 11, 43, 31),
                                 content:
                                     Text('X (formerly Twitter) link saved!',
-                                        style: GoogleFonts.getFont(
+                                        style: TextStyle(fontFamily: 'DM Sans',
                                           fontSize: 16,
                                           color: const Color(0xFFe9e9e9),
-                                          'Poppins',
+                                          
                                         ))));
                           } else {
                             ScaffoldMessenger.of(context).showSnackBar(SnackBar(
@@ -1037,10 +1037,10 @@ class _AboutConfPageState extends State<AboutConfPage> {
                                     const Color.fromARGB(255, 43, 11, 11),
                                 content: Text(
                                     'The X (formerly Twitter) link is invalid.',
-                                    style: GoogleFonts.getFont(
+                                    style: TextStyle(fontFamily: 'DM Sans',
                                       fontSize: 16,
                                       color: const Color(0xFFe9e9e9),
-                                      'Poppins',
+                                      
                                     ))));
                           }
                         },
@@ -1081,10 +1081,10 @@ class _AboutConfPageState extends State<AboutConfPage> {
                                   const Color.fromARGB(255, 43, 11, 11),
                               content:
                                   Text('X (formerly Twitter) link removed.',
-                                      style: GoogleFonts.getFont(
+                                      style: TextStyle(fontFamily: 'DM Sans',
                                         fontSize: 16,
                                         color: const Color(0xFFe9e9e9),
-                                        'Poppins',
+                                        
                                       ))));
                         },
                         child: Container(
@@ -1154,8 +1154,8 @@ class _AboutConfPageState extends State<AboutConfPage> {
                                 fontStyle: FontStyle.italic, fontSize: 15),
                             hintStyle:
                                 const TextStyle(fontWeight: FontWeight.w200)),
-                        style: GoogleFonts.getFont(
-                          'Poppins',
+                        style: TextStyle(fontFamily: 'DM Sans',
+                          
                           color: Colors.black,
                           fontSize: 14,
                         ),
@@ -1173,10 +1173,10 @@ class _AboutConfPageState extends State<AboutConfPage> {
                                 backgroundColor:
                                     const Color.fromARGB(255, 11, 43, 31),
                                 content: Text('Website link saved!',
-                                    style: GoogleFonts.getFont(
+                                    style: TextStyle(fontFamily: 'DM Sans',
                                       fontSize: 16,
                                       color: const Color(0xFFe9e9e9),
-                                      'Poppins',
+                                      
                                     ))));
                           } else {
                             ScaffoldMessenger.of(context).showSnackBar(SnackBar(
@@ -1184,10 +1184,10 @@ class _AboutConfPageState extends State<AboutConfPage> {
                                 backgroundColor:
                                     const Color.fromARGB(255, 43, 11, 11),
                                 content: Text('The Website link is invalid.',
-                                    style: GoogleFonts.getFont(
+                                    style: TextStyle(fontFamily: 'DM Sans',
                                       fontSize: 16,
                                       color: const Color(0xFFe9e9e9),
-                                      'Poppins',
+                                      
                                     ))));
                           }
                         },
@@ -1227,10 +1227,10 @@ class _AboutConfPageState extends State<AboutConfPage> {
                               backgroundColor:
                                   const Color.fromARGB(255, 43, 11, 11),
                               content: Text('Web link removed.',
-                                  style: GoogleFonts.getFont(
+                                  style: TextStyle(fontFamily: 'DM Sans',
                                     fontSize: 16,
                                     color: const Color(0xFFe9e9e9),
-                                    'Poppins',
+                                    
                                   ))));
                         },
                         child: Container(
@@ -1294,10 +1294,10 @@ class _AboutConfPageState extends State<AboutConfPage> {
             duration: const Duration(seconds: 1),
             backgroundColor: const Color.fromARGB(255, 11, 43, 31),
             content: Text('File Uploaded!',
-                style: GoogleFonts.getFont(
+                style: TextStyle(fontFamily: 'DM Sans',
                   fontSize: 16,
                   color: const Color(0xFFe9e9e9),
-                  'Poppins',
+                  
                 ))));
 
         setState(() {
@@ -1321,10 +1321,10 @@ class _AboutConfPageState extends State<AboutConfPage> {
             duration: const Duration(seconds: 1),
             backgroundColor: const Color.fromARGB(255, 11, 43, 31),
             content: Text('File Uploaded!',
-                style: GoogleFonts.getFont(
+                style: TextStyle(fontFamily: 'DM Sans',
                   fontSize: 16,
                   color: const Color(0xFFe9e9e9),
-                  'Poppins',
+                  
                 ))));
 
         setState(() {});

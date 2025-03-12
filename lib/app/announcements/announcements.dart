@@ -8,7 +8,6 @@ import 'package:flutter/gestures.dart';
 
 import 'package:flutter/material.dart';
 
-import 'package:google_fonts/google_fonts.dart';
 
 import 'package:intl/intl.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -132,8 +131,8 @@ class AnnouncementsPageState extends State<AnnouncementsPage> {
               children: [
                 Text(
                   'Today',
-                  style: GoogleFonts.getFont(
-                    'Poppins',
+                  style: TextStyle(fontFamily: 'DM Sans',
+                    
                     fontWeight: FontWeight.w500,
                     fontSize: 18,
                   ),
@@ -154,8 +153,8 @@ class AnnouncementsPageState extends State<AnnouncementsPage> {
                             const EdgeInsetsDirectional.fromSTEB(0, 1, 0, 0),
                         child: Text(
                           '!',
-                          style: GoogleFonts.getFont(
-                            'Poppins',
+                          style: TextStyle(fontFamily: 'DM Sans',
+                            
                             color: Colors.white,
                             fontWeight: FontWeight.w900,
                             fontSize: 14,
@@ -179,8 +178,8 @@ class AnnouncementsPageState extends State<AnnouncementsPage> {
               children: [
                 Text(
                   'All',
-                  style: GoogleFonts.getFont(
-                    'Poppins',
+                  style: TextStyle(fontFamily: 'DM Sans',
+                    
                     fontWeight: FontWeight.w500,
                     fontSize: 18,
                   ),
@@ -214,9 +213,9 @@ class AnnouncementsPageState extends State<AnnouncementsPage> {
                               "\n"
                       ? "\n"
                       : " ",
-                  style: GoogleFonts.getFont(
+                  style: TextStyle(fontFamily: 'DM Sans',
                     color: const Color(0xFF717171),
-                    'Poppins',
+                    
                     fontSize: 12,
                     fontWeight: FontWeight.w500,
                   ),
@@ -225,9 +224,9 @@ class AnnouncementsPageState extends State<AnnouncementsPage> {
               msgText.add(
                 TextSpan(
                   text: t,
-                  style: GoogleFonts.getFont(
+                  style: TextStyle(fontFamily: 'DM Sans',
                     color: const Color.fromARGB(255, 41, 41, 255),
-                    'Poppins',
+                    
                     fontSize: 12,
                     fontWeight: FontWeight.w500,
                     decoration: TextDecoration.underline,
@@ -251,9 +250,9 @@ class AnnouncementsPageState extends State<AnnouncementsPage> {
                               "\n"
                       ? "\n" "$t "
                       : "$t ",
-                  style: GoogleFonts.getFont(
+                  style: TextStyle(fontFamily: 'DM Sans',
                     color: const Color(0xFF717171),
-                    'Poppins',
+                    
                     fontSize: 12,
                     fontWeight: FontWeight.w500,
                   ),
@@ -290,8 +289,8 @@ class AnnouncementsPageState extends State<AnnouncementsPage> {
                       alignment: const AlignmentDirectional(0, 0),
                       child: Text(
                         '${a['name']!.split(" ").first[0]}${a['name']!.split(" ").last[0]}',
-                        style: GoogleFonts.getFont(
-                          'Poppins',
+                        style: TextStyle(fontFamily: 'DM Sans',
+                          
                           color: const Color(0xFF2B2B2B),
                           fontWeight: FontWeight.w500,
                           fontSize: 16,
@@ -310,8 +309,8 @@ class AnnouncementsPageState extends State<AnnouncementsPage> {
                     children: [
                       Text(
                         a['name']!,
-                        style: GoogleFonts.getFont(
-                          'Poppins',
+                        style: TextStyle(fontFamily: 'DM Sans',
+                          
                           color: const Color(0xFF323232),
                           fontWeight: FontWeight.w600,
                           fontSize: 15,
@@ -330,8 +329,8 @@ class AnnouncementsPageState extends State<AnnouncementsPage> {
                           children: [
                             Text(
                               time,
-                              style: GoogleFonts.getFont(
-                                'Poppins',
+                              style: TextStyle(fontFamily: 'DM Sans',
+                                
                                 color: const Color(0xFF0088D4),
                                 fontSize: 12,
                               ),
@@ -375,8 +374,8 @@ class AnnouncementsPageState extends State<AnnouncementsPage> {
                                                         .fromSTEB(4, 0, 0, 0),
                                                 child: Text(
                                                   'Attachment',
-                                                  style: GoogleFonts.getFont(
-                                                    'Poppins',
+                                                  style: TextStyle(fontFamily: 'DM Sans',
+                                                    
                                                     color:
                                                         const Color(0xFF616161),
                                                     fontSize: 10,

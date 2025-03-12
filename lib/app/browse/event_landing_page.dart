@@ -6,7 +6,6 @@ import 'dart:io';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:material_symbols_icons/symbols.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -157,8 +156,8 @@ class _EventLandingPageState extends State<EventLandingPage> {
                           !AppInfo.currentConferenceUser.events.contains(e.id)
                               ? 'This is My Event'
                               : "This is My Event",
-                          style: GoogleFonts.getFont(
-                            'Poppins',
+                          style: TextStyle(fontFamily: 'DM Sans',
+                            
                             fontWeight: FontWeight.w600,
                             fontSize: 15,
                             color: !AppInfo.currentConferenceUser.events
@@ -181,7 +180,7 @@ class _EventLandingPageState extends State<EventLandingPage> {
       backgroundColor: const Color(0xFFF9f9f9),
       body: PopScope(
         canPop: false,
-        onPopInvoked: (b) {
+        onPopInvokedWithResult: (b, a) {
           // Handle back button press here
           Navigator.pushAndRemoveUntil(
             context,
@@ -277,7 +276,7 @@ class _EventLandingPageState extends State<EventLandingPage> {
                                   child: Text(
                                     'Competitive Events',
                                     style: TextStyle(
-                                      fontFamily: 'ClashGrotesk',
+                                      fontFamily: 'RedHatDisplay',
                                       color: Colors.black,
                                       fontSize:
                                           (!kIsWeb && Platform.isIOS) ? 18 : 20,
@@ -307,8 +306,8 @@ class _EventLandingPageState extends State<EventLandingPage> {
                                       12, 0, 12, 0),
                                   child: Text(
                                     '${e.round} | ${getEventType()}',
-                                    style: GoogleFonts.getFont(
-                                      'Poppins',
+                                    style: TextStyle(fontFamily: 'DM Sans',
+                                      
                                       color: const Color(0xFF252C72),
                                       fontSize: 12,
                                     ),
@@ -373,8 +372,8 @@ class _EventLandingPageState extends State<EventLandingPage> {
                                                         .fromSTEB(6, 0, 0, 0),
                                                 child: Text(
                                                   'View in BluePandas',
-                                                  style: GoogleFonts.getFont(
-                                                    'Poppins',
+                                                  style: TextStyle(fontFamily: 'DM Sans',
+                                                    
                                                     color:
                                                         const Color(0xFF252C72),
                                                     fontWeight: FontWeight.w500,
@@ -400,7 +399,7 @@ class _EventLandingPageState extends State<EventLandingPage> {
                               child: Text(
                                 e.name,
                                 style: TextStyle(
-                                  fontFamily: 'ClashGrotesk',
+                                  fontFamily: 'RedHatDisplay',
                                   color: Colors.black,
                                   fontWeight: FontWeight.w500,
                                   fontSize:
@@ -470,8 +469,8 @@ class _EventLandingPageState extends State<EventLandingPage> {
                                           children: [
                                             Text(
                                               getPrelimTimes(),
-                                              style: GoogleFonts.getFont(
-                                                'Poppins',
+                                              style: TextStyle(fontFamily: 'DM Sans',
+                                                
                                                 fontWeight: FontWeight.w600,
                                                 fontSize: 13,
                                               ),
@@ -480,8 +479,8 @@ class _EventLandingPageState extends State<EventLandingPage> {
                                               DateFormat("EEEE, MMMM d").format(
                                                   DateTime.parse(e.date
                                                       .replaceAll('/', '-'))),
-                                              style: GoogleFonts.getFont(
-                                                'Poppins',
+                                              style: TextStyle(fontFamily: 'DM Sans',
+                                                
                                                 color: const Color(0xFF8A8A8A),
                                                 fontSize: 13,
                                               ),
@@ -519,8 +518,8 @@ class _EventLandingPageState extends State<EventLandingPage> {
                                               getEventType() == "Case Study"
                                                   ? "Prep: ${getLocation()}"
                                                   : "Present: ${getLocation()}",
-                                              style: GoogleFonts.getFont(
-                                                'Poppins',
+                                              style: TextStyle(fontFamily: 'DM Sans',
+                                                
                                                 fontWeight: FontWeight.w600,
                                                 fontSize: 13,
                                               ),
@@ -529,8 +528,8 @@ class _EventLandingPageState extends State<EventLandingPage> {
                                               getEventType() == "Case Study"
                                                   ? "Present: ${getPrepLocation()}"
                                                   : AppInfo.conference.location,
-                                              style: GoogleFonts.getFont(
-                                                'Poppins',
+                                              style: TextStyle(fontFamily: 'DM Sans',
+                                                
                                                 color: const Color(0xFF8A8A8A),
                                                 fontSize: 13,
                                               ),
@@ -560,7 +559,7 @@ class _EventLandingPageState extends State<EventLandingPage> {
                               child: Text(
                                 'Past Teams',
                                 style: TextStyle(
-                                  fontFamily: 'ClashGrotesk',
+                                  fontFamily: 'RedHatDisplay',
                                   fontWeight: FontWeight.w500,
                                   fontSize: 18,
                                 ),
@@ -588,8 +587,8 @@ class _EventLandingPageState extends State<EventLandingPage> {
                                             12, 0, 12, 0),
                                     child: Text(
                                       showPast ? 'Hide' : 'Show',
-                                      style: GoogleFonts.getFont(
-                                        'Poppins',
+                                      style: TextStyle(fontFamily: 'DM Sans',
+                                        
                                         color: const Color(0xFF585858),
                                         fontSize: 12,
                                       ),
@@ -664,8 +663,8 @@ class _EventLandingPageState extends State<EventLandingPage> {
                           child: Text(
                             prelimOptions[i],
                             maxLines: 1,
-                            style: GoogleFonts.getFont(
-                              'Poppins',
+                            style: TextStyle(fontFamily: 'DM Sans',
+                              
                               color: Colors.white,
                               fontSize: 13,
                             ),
@@ -716,8 +715,8 @@ class _EventLandingPageState extends State<EventLandingPage> {
                       child: Text(
                         prelimOptions[i],
                         maxLines: 1,
-                        style: GoogleFonts.getFont(
-                          'Poppins',
+                        style: TextStyle(fontFamily: 'DM Sans',
+                          
                           color: Colors.black,
                           fontSize: 13,
                         ),
@@ -872,7 +871,7 @@ class _EventLandingPageState extends State<EventLandingPage> {
                             child: Text(
                               'Check-in',
                               style: TextStyle(
-                                fontFamily: 'ClashGrotesk',
+                                fontFamily: 'RedHatDisplay',
                                 color: const Color(0xAFFFFFFF),
                                 fontSize: (!kIsWeb && Platform.isIOS) ? 11 : 8,
                               ),
@@ -884,8 +883,8 @@ class _EventLandingPageState extends State<EventLandingPage> {
                             child: AutoSizeText(
                               checkInTime,
                               maxLines: 1,
-                              style: GoogleFonts.getFont(
-                                'Poppins',
+                              style: TextStyle(fontFamily: 'DM Sans',
+                                
                                 color: Colors.white,
                                 fontWeight: FontWeight.w500,
                                 fontSize: (!kIsWeb && Platform.isIOS) ? 11 : 10,
@@ -898,7 +897,7 @@ class _EventLandingPageState extends State<EventLandingPage> {
                             child: Text(
                               'Perform',
                               style: TextStyle(
-                                fontFamily: 'ClashGrotesk',
+                                fontFamily: 'RedHatDisplay',
                                 color: const Color(0xA6FFFFFF),
                                 fontSize: (!kIsWeb && Platform.isIOS) ? 11 : 8,
                               ),
@@ -907,8 +906,8 @@ class _EventLandingPageState extends State<EventLandingPage> {
                           AutoSizeText(
                             time.replaceAll(":", '.').toUpperCase(),
                             maxLines: 1,
-                            style: GoogleFonts.getFont(
-                              'Poppins',
+                            style: TextStyle(fontFamily: 'DM Sans',
+                              
                               color: Colors.white,
                               fontWeight: FontWeight.w500,
                               fontSize: (!kIsWeb && Platform.isIOS) ? 11 : 10,
@@ -989,8 +988,8 @@ class _EventLandingPageState extends State<EventLandingPage> {
                                                         ),
                                                       )
                                                     ],
-                                                    style: GoogleFonts.getFont(
-                                                      'Poppins',
+                                                    style: TextStyle(fontFamily: 'DM Sans',
+                                                      
                                                       fontSize: (!kIsWeb &&
                                                               Platform.isIOS)
                                                           ? 11
@@ -1017,8 +1016,8 @@ class _EventLandingPageState extends State<EventLandingPage> {
                                                       0, 0),
                                               child: Text(
                                                 'Upcoming',
-                                                style: GoogleFonts.getFont(
-                                                  'Poppins',
+                                                style: TextStyle(fontFamily: 'DM Sans',
+                                                  
                                                   color:
                                                       const Color(0xFF606060),
                                                   fontSize: 9,
@@ -1044,8 +1043,8 @@ class _EventLandingPageState extends State<EventLandingPage> {
                                       .join(', '),
                                   textAlign: TextAlign.start,
                                   maxLines: 3,
-                                  style: GoogleFonts.getFont(
-                                    'Poppins',
+                                  style: TextStyle(fontFamily: 'DM Sans',
+                                    
                                     color: Colors.black,
                                     fontSize:
                                         (!kIsWeb && Platform.isIOS) ? 19 : 17,
@@ -1064,7 +1063,7 @@ class _EventLandingPageState extends State<EventLandingPage> {
                                         otherInfo[0],
                                         maxLines: 1,
                                         style: TextStyle(
-                                          fontFamily: 'ClashGrotesk',
+                                          fontFamily: 'RedHatDisplay',
                                           color: const Color(0xFF8D8D92),
                                           fontWeight: FontWeight.w500,
                                           fontSize: (!kIsWeb && Platform.isIOS)
@@ -1136,7 +1135,7 @@ class _EventLandingPageState extends State<EventLandingPage> {
                             child: Text(
                               'Check-in',
                               style: TextStyle(
-                                fontFamily: 'ClashGrotesk',
+                                fontFamily: 'RedHatDisplay',
                                 color: const Color(0xAFFFFFFF),
                                 fontSize: (!kIsWeb && Platform.isIOS) ? 11 : 8,
                               ),
@@ -1148,8 +1147,8 @@ class _EventLandingPageState extends State<EventLandingPage> {
                             child: AutoSizeText(
                               checkInTime,
                               maxLines: 1,
-                              style: GoogleFonts.getFont(
-                                'Poppins',
+                              style: TextStyle(fontFamily: 'DM Sans',
+                                
                                 color: Colors.white,
                                 fontWeight: FontWeight.w500,
                                 fontSize: (!kIsWeb && Platform.isIOS) ? 11 : 10,
@@ -1162,7 +1161,7 @@ class _EventLandingPageState extends State<EventLandingPage> {
                             child: Text(
                               'Prep',
                               style: TextStyle(
-                                fontFamily: 'ClashGrotesk',
+                                fontFamily: 'RedHatDisplay',
                                 color: const Color(0xA6FFFFFF),
                                 fontSize: (!kIsWeb && Platform.isIOS) ? 11 : 8,
                               ),
@@ -1171,8 +1170,8 @@ class _EventLandingPageState extends State<EventLandingPage> {
                           AutoSizeText(
                             time,
                             maxLines: 1,
-                            style: GoogleFonts.getFont(
-                              'Poppins',
+                            style: TextStyle(fontFamily: 'DM Sans',
+                              
                               color: Colors.white,
                               fontWeight: FontWeight.w500,
                               fontSize: (!kIsWeb && Platform.isIOS) ? 11 : 10,
@@ -1184,7 +1183,7 @@ class _EventLandingPageState extends State<EventLandingPage> {
                             child: Text(
                               'Perform',
                               style: TextStyle(
-                                fontFamily: 'ClashGrotesk',
+                                fontFamily: 'RedHatDisplay',
                                 color: const Color(0xA6FFFFFF),
                                 fontSize: (!kIsWeb && Platform.isIOS) ? 11 : 8,
                               ),
@@ -1198,8 +1197,8 @@ class _EventLandingPageState extends State<EventLandingPage> {
                                     .toUpperCase()
                                 : tempPrep.toUpperCase(),
                             maxLines: 1,
-                            style: GoogleFonts.getFont(
-                              'Poppins',
+                            style: TextStyle(fontFamily: 'DM Sans',
+                              
                               color: Colors.white,
                               fontWeight: FontWeight.w500,
                               fontSize: (!kIsWeb && Platform.isIOS) ? 11 : 10,
@@ -1280,8 +1279,8 @@ class _EventLandingPageState extends State<EventLandingPage> {
                                                         ),
                                                       )
                                                     ],
-                                                    style: GoogleFonts.getFont(
-                                                      'Poppins',
+                                                    style: TextStyle(fontFamily: 'DM Sans',
+                                                      
                                                       fontSize: (!kIsWeb &&
                                                               Platform.isIOS)
                                                           ? 11
@@ -1308,8 +1307,8 @@ class _EventLandingPageState extends State<EventLandingPage> {
                                                       0, 0),
                                               child: Text(
                                                 'Upcoming',
-                                                style: GoogleFonts.getFont(
-                                                  'Poppins',
+                                                style: TextStyle(fontFamily: 'DM Sans',
+                                                  
                                                   color:
                                                       const Color(0xFF606060),
                                                   fontSize: 9,
@@ -1335,8 +1334,8 @@ class _EventLandingPageState extends State<EventLandingPage> {
                                       .join(', '),
                                   textAlign: TextAlign.start,
                                   maxLines: 3,
-                                  style: GoogleFonts.getFont(
-                                    'Poppins',
+                                  style: TextStyle(fontFamily: 'DM Sans',
+                                    
                                     color: Colors.black,
                                     fontSize:
                                         (!kIsWeb && Platform.isIOS) ? 19 : 17,
@@ -1356,7 +1355,7 @@ class _EventLandingPageState extends State<EventLandingPage> {
                                         otherInfo[0],
                                         maxLines: 1,
                                         style: TextStyle(
-                                          fontFamily: 'ClashGrotesk',
+                                          fontFamily: 'RedHatDisplay',
                                           color: const Color(0xFF8D8D92),
                                           fontWeight: FontWeight.w500,
                                           fontSize: (!kIsWeb && Platform.isIOS)
@@ -1413,8 +1412,8 @@ class _EventLandingPageState extends State<EventLandingPage> {
                     child: Text(
                       'There are no upcoming teams for this event (and/or prelim).',
                       textAlign: TextAlign.center,
-                      style: GoogleFonts.getFont(
-                        'Poppins',
+                      style: TextStyle(fontFamily: 'DM Sans',
+                        
                         color: Colors.black,
                         fontSize: 14,
                       ),
@@ -1514,7 +1513,7 @@ class _EventLandingPageState extends State<EventLandingPage> {
                                   child: Text(
                                     'Check-in',
                                     style: TextStyle(
-                                      fontFamily: 'ClashGrotesk',
+                                      fontFamily: 'RedHatDisplay',
                                       color: Color(0xAFFFFFFF),
                                       fontSize: 8,
                                     ),
@@ -1526,8 +1525,8 @@ class _EventLandingPageState extends State<EventLandingPage> {
                                   child: AutoSizeText(
                                     checkInTime,
                                     maxLines: 1,
-                                    style: GoogleFonts.getFont(
-                                      'Poppins',
+                                    style: TextStyle(fontFamily: 'DM Sans',
+                                      
                                       color: Colors.white,
                                       fontWeight: FontWeight.w500,
                                       fontSize: 10,
@@ -1540,7 +1539,7 @@ class _EventLandingPageState extends State<EventLandingPage> {
                                   child: Text(
                                     'Perform',
                                     style: TextStyle(
-                                      fontFamily: 'ClashGrotesk',
+                                      fontFamily: 'RedHatDisplay',
                                       color: Color(0xA6FFFFFF),
                                       fontSize: 8,
                                     ),
@@ -1549,8 +1548,8 @@ class _EventLandingPageState extends State<EventLandingPage> {
                                 AutoSizeText(
                                   time.replaceAll(":", '.').toUpperCase(),
                                   maxLines: 1,
-                                  style: GoogleFonts.getFont(
-                                    'Poppins',
+                                  style: TextStyle(fontFamily: 'DM Sans',
+                                    
                                     color: Colors.white,
                                     fontWeight: FontWeight.w500,
                                     fontSize: 10,
@@ -1585,8 +1584,8 @@ class _EventLandingPageState extends State<EventLandingPage> {
                                             .join(', '),
                                         textAlign: TextAlign.start,
                                         maxLines: 3,
-                                        style: GoogleFonts.getFont(
-                                          'Poppins',
+                                        style: TextStyle(fontFamily: 'DM Sans',
+                                          
                                           color: Colors.black,
                                           fontSize: (!kIsWeb && Platform.isIOS)
                                               ? 19
@@ -1607,7 +1606,7 @@ class _EventLandingPageState extends State<EventLandingPage> {
                                               otherInfo[0],
                                               maxLines: 1,
                                               style: TextStyle(
-                                                fontFamily: 'ClashGrotesk',
+                                                fontFamily: 'RedHatDisplay',
                                                 color: const Color(0xFF8D8D92),
                                                 fontWeight: FontWeight.w500,
                                                 fontSize:
@@ -1696,7 +1695,7 @@ class _EventLandingPageState extends State<EventLandingPage> {
                                   child: Text(
                                     'Check-in',
                                     style: TextStyle(
-                                      fontFamily: 'ClashGrotesk',
+                                      fontFamily: 'RedHatDisplay',
                                       color: Color(0xAFFFFFFF),
                                       fontSize: 8,
                                     ),
@@ -1708,8 +1707,8 @@ class _EventLandingPageState extends State<EventLandingPage> {
                                   child: AutoSizeText(
                                     checkInTime,
                                     maxLines: 1,
-                                    style: GoogleFonts.getFont(
-                                      'Poppins',
+                                    style: TextStyle(fontFamily: 'DM Sans',
+                                      
                                       color: Colors.white,
                                       fontWeight: FontWeight.w500,
                                       fontSize: 10,
@@ -1722,7 +1721,7 @@ class _EventLandingPageState extends State<EventLandingPage> {
                                   child: Text(
                                     'Prep',
                                     style: TextStyle(
-                                      fontFamily: 'ClashGrotesk',
+                                      fontFamily: 'RedHatDisplay',
                                       color: Color(0xA6FFFFFF),
                                       fontSize: 8,
                                     ),
@@ -1731,8 +1730,8 @@ class _EventLandingPageState extends State<EventLandingPage> {
                                 AutoSizeText(
                                   time,
                                   maxLines: 1,
-                                  style: GoogleFonts.getFont(
-                                    'Poppins',
+                                  style: TextStyle(fontFamily: 'DM Sans',
+                                    
                                     color: Colors.white,
                                     fontWeight: FontWeight.w500,
                                     fontSize: 10,
@@ -1744,7 +1743,7 @@ class _EventLandingPageState extends State<EventLandingPage> {
                                   child: Text(
                                     'Perform',
                                     style: TextStyle(
-                                      fontFamily: 'ClashGrotesk',
+                                      fontFamily: 'RedHatDisplay',
                                       color: Color(0xA6FFFFFF),
                                       fontSize: 8,
                                     ),
@@ -1758,8 +1757,8 @@ class _EventLandingPageState extends State<EventLandingPage> {
                                           .toUpperCase()
                                       : tempPrep.toUpperCase(),
                                   maxLines: 1,
-                                  style: GoogleFonts.getFont(
-                                    'Poppins',
+                                  style: TextStyle(fontFamily: 'DM Sans',
+                                    
                                     color: Colors.white,
                                     fontWeight: FontWeight.w500,
                                     fontSize: 10,
@@ -1794,8 +1793,8 @@ class _EventLandingPageState extends State<EventLandingPage> {
                                             .join(', '),
                                         textAlign: TextAlign.start,
                                         maxLines: 3,
-                                        style: GoogleFonts.getFont(
-                                          'Poppins',
+                                        style: TextStyle(fontFamily: 'DM Sans',
+                                          
                                           color: Colors.black,
                                           fontSize: (!kIsWeb && Platform.isIOS)
                                               ? 19
@@ -1817,7 +1816,7 @@ class _EventLandingPageState extends State<EventLandingPage> {
                                               otherInfo[0],
                                               maxLines: 1,
                                               style: TextStyle(
-                                                fontFamily: 'ClashGrotesk',
+                                                fontFamily: 'RedHatDisplay',
                                                 color: const Color(0xFF8D8D92),
                                                 fontWeight: FontWeight.w500,
                                                 fontSize:
@@ -1887,8 +1886,8 @@ class _EventLandingPageState extends State<EventLandingPage> {
                     child: Text(
                       'There are no past teams for this event (and/or this prelim).',
                       textAlign: TextAlign.center,
-                      style: GoogleFonts.getFont(
-                        'Poppins',
+                      style: TextStyle(fontFamily: 'DM Sans',
+                        
                         color: Colors.black,
                         fontSize: 14,
                       ),

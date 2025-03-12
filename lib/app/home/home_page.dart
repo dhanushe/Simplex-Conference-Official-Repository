@@ -10,7 +10,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:google_fonts/google_fonts.dart';
+
 import 'package:intl/intl.dart';
 import 'about_conference_page.dart';
 import 'all_agenda_items.dart';
@@ -198,8 +198,8 @@ class _HomePageState extends State<HomePage> {
                                                         .fromSTEB(3, 0, 0, 0),
                                                 child: Text(
                                                   'Exit Conference',
-                                                  style: GoogleFonts.getFont(
-                                                    'Poppins',
+                                                  style: TextStyle(fontFamily: 'DM Sans',
+                                                    
                                                     color: Colors.white,
                                                     fontWeight:
                                                         FontWeight.normal,
@@ -269,8 +269,8 @@ class _HomePageState extends State<HomePage> {
                                                           .fromSTEB(3, 0, 0, 0),
                                                   child: Text(
                                                     'Refresh',
-                                                    style: GoogleFonts.getFont(
-                                                      'Poppins',
+                                                    style: TextStyle(fontFamily: 'DM Sans',
+                                                      
                                                       color: Colors.white,
                                                       fontWeight:
                                                           FontWeight.normal,
@@ -326,7 +326,7 @@ class _HomePageState extends State<HomePage> {
                                         AppInfo.conference.name,
                                         maxLines: 2,
                                         style: TextStyle(
-                                          fontFamily: 'ClashGrotesk',
+                                          fontFamily: 'RedHatDisplay',
                                           color: Colors.white,
                                           fontWeight: (!kIsWeb &&
                                                   (!kIsWeb && Platform.isIOS))
@@ -369,8 +369,8 @@ class _HomePageState extends State<HomePage> {
                                           AppInfo.conference.location,
                                           overflow: TextOverflow.ellipsis,
                                           maxLines: 1,
-                                          style: GoogleFonts.getFont(
-                                            'Poppins',
+                                          style: TextStyle(fontFamily: 'DM Sans',
+                                            
                                             color: const Color(0xD9FFFFFF),
                                             fontWeight: (!kIsWeb &&
                                                     (!kIsWeb && Platform.isIOS))
@@ -415,8 +415,8 @@ class _HomePageState extends State<HomePage> {
                                               AppInfo.conference.startDate,
                                               AppInfo.conference.endDate),
                                           maxLines: 2,
-                                          style: GoogleFonts.getFont(
-                                            'Poppins',
+                                          style: TextStyle(fontFamily: 'DM Sans',
+                                            
                                             color: const Color(0xD9FFFFFF),
                                             fontWeight: (!kIsWeb &&
                                                     (!kIsWeb && Platform.isIOS))
@@ -457,7 +457,7 @@ class _HomePageState extends State<HomePage> {
                           AutoSizeText(
                             'My Schedule',
                             style: TextStyle(
-                              fontFamily: 'ClashGrotesk',
+                              fontFamily: 'RedHatDisplay',
                               color: Colors.black,
                               fontWeight: FontWeight.w500,
                               fontSize: (!kIsWeb && (!kIsWeb && Platform.isIOS))
@@ -493,8 +493,8 @@ class _HomePageState extends State<HomePage> {
                                       12, 0, 12, 0),
                                   child: Text(
                                     'View in Agenda',
-                                    style: GoogleFonts.getFont(
-                                      'Poppins',
+                                    style: TextStyle(fontFamily: 'DM Sans',
+                                      
                                       color: const Color(0xFF656567),
                                       fontSize: 11,
                                     ),
@@ -534,8 +534,8 @@ class _HomePageState extends State<HomePage> {
                                       children: [
                                         Text(
                                           'See All...',
-                                          style: GoogleFonts.getFont(
-                                            'Poppins',
+                                          style: TextStyle(fontFamily: 'DM Sans',
+                                            
                                             color: const Color(0xFF0904F4),
                                             fontSize: 14,
                                           ),
@@ -576,7 +576,7 @@ class _HomePageState extends State<HomePage> {
                           AutoSizeText(
                             'My Events',
                             style: TextStyle(
-                              fontFamily: 'ClashGrotesk',
+                              fontFamily: 'RedHatDisplay',
                               color: Colors.black,
                               fontWeight: FontWeight.w500,
                               fontSize: (!kIsWeb && (!kIsWeb && Platform.isIOS))
@@ -610,8 +610,8 @@ class _HomePageState extends State<HomePage> {
                                       12, 0, 12, 0),
                                   child: Text(
                                     'View in Competitive Events',
-                                    style: GoogleFonts.getFont(
-                                      'Poppins',
+                                    style: TextStyle(fontFamily: 'DM Sans',
+                                      
                                       color: const Color(0xFF656567),
                                       fontSize: 11,
                                     ),
@@ -633,7 +633,7 @@ class _HomePageState extends State<HomePage> {
                           Text(
                             'Information',
                             style: TextStyle(
-                              fontFamily: 'ClashGrotesk',
+                              fontFamily: 'RedHatDisplay',
                               color: Colors.black,
                               fontWeight: FontWeight.w500,
                               fontSize: (!kIsWeb && (!kIsWeb && Platform.isIOS))
@@ -696,8 +696,8 @@ class _HomePageState extends State<HomePage> {
                                             overflow: TextOverflow.ellipsis,
                                             maxLines: 2,
                                             'Building\nMaps',
-                                            style: GoogleFonts.getFont(
-                                              'Poppins',
+                                            style: TextStyle(fontFamily: 'DM Sans',
+                                              
                                               color: const Color(0xFF8A00DE),
                                               fontWeight: FontWeight.w400,
                                               fontSize: 15,
@@ -772,8 +772,8 @@ class _HomePageState extends State<HomePage> {
                                             overflow: TextOverflow.ellipsis,
                                             maxLines: 2,
                                             'About This\nConference',
-                                            style: GoogleFonts.getFont(
-                                              'Poppins',
+                                            style: TextStyle(fontFamily: 'DM Sans',
+                                              
                                               color: const Color(0xFF0081F4),
                                               fontWeight: FontWeight.w400,
                                               fontSize: 15,
@@ -832,7 +832,7 @@ class _HomePageState extends State<HomePage> {
               style: TextStyle(
                 fontSize: 18,
                 color: Color.fromARGB(255, 0, 0, 0),
-                fontFamily: 'ClashGrotesk',
+                fontFamily: 'RedHatDisplay',
                 fontWeight: FontWeight.w500,
               ),
             ),
@@ -845,11 +845,11 @@ class _HomePageState extends State<HomePage> {
                   children: [
                     Text(
                       'You are being directed to an external third-party application by opening this link. Simplex bears no responsibility for any violations on third-party platforms.\n\nLink: $s',
-                      style: GoogleFonts.getFont(
+                      style: TextStyle(fontFamily: 'DM Sans',
                         fontSize: 14,
                         color: const Color.fromARGB(255, 0, 0, 0),
                         fontWeight: FontWeight.w400,
-                        'Poppins',
+                        
                       ),
                     ),
                     const SizedBox(height: 15),
@@ -868,8 +868,8 @@ class _HomePageState extends State<HomePage> {
                       backgroundColor: const Color.fromARGB(255, 186, 186, 186),
                     ),
                     child: Text('Cancel',
-                        style: GoogleFonts.getFont(
-                            color: Colors.black, 'Poppins')),
+                        style: TextStyle(fontFamily: 'DM Sans',
+                            color: Colors.black, )),
                     onPressed: () {
                       setState(() {
                         okPressed = true;
@@ -884,8 +884,8 @@ class _HomePageState extends State<HomePage> {
                       backgroundColor: const Color.fromARGB(255, 164, 151, 255),
                     ),
                     child: Text('Open',
-                        style: GoogleFonts.getFont(
-                            color: Colors.black, 'Poppins')),
+                        style: TextStyle(fontFamily: 'DM Sans',
+                            color: Colors.black, )),
                     onPressed: () async {
                       var uri = Uri.parse(s);
                       if (await canLaunchUrl(uri)) {
@@ -1032,8 +1032,8 @@ class _HomePageState extends State<HomePage> {
                                   overflow: TextOverflow.ellipsis,
                                   maxLines: 2,
                                   tile['name1']!,
-                                  style: GoogleFonts.getFont(
-                                    'Poppins',
+                                  style: TextStyle(fontFamily: 'DM Sans',
+                                    
                                     color: c,
                                     fontWeight: FontWeight.w400,
                                     fontSize: 15,
@@ -1103,8 +1103,8 @@ class _HomePageState extends State<HomePage> {
                                   overflow: TextOverflow.ellipsis,
                                   maxLines: 2,
                                   tile['name2']!,
-                                  style: GoogleFonts.getFont(
-                                    'Poppins',
+                                  style: TextStyle(fontFamily: 'DM Sans',
+                                    
                                     color: c3,
                                     fontWeight: FontWeight.w400,
                                     fontSize: 15,
@@ -1218,8 +1218,8 @@ class _HomePageState extends State<HomePage> {
                               overflow: TextOverflow.ellipsis,
                               maxLines: 2,
                               tile['name']!,
-                              style: GoogleFonts.getFont(
-                                'Poppins',
+                              style: TextStyle(fontFamily: 'DM Sans',
+                                
                                 color: c,
                                 fontWeight: FontWeight.w400,
                                 fontSize: 16,
@@ -1312,8 +1312,8 @@ class _HomePageState extends State<HomePage> {
                               e.name,
                               maxLines: 1,
                               overflow: TextOverflow.ellipsis,
-                              style: GoogleFonts.getFont(
-                                'Poppins',
+                              style: TextStyle(fontFamily: 'DM Sans',
+                                
                                 color: Colors.white,
                                 fontWeight: FontWeight.w400,
                                 fontSize:
@@ -1434,8 +1434,8 @@ class _HomePageState extends State<HomePage> {
                     child: Text(
                       'You do not have any bookmarked events.',
                       textAlign: TextAlign.center,
-                      style: GoogleFonts.getFont(
-                        'Poppins',
+                      style: TextStyle(fontFamily: 'DM Sans',
+                        
                         color: Colors.black,
                         fontSize: 14,
                       ),
@@ -1549,8 +1549,8 @@ class _HomePageState extends State<HomePage> {
                       ),
                     )
                   ],
-                  style: GoogleFonts.getFont(
-                    'Poppins',
+                  style: TextStyle(fontFamily: 'DM Sans',
+                    
                     fontSize: (!kIsWeb && Platform.isIOS) ? 12 : 10,
                   ),
                 ),
@@ -1587,8 +1587,8 @@ class _HomePageState extends State<HomePage> {
                       ),
                     )
                   ],
-                  style: GoogleFonts.getFont(
-                    'Poppins',
+                  style: TextStyle(fontFamily: 'DM Sans',
+                    
                     fontSize:
                         (!kIsWeb && (!kIsWeb && Platform.isIOS)) ? 12 : 10,
                   ),
@@ -1676,8 +1676,8 @@ class _HomePageState extends State<HomePage> {
                                                   : w.type == "Session"
                                                       ? "Session"
                                                       : "Item",
-                                              style: GoogleFonts.getFont(
-                                                'Poppins',
+                                              style: TextStyle(fontFamily: 'DM Sans',
+                                                
                                                 color: w.type == "Event"
                                                     ? const Color(0xFF0904F4)
                                                     : w.type == "Session"
@@ -1713,8 +1713,8 @@ class _HomePageState extends State<HomePage> {
                                             name,
                                             textAlign: TextAlign.start,
                                             maxLines: 2,
-                                            style: GoogleFonts.getFont(
-                                              'Poppins',
+                                            style: TextStyle(fontFamily: 'DM Sans',
+                                              
                                               color: Colors.black,
                                               fontSize: (!kIsWeb &&
                                                       (!kIsWeb &&
@@ -1748,7 +1748,7 @@ class _HomePageState extends State<HomePage> {
                                                       TextOverflow.ellipsis,
                                                   maxLines: 1,
                                                   style: const TextStyle(
-                                                    fontFamily: 'ClashGrotesk',
+                                                    fontFamily: 'RedHatDisplay',
                                                     fontWeight: FontWeight.w500,
                                                     fontSize: 11,
                                                   ),
@@ -1791,7 +1791,7 @@ class _HomePageState extends State<HomePage> {
                                   child: Text(
                                     'Start',
                                     style: TextStyle(
-                                      fontFamily: 'ClashGrotesk',
+                                      fontFamily: 'RedHatDisplay',
                                       color: w.type == "Event"
                                           ? const Color.fromARGB(180, 8, 4, 244)
                                           : w.type == "Session"
@@ -1809,8 +1809,8 @@ class _HomePageState extends State<HomePage> {
                                 AutoSizeText(
                                   start.toUpperCase().replaceAll(":", "."),
                                   maxLines: 1,
-                                  style: GoogleFonts.getFont(
-                                    'Poppins',
+                                  style: TextStyle(fontFamily: 'DM Sans',
+                                    
                                     color: w.type == "Event"
                                         ? const Color.fromARGB(255, 8, 4, 244)
                                         : w.type == "Session"
@@ -1828,7 +1828,7 @@ class _HomePageState extends State<HomePage> {
                                   child: Text(
                                     'End',
                                     style: TextStyle(
-                                      fontFamily: 'ClashGrotesk',
+                                      fontFamily: 'RedHatDisplay',
                                       color: w.type == "Event"
                                           ? const Color.fromARGB(180, 8, 4, 244)
                                           : w.type == "Session"
@@ -1846,8 +1846,8 @@ class _HomePageState extends State<HomePage> {
                                 AutoSizeText(
                                   end.toUpperCase().replaceAll(":", "."),
                                   maxLines: 1,
-                                  style: GoogleFonts.getFont(
-                                    'Poppins',
+                                  style: TextStyle(fontFamily: 'DM Sans',
+                                    
                                     color: w.type == "Event"
                                         ? const Color.fromARGB(255, 8, 4, 244)
                                         : w.type == "Session"
@@ -1969,8 +1969,8 @@ class _HomePageState extends State<HomePage> {
                     child: Text(
                       'There are no more selected agenda items for today.',
                       textAlign: TextAlign.center,
-                      style: GoogleFonts.getFont(
-                        'Poppins',
+                      style: TextStyle(fontFamily: 'DM Sans',
+                        
                         color: Colors.black,
                         fontSize: 14,
                       ),

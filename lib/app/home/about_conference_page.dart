@@ -7,7 +7,6 @@ import '../../api/app_info.dart';
 import '../../api/logic/API.dart';
 import '../navigation/navigation.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class AboutConferencePage extends StatefulWidget {
   const AboutConferencePage({super.key});
@@ -303,7 +302,7 @@ class _AboutConferencePageState extends State<AboutConferencePage> {
                                             child: Text(
                                               'Home',
                                               style: TextStyle(
-                                                fontFamily: 'ClashGrotesk',
+                                                fontFamily: 'RedHatDisplay',
                                                 color: Color(0xC5FFFFFF),
                                                 fontSize: 20,
                                               ),
@@ -324,7 +323,7 @@ class _AboutConferencePageState extends State<AboutConferencePage> {
                                         Text(
                                           'About this Conference',
                                           style: TextStyle(
-                                            fontFamily: 'ClashGrotesk',
+                                            fontFamily: 'RedHatDisplay',
                                             color: Colors.white,
                                             fontWeight: FontWeight.w500,
                                             fontSize: 24,
@@ -357,7 +356,7 @@ class _AboutConferencePageState extends State<AboutConferencePage> {
                                 child: Text(
                                   'Description',
                                   style: TextStyle(
-                                    fontFamily: 'ClashGrotesk',
+                                    fontFamily: 'RedHatDisplay',
                                     color: Colors.black,
                                     fontWeight: FontWeight.w500,
                                     fontSize: 26,
@@ -377,8 +376,8 @@ class _AboutConferencePageState extends State<AboutConferencePage> {
                               Flexible(
                                 child: Text(
                                   AppInfo.conference.longDesc,
-                                  style: GoogleFonts.getFont(
-                                    'Poppins',
+                                  style: TextStyle(fontFamily: 'DM Sans',
+                                    
                                     fontWeight: FontWeight.w300,
                                     fontSize: 12,
                                   ),
@@ -400,7 +399,7 @@ class _AboutConferencePageState extends State<AboutConferencePage> {
                                       child: Text(
                                         'Specific Location',
                                         style: TextStyle(
-                                          fontFamily: 'ClashGrotesk',
+                                          fontFamily: 'RedHatDisplay',
                                           color: Colors.black,
                                           fontWeight: FontWeight.w500,
                                           fontSize: 26,
@@ -416,7 +415,7 @@ class _AboutConferencePageState extends State<AboutConferencePage> {
                             ? Padding(
                                 padding: const EdgeInsetsDirectional.fromSTEB(
                                     25, 9, 25, 0),
-                                child: Container(
+                                child: SizedBox(
                                     width:
                                         MediaQuery.sizeOf(context).width * 0.88,
                                     height: 200,
@@ -436,7 +435,7 @@ class _AboutConferencePageState extends State<AboutConferencePage> {
                                       child: Text(
                                         AppInfo.conference.specificLoc,
                                         style: const TextStyle(
-                                          fontFamily: 'Poppins',
+                                          fontFamily: 'DM Sans',
                                           color: Colors.black,
                                           fontWeight: FontWeight.w400,
                                           fontSize: 12,
@@ -458,7 +457,7 @@ class _AboutConferencePageState extends State<AboutConferencePage> {
                         //         child: Text(
                         //           'SielifyAR',
                         //           style: TextStyle(
-                        //             fontFamily: 'ClashGrotesk',
+                        //             fontFamily: 'RedHatDisplay',
                         //             color: Colors.black,
                         //             fontWeight: FontWeight.w500,
                         //             fontSize: 26,
@@ -495,7 +494,7 @@ class _AboutConferencePageState extends State<AboutConferencePage> {
                         //                       alignment: Alignment.center,
                         //                       child: Text('Open SielifyAR',
                         //                           style: TextStyle(
-                        //                               fontFamily: 'Poppins',
+                        //                               fontFamily: 
                         //                               color: Colors.black)))),
                         //             ),
                         //           ])
@@ -511,7 +510,7 @@ class _AboutConferencePageState extends State<AboutConferencePage> {
                                 child: Text(
                                   'Follow Us',
                                   style: TextStyle(
-                                    fontFamily: 'ClashGrotesk',
+                                    fontFamily: 'RedHatDisplay',
                                     color: Colors.black,
                                     fontWeight: FontWeight.w500,
                                     fontSize: 26,
@@ -554,7 +553,7 @@ class _AboutConferencePageState extends State<AboutConferencePage> {
               style: TextStyle(
                 fontSize: 18,
                 color: Color.fromARGB(255, 0, 0, 0),
-                fontFamily: 'ClashGrotesk',
+                fontFamily: 'RedHatDisplay',
                 fontWeight: FontWeight.w500,
               ),
             ),
@@ -567,11 +566,11 @@ class _AboutConferencePageState extends State<AboutConferencePage> {
                   children: [
                     Text(
                       'You are being directed to an external third-party application by opening this link. Simplex bears no responsibility for any violations on third-party platforms.\n\nLink: $s',
-                      style: GoogleFonts.getFont(
+                      style: TextStyle(fontFamily: 'DM Sans',
                         fontSize: 14,
                         color: Colors.black,
                         fontWeight: FontWeight.w400,
-                        'Poppins',
+                        
                       ),
                     ),
                     const SizedBox(height: 15),
@@ -590,8 +589,8 @@ class _AboutConferencePageState extends State<AboutConferencePage> {
                       backgroundColor: const Color.fromARGB(255, 186, 186, 186),
                     ),
                     child: Text('Cancel',
-                        style: GoogleFonts.getFont(
-                            color: Colors.black, 'Poppins')),
+                        style: TextStyle(fontFamily: 'DM Sans',
+                            color: Colors.black, )),
                     onPressed: () {
                       setState(() {
                         okPressed = true;
@@ -606,8 +605,8 @@ class _AboutConferencePageState extends State<AboutConferencePage> {
                       backgroundColor: const Color.fromARGB(255, 164, 151, 255),
                     ),
                     child: Text('Open',
-                        style: GoogleFonts.getFont(
-                            color: Colors.black, 'Poppins')),
+                        style: TextStyle(fontFamily: 'DM Sans',
+                            color: Colors.black, )),
                     onPressed: () async {
                       var uri = Uri.parse(s);
                       if (await canLaunchUrl(uri)) {

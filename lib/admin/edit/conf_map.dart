@@ -12,7 +12,7 @@ import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:google_fonts/google_fonts.dart';
+
 
 class ConfMapPage extends StatefulWidget {
   const ConfMapPage({super.key});
@@ -55,10 +55,10 @@ class _ConfMapPageState extends State<ConfMapPage> {
           backgroundColor: const Color.fromARGB(255, 11, 43, 31),
           content: Text(
               'Changes Saved! Refresh the app and look at the Conference Map to view changes.',
-              style: GoogleFonts.getFont(
+              style: TextStyle(fontFamily: 'DM Sans',
                 fontSize: 16,
                 color: const Color(0xFFe9e9e9),
-                'Poppins',
+                
               ))));
       setState(() {
         saving = false;
@@ -117,25 +117,25 @@ class _ConfMapPageState extends State<ConfMapPage> {
                                 ? TextButton(
                                     onPressed: () => save(),
                                     style: ButtonStyle(
-                                        shape: const MaterialStatePropertyAll(
+                                        shape: const WidgetStatePropertyAll(
                                             RoundedRectangleBorder(
                                                 borderRadius: BorderRadius.all(
                                                     Radius.circular(5)))),
                                         overlayColor:
                                             // only show lighter color if hovered
-                                            MaterialStateProperty.resolveWith(
+                                            WidgetStateProperty.resolveWith(
                                                 (states) {
                                           if (states.contains(
-                                                  MaterialState.hovered) &&
+                                                  WidgetState.hovered) &&
                                               !states.contains(
-                                                  MaterialState.focused) &&
+                                                  WidgetState.focused) &&
                                               !states.contains(
-                                                  MaterialState.pressed)) {
+                                                  WidgetState.pressed)) {
                                             return const Color.fromARGB(
                                                 255, 138, 91, 240);
                                             // this is a hacky way to accomplish the ink effect
                                           } else if (states.contains(
-                                              MaterialState.pressed)) {
+                                              WidgetState.pressed)) {
                                             return const Color.fromARGB(
                                                 255, 94, 28, 236);
                                           } else {
@@ -143,10 +143,10 @@ class _ConfMapPageState extends State<ConfMapPage> {
                                           }
                                         }),
                                         foregroundColor:
-                                            const MaterialStatePropertyAll(
+                                            const WidgetStatePropertyAll(
                                                 Colors.white),
                                         backgroundColor:
-                                            const MaterialStatePropertyAll(
+                                            const WidgetStatePropertyAll(
                                                 Color.fromARGB(
                                                     255, 115, 57, 237))),
                                     child: const Padding(
@@ -176,9 +176,9 @@ class _ConfMapPageState extends State<ConfMapPage> {
                       children: [
                         Text(
                           'Edit Conference Maps',
-                          style: GoogleFonts.getFont(
+                          style: TextStyle(fontFamily: 'DM Sans',
                             color: Colors.black,
-                            'DM Sans',
+                   
                             fontWeight: FontWeight.bold,
                             fontSize: 22,
                           ),
@@ -198,9 +198,9 @@ class _ConfMapPageState extends State<ConfMapPage> {
                       children: [
                         Text(
                           'Upload Image',
-                          style: GoogleFonts.getFont(
+                          style: TextStyle(fontFamily: 'DM Sans',
                             color: Colors.black,
-                            'DM Sans',
+                         
                             fontWeight: FontWeight.normal,
                             fontSize: 18,
                           ),
@@ -255,8 +255,8 @@ class _ConfMapPageState extends State<ConfMapPage> {
                                     ),
                                     Text(
                                       'Upload New',
-                                      style: GoogleFonts.getFont(
-                                        'Poppins',
+                                      style: TextStyle(fontFamily: 'DM Sans',
+                                        
                                         color: const Color(0xFF000000),
                                         fontSize: 18,
                                       ),
@@ -282,9 +282,9 @@ class _ConfMapPageState extends State<ConfMapPage> {
                       children: [
                         Text(
                           'Current Images',
-                          style: GoogleFonts.getFont(
+                          style: TextStyle(fontFamily: 'DM Sans',
                             color: Colors.black,
-                            'DM Sans',
+                   
                             fontWeight: FontWeight.bold,
                             fontSize: 22,
                           ),
@@ -304,8 +304,8 @@ class _ConfMapPageState extends State<ConfMapPage> {
                       children: [
                         Text(
                           'These may not appear to scale as they are in the app. Check the app to verify the true user experience.',
-                          style: GoogleFonts.getFont(
-                            'DM Sans',
+                          style: TextStyle(fontFamily: 'DM Sans',
+          
                             color: Colors.black,
                             fontWeight: FontWeight.normal,
                             fontSize: 14,
@@ -346,10 +346,10 @@ class _ConfMapPageState extends State<ConfMapPage> {
                                   const Color.fromARGB(255, 11, 43, 31),
                               content: Text(
                                   'Changes Saved! Refresh the app and look at the Conference Map to view changes.',
-                                  style: GoogleFonts.getFont(
+                                  style: TextStyle(fontFamily: 'DM Sans',
                                     fontSize: 16,
                                     color: const Color(0xFFe9e9e9),
-                                    'Poppins',
+                                    
                                   ))));
                           setState(() {
                             saving = false;
@@ -383,8 +383,8 @@ class _ConfMapPageState extends State<ConfMapPage> {
                                   children: [
                                     Text(
                                       'Save',
-                                      style: GoogleFonts.getFont(
-                                        'Poppins',
+                                      style: TextStyle(fontFamily: 'DM Sans',
+                                        
                                         color: const Color(0xFFE9E9E9),
                                         fontSize: 18,
                                       ),
@@ -434,10 +434,10 @@ class _ConfMapPageState extends State<ConfMapPage> {
             duration: const Duration(seconds: 1),
             backgroundColor: const Color.fromARGB(255, 11, 43, 31),
             content: Text('Image Uploaded!',
-                style: GoogleFonts.getFont(
+                style: TextStyle(fontFamily: 'DM Sans',
                   fontSize: 16,
                   color: const Color(0xFFe9e9e9),
-                  'Poppins',
+                  
                 ))));
 
         setState(() {
@@ -461,10 +461,10 @@ class _ConfMapPageState extends State<ConfMapPage> {
             duration: const Duration(seconds: 1),
             backgroundColor: const Color.fromARGB(255, 11, 43, 31),
             content: Text('Image Uploaded!',
-                style: GoogleFonts.getFont(
+                style: TextStyle(fontFamily: 'DM Sans',
                   fontSize: 16,
                   color: const Color(0xFFe9e9e9),
-                  'Poppins',
+                  
                 ))));
 
         setState(() {});
@@ -508,10 +508,10 @@ class _ConfMapPageState extends State<ConfMapPage> {
                                     const Color.fromARGB(255, 43, 11, 11),
                                 content:
                                     Text('Cannot move the leftmost image left.',
-                                        style: GoogleFonts.getFont(
+                                        style: TextStyle(fontFamily: 'DM Sans',
                                           fontSize: 16,
                                           color: const Color(0xFFe9e9e9),
-                                          'Poppins',
+                                          
                                         ))));
                           } else {
                             String temp = images[i - 1];
@@ -550,10 +550,10 @@ class _ConfMapPageState extends State<ConfMapPage> {
                                     const Color.fromARGB(255, 43, 11, 11),
                                 content: Text(
                                     'Cannot move the rightmost image right.',
-                                    style: GoogleFonts.getFont(
+                                    style: TextStyle(fontFamily: 'DM Sans',
                                       fontSize: 16,
                                       color: const Color(0xFFe9e9e9),
-                                      'Poppins',
+                                      
                                     ))));
                           } else {
                             String temp = images[i + 1];

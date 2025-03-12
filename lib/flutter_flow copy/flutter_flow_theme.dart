@@ -1,7 +1,7 @@
 // ignore_for_file: overridden_fields, annotate_overrides
 
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+
 
 
 const kThemeModeKey = '__theme_mode__';
@@ -38,44 +38,44 @@ abstract class FlutterFlowTheme {
   late Color primaryBtnText;
   late Color lineColor;
 
-  TextStyle get title1 => GoogleFonts.getFont(
-        'Poppins',
+  TextStyle get title1 => TextStyle(fontFamily: 'RedHatDisplay',
+        
         color: primaryText,
         fontWeight: FontWeight.w600,
         fontSize: 24,
       );
-  TextStyle get title2 => GoogleFonts.getFont(
-        'Poppins',
+  TextStyle get title2 => TextStyle(fontFamily: 'RedHatDisplay',
+        
         color: secondaryText,
         fontWeight: FontWeight.w600,
         fontSize: 22,
       );
-  TextStyle get title3 => GoogleFonts.getFont(
-        'Poppins',
+  TextStyle get title3 => TextStyle(fontFamily: 'RedHatDisplay',
+        
         color: primaryText,
         fontWeight: FontWeight.w600,
         fontSize: 20,
       );
-  TextStyle get subtitle1 => GoogleFonts.getFont(
-        'Poppins',
+  TextStyle get subtitle1 => TextStyle(fontFamily: 'RedHatDisplay',
+        
         color: primaryText,
         fontWeight: FontWeight.w600,
         fontSize: 18,
       );
-  TextStyle get subtitle2 => GoogleFonts.getFont(
-        'Poppins',
+  TextStyle get subtitle2 => TextStyle(fontFamily: 'RedHatDisplay',
+        
         color: secondaryText,
         fontWeight: FontWeight.w600,
         fontSize: 16,
       );
-  TextStyle get bodyText1 => GoogleFonts.getFont(
-        'Poppins',
+  TextStyle get bodyText1 => TextStyle(fontFamily: 'RedHatDisplay',
+        
         color: primaryText,
         fontWeight: FontWeight.w600,
         fontSize: 14,
       );
-  TextStyle get bodyText2 => GoogleFonts.getFont(
-        'Poppins',
+  TextStyle get bodyText2 => TextStyle(fontFamily: 'RedHatDisplay',
+        
         color: secondaryText,
         fontWeight: FontWeight.w600,
         fontSize: 14,
@@ -122,8 +122,8 @@ extension TextStyleHelper on TextStyle {
     double? lineHeight,
   }) =>
       useGoogleFonts
-          ? GoogleFonts.getFont(
-              fontFamily!,
+          ? TextStyle(fontFamily: fontFamily!,
+              
               color: color ?? this.color,
               fontSize: fontSize ?? this.fontSize,
               fontWeight: fontWeight ?? this.fontWeight,

@@ -2,7 +2,6 @@
 
 import 'package:flutter/material.dart';
 
-import 'package:google_fonts/google_fonts.dart';
 // ignore: unused_import
 import 'package:intl/intl.dart';
 
@@ -58,9 +57,9 @@ class _DashboardPageState extends State<DashboardPage> {
                 children: [
                   Text(
                     'Upcoming Event',
-                    style: GoogleFonts.getFont(
+                    style: TextStyle(fontFamily: 'DM Sans',
                       color: Colors.black,
-                      'DM Sans',
+                      
                       fontWeight: FontWeight.bold,
                       fontSize: 22,
                     ),
@@ -134,8 +133,8 @@ class _DashboardPageState extends State<DashboardPage> {
                                                       text:
                                                           '${Dates.getMonth(AppInfo.conference.startDate)}\n',
                                                       style:
-                                                          GoogleFonts.getFont(
-                                                        'DM Sans',
+                                                          TextStyle(fontFamily: 'DM Sans',
+                                                        
                                                         color: Colors.white,
                                                         fontWeight:
                                                             FontWeight.normal,
@@ -153,8 +152,8 @@ class _DashboardPageState extends State<DashboardPage> {
                                                       ),
                                                     )
                                                   ],
-                                                  style: GoogleFonts.getFont(
-                                                    'DM Sans',
+                                                  style: TextStyle(fontFamily: 'DM Sans',
+                                                    
                                                     color: Colors.white,
                                                   ),
                                                 ),
@@ -193,8 +192,8 @@ class _DashboardPageState extends State<DashboardPage> {
                                                 TextSpan(
                                                   text:
                                                       '${Dates.getMonth(AppInfo.conference.endDate)}\n',
-                                                  style: GoogleFonts.getFont(
-                                                    'DM Sans',
+                                                  style: TextStyle(fontFamily: 'DM Sans',
+                                                    
                                                     color: Colors.white,
                                                     fontWeight:
                                                         FontWeight.normal,
@@ -210,8 +209,8 @@ class _DashboardPageState extends State<DashboardPage> {
                                                   ),
                                                 )
                                               ],
-                                              style: GoogleFonts.getFont(
-                                                'DM Sans',
+                                              style: TextStyle(fontFamily: 'DM Sans',
+                                                
                                                 color: Colors.white,
                                               ),
                                             ),
@@ -240,9 +239,9 @@ class _DashboardPageState extends State<DashboardPage> {
                                               AppInfo.conference.name,
                                               maxLines: 1,
                                               overflow: TextOverflow.ellipsis,
-                                              style: GoogleFonts.getFont(
+                                              style: TextStyle(fontFamily: 'DM Sans',
                                                 color: Colors.white,
-                                                'DM Sans',
+                                                
                                                 fontSize: 24,
                                               ),
                                             ),
@@ -294,8 +293,8 @@ class _DashboardPageState extends State<DashboardPage> {
                                                       AppInfo
                                                           .conference.location,
                                                       style:
-                                                          GoogleFonts.getFont(
-                                                        'DM Sans',
+                                                          TextStyle(fontFamily: 'DM Sans',
+                                                        
                                                         color: const Color(
                                                             0xD0FFFFFF),
                                                         fontSize: 17,
@@ -316,9 +315,8 @@ class _DashboardPageState extends State<DashboardPage> {
                                                         TextSpan(
                                                           text:
                                                               '${getUserCount()} ',
-                                                          style: GoogleFonts
-                                                              .getFont(
-                                                            'DM Sans',
+                                                          style: TextStyle(fontFamily: 'DM Sans',
+                                                            
                                                             color: Colors.white,
                                                             fontWeight:
                                                                 FontWeight.bold,
@@ -334,8 +332,8 @@ class _DashboardPageState extends State<DashboardPage> {
                                                         )
                                                       ],
                                                       style:
-                                                          GoogleFonts.getFont(
-                                                        'DM Sans',
+                                                          TextStyle(fontFamily: 'DM Sans',
+                                                        
                                                         color: const Color(
                                                             0xD1FFFFFF),
                                                         fontSize: 18,
@@ -405,11 +403,11 @@ class _DashboardPageState extends State<DashboardPage> {
                               children: [
                                 Text(
                                   'Announcements',
-                                  style: GoogleFonts.getFont(
+                                  style: TextStyle(fontFamily: 'DM Sans',
                                     color: hoveringAnnouncements
                                         ? Colors.white
                                         : Colors.black,
-                                    'DM Sans',
+                                    
                                     fontWeight: FontWeight.bold,
                                     fontSize: 19,
                                   ),
@@ -456,9 +454,9 @@ class _DashboardPageState extends State<DashboardPage> {
                                                   ),
                                                   Text(
                                                     'Create Announcement',
-                                                    style: GoogleFonts.getFont(
+                                                    style: TextStyle(fontFamily: 'DM Sans',
                                                       color: Colors.white,
-                                                      'DM Sans',
+                                                      
                                                       fontWeight:
                                                           FontWeight.normal,
                                                       fontSize: 17,
@@ -518,11 +516,11 @@ class _DashboardPageState extends State<DashboardPage> {
                                 children: [
                                   Text(
                                     'Edit Conference',
-                                    style: GoogleFonts.getFont(
+                                    style: TextStyle(fontFamily: 'DM Sans',
                                       color: hoveringEdit
                                           ? Colors.white
                                           : Colors.black,
-                                      'DM Sans',
+                                      
                                       fontWeight: FontWeight.bold,
                                       fontSize: 19,
                                     ),
@@ -572,9 +570,9 @@ class _DashboardPageState extends State<DashboardPage> {
                                                     Text(
                                                       'Edit Details',
                                                       style:
-                                                          GoogleFonts.getFont(
+                                                          TextStyle(fontFamily: 'DM Sans',
                                                         color: Colors.white,
-                                                        'DM Sans',
+                                                        
                                                         fontWeight:
                                                             FontWeight.normal,
                                                         fontSize: 17,
@@ -641,8 +639,8 @@ class _DashboardPageState extends State<DashboardPage> {
                               children: [
                                 Text(
                                   'Edit Events',
-                                  style: GoogleFonts.getFont(
-                                    'DM Sans',
+                                  style: TextStyle(fontFamily: 'DM Sans',
+                                    
                                     color: hoveringEvents
                                         ? Colors.white
                                         : Colors.black,
@@ -693,9 +691,9 @@ class _DashboardPageState extends State<DashboardPage> {
                                                   ),
                                                   Text(
                                                     'Upload a Spreadsheet',
-                                                    style: GoogleFonts.getFont(
+                                                    style: TextStyle(fontFamily: 'DM Sans',
                                                       color: Colors.white,
-                                                      'DM Sans',
+                                                      
                                                       fontWeight:
                                                           FontWeight.normal,
                                                       fontSize: 17,
@@ -755,8 +753,8 @@ class _DashboardPageState extends State<DashboardPage> {
                                 children: [
                                   Text(
                                     'Agenda Items',
-                                    style: GoogleFonts.getFont(
-                                      'DM Sans',
+                                    style: TextStyle(fontFamily: 'DM Sans',
+                                      
                                       color: hoveringTickets
                                           ? Colors.white
                                           : Colors.black,
@@ -809,9 +807,9 @@ class _DashboardPageState extends State<DashboardPage> {
                                                     Text(
                                                       'Upload Agenda Items',
                                                       style:
-                                                          GoogleFonts.getFont(
+                                                          TextStyle(fontFamily: 'DM Sans',
                                                         color: Colors.white,
-                                                        'DM Sans',
+                                                        
                                                         fontWeight:
                                                             FontWeight.normal,
                                                         fontSize: 17,

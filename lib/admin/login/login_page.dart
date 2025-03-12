@@ -2,7 +2,7 @@
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+
 import '../home/home_page.dart';
 
 import '../../api/logic/API.dart';
@@ -251,8 +251,8 @@ class _LoginPageState extends State<LoginPage> {
               child: !_isSigningIn
                   ? ElevatedButton(
                       style: const ButtonStyle(
-                          minimumSize: MaterialStatePropertyAll(Size(300, 75)),
-                          backgroundColor: MaterialStatePropertyAll(
+                          minimumSize: WidgetStatePropertyAll(Size(300, 75)),
+                          backgroundColor: WidgetStatePropertyAll(
                               Color.fromRGBO(101, 88, 245, 1))),
                       onPressed: () async {
                         setState(() {
@@ -280,10 +280,10 @@ class _LoginPageState extends State<LoginPage> {
                                               255, 105, 27, 27),
                                           content: Text(
                                               'Error: invalid Sielify credential provided. Recheck email and/or password.',
-                                              style: GoogleFonts.getFont(
+                                              style: TextStyle(fontFamily: 'DM Sans',
                                                 fontSize: 16,
                                                 color: const Color(0xFFe9e9e9),
-                                                'Poppins',
+                                                
                                               ))));
 
                                   break;
@@ -296,10 +296,10 @@ class _LoginPageState extends State<LoginPage> {
                                               255, 105, 27, 27),
                                           content: Text(
                                               'Error: Sielify Email is invalid. Did you make a typo?',
-                                              style: GoogleFonts.getFont(
+                                              style: TextStyle(fontFamily: 'DM Sans',
                                                 fontSize: 16,
                                                 color: const Color(0xFFe9e9e9),
-                                                'Poppins',
+                                                
                                               ))));
                                   break;
                                 case 'user-not-found':
@@ -311,10 +311,10 @@ class _LoginPageState extends State<LoginPage> {
                                               255, 105, 27, 27),
                                           content: Text(
                                               'Error: User does not exist.',
-                                              style: GoogleFonts.getFont(
+                                              style: TextStyle(fontFamily: 'DM Sans',
                                                 fontSize: 16,
                                                 color: const Color(0xFFe9e9e9),
-                                                'Poppins',
+                                                
                                               ))));
                                   break;
 
@@ -326,10 +326,10 @@ class _LoginPageState extends State<LoginPage> {
                                               255, 105, 27, 27),
                                           content: Text(
                                               'Error: User account is disabled.',
-                                              style: GoogleFonts.getFont(
+                                              style: TextStyle(fontFamily: 'DM Sans',
                                                 fontSize: 16,
                                                 color: const Color(0xFFe9e9e9),
-                                                'Poppins',
+                                                
                                               ))));
 
                                   break;
@@ -342,10 +342,10 @@ class _LoginPageState extends State<LoginPage> {
                                               255, 105, 27, 27),
                                           content: Text(
                                               'An unknown error occurred when signing in.',
-                                              style: GoogleFonts.getFont(
+                                              style: TextStyle(fontFamily: 'DM Sans',
                                                 fontSize: 16,
                                                 color: const Color(0xFFe9e9e9),
-                                                'Poppins',
+                                                
                                               ))));
                                   break;
                               }
@@ -357,10 +357,10 @@ class _LoginPageState extends State<LoginPage> {
                                           255, 105, 27, 27),
                                       content: Text(
                                           'An unknown error occurred when signing in.',
-                                          style: GoogleFonts.getFont(
+                                          style: TextStyle(fontFamily: 'DM Sans',
                                             fontSize: 16,
                                             color: const Color(0xFFe9e9e9),
-                                            'Poppins',
+                                            
                                           ))));
                             }
                             setState(() {
@@ -384,10 +384,10 @@ class _LoginPageState extends State<LoginPage> {
                                   const Color.fromARGB(255, 105, 27, 27),
                               content: Text(
                                   'Incorrect conference password or conference name.',
-                                  style: GoogleFonts.getFont(
+                                  style: TextStyle(fontFamily: 'DM Sans',
                                     fontSize: 16,
                                     color: const Color(0xFFe9e9e9),
-                                    'Poppins',
+                                    
                                   ))));
                           setState(() {
                             _isSigningIn = false;

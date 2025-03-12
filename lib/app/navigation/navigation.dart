@@ -7,7 +7,6 @@ import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 import '../../api/app_info.dart';
 
@@ -96,9 +95,9 @@ class _NavigationState extends State<Navigation> {
                 color: Color(0xFF000000),
               ),
         title: Text("Home",
-            style: GoogleFonts.getFont(
+            style: TextStyle(fontFamily: 'DM Sans',
               color: pI != 0 ? Colors.transparent : const Color(0xFF000000),
-              'Poppins',
+              
               fontWeight: FontWeight.w400,
               fontSize: 13,
             )),
@@ -118,9 +117,9 @@ class _NavigationState extends State<Navigation> {
                 size: 24,
               ),
         title: Text("Announcements",
-            style: GoogleFonts.getFont(
+            style: TextStyle(fontFamily: 'DM Sans',
               color: pI != 1 ? Colors.transparent : const Color(0xFF000000),
-              'Poppins',
+              
               fontWeight: FontWeight.w400,
               fontSize: 13,
             )),
@@ -140,9 +139,9 @@ class _NavigationState extends State<Navigation> {
                 size: 24,
               ),
         title: Text("Events",
-            style: GoogleFonts.getFont(
+            style: TextStyle(fontFamily: 'DM Sans',
               color: pI != 2 ? Colors.transparent : const Color(0xFF000000),
-              'Poppins',
+              
               fontWeight: FontWeight.w400,
               fontSize: 13,
             )),
@@ -162,9 +161,9 @@ class _NavigationState extends State<Navigation> {
                 size: 24,
               ),
         title: Text("Agenda",
-            style: GoogleFonts.getFont(
+            style: TextStyle(fontFamily: 'DM Sans',
               color: pI != 3 ? Colors.transparent : const Color(0xFF000000),
-              'Poppins',
+              
               fontWeight: FontWeight.w400,
               fontSize: 13,
             )),

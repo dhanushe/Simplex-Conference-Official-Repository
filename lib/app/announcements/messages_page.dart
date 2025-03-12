@@ -64,7 +64,7 @@ class _MessagesPageState extends State<MessagesPage> {
                         Text(
                           'Announcements',
                           style: TextStyle(
-                            fontFamily: 'ClashGrotesk',
+                            fontFamily: 'RedHatDisplay',
                             fontWeight: FontWeight.w500,
                             fontSize: 28,
                           ),

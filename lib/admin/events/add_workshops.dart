@@ -7,7 +7,7 @@ import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_excel/excel.dart';
-import 'package:google_fonts/google_fonts.dart';
+
 import 'package:intl/intl.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -107,10 +107,10 @@ class _AddWorkshopsAdminState extends State<AddWorkshopsAdmin> {
                 children: [
                   Text(
                     'Changes made are automatically reflected in the app - be careful!',
-                    style: GoogleFonts.getFont(
+                    style: TextStyle(fontFamily: 'DM Sans',
                       fontStyle: FontStyle.italic,
                       color: const Color.fromARGB(255, 113, 2, 0),
-                      'Poppins',
+                      
                       fontSize: 18,
                       fontWeight: FontWeight.w600,
                     ),
@@ -126,9 +126,9 @@ class _AddWorkshopsAdminState extends State<AddWorkshopsAdmin> {
                 children: [
                   Text(
                     'Upload File',
-                    style: GoogleFonts.getFont(
+                    style: TextStyle(fontFamily: 'DM Sans',
                       color: Colors.black,
-                      'Poppins',
+                      
                       fontSize: 18,
                     ),
                   ),
@@ -156,10 +156,10 @@ class _AddWorkshopsAdminState extends State<AddWorkshopsAdmin> {
                                           const Color.fromARGB(255, 11, 43, 31),
                                       content: Text(
                                           'Workshops Uploaded! Please reload the website.',
-                                          style: GoogleFonts.getFont(
+                                          style: TextStyle(fontFamily: 'DM Sans',
                                             fontSize: 16,
                                             color: const Color(0xFFe9e9e9),
-                                            'Poppins',
+                                            
                                           ))));
                             } catch (e) {
                               ScaffoldMessenger.of(context).showSnackBar(
@@ -169,10 +169,10 @@ class _AddWorkshopsAdminState extends State<AddWorkshopsAdmin> {
                                           const Color.fromARGB(255, 43, 11, 11),
                                       content: Text(
                                           'Error in uploading workshops. Please try again later.',
-                                          style: GoogleFonts.getFont(
+                                          style: TextStyle(fontFamily: 'DM Sans',
                                             fontSize: 16,
                                             color: const Color(0xFFe9e9e9),
-                                            'Poppins',
+                                            
                                           ))));
                             }
                           },
@@ -202,8 +202,8 @@ class _AddWorkshopsAdminState extends State<AddWorkshopsAdmin> {
                                 ),
                                 Text(
                                   'Upload Spreadsheet',
-                                  style: GoogleFonts.getFont(
-                                    'Poppins',
+                                  style: TextStyle(fontFamily: 'DM Sans',
+                                    
                                     color: const Color(0xFF000000),
                                     fontSize: 17,
                                   ),
@@ -229,10 +229,10 @@ class _AddWorkshopsAdminState extends State<AddWorkshopsAdmin> {
                                           backgroundColor: const Color.fromARGB(
                                               255, 43, 11, 11),
                                           content: Text('Items removed.',
-                                              style: GoogleFonts.getFont(
+                                              style: TextStyle(fontFamily: 'DM Sans',
                                                 fontSize: 16,
                                                 color: const Color(0xFFe9e9e9),
-                                                'Poppins',
+                                                
                                               ))));
                                 } catch (e) {
                                   ScaffoldMessenger.of(context).showSnackBar(
@@ -242,10 +242,10 @@ class _AddWorkshopsAdminState extends State<AddWorkshopsAdmin> {
                                               255, 43, 11, 11),
                                           content: Text(
                                               'Error in performing action. Please try again later.',
-                                              style: GoogleFonts.getFont(
+                                              style: TextStyle(fontFamily: 'DM Sans',
                                                 fontSize: 16,
                                                 color: const Color(0xFFe9e9e9),
-                                                'Poppins',
+                                                
                                               ))));
                                 }
                               },
@@ -276,8 +276,8 @@ class _AddWorkshopsAdminState extends State<AddWorkshopsAdmin> {
                                     ),
                                     Text(
                                       'Remove All Items',
-                                      style: GoogleFonts.getFont(
-                                        'Poppins',
+                                      style: TextStyle(fontFamily: 'DM Sans',
+                                        
                                         color: const Color(0xFF000000),
                                         fontSize: 17,
                                       ),
@@ -319,8 +319,8 @@ class _AddWorkshopsAdminState extends State<AddWorkshopsAdmin> {
                         children: [
                           Text(
                             'Open Instructions',
-                            style: GoogleFonts.getFont(
-                              'Poppins',
+                            style: TextStyle(fontFamily: 'DM Sans',
+                              
                               color: const Color(0xFF000000),
                               fontSize: 17,
                             ),
@@ -347,8 +347,8 @@ class _AddWorkshopsAdminState extends State<AddWorkshopsAdmin> {
                 children: [
                   Text(
                     'All Agenda Items (may have to reload website)',
-                    style: GoogleFonts.getFont(
-                      'Poppins',
+                    style: TextStyle(fontFamily: 'DM Sans',
+                      
                       fontSize: 22,
                       color: Colors.black,
                     ),
@@ -375,9 +375,9 @@ class _AddWorkshopsAdminState extends State<AddWorkshopsAdmin> {
                             alignment: const AlignmentDirectional(0, 0),
                             child: Text(
                               showAnnouncements ? 'Hide' : 'Show',
-                              style: GoogleFonts.getFont(
+                              style: TextStyle(fontFamily: 'DM Sans',
                                 color: Colors.black,
-                                'Poppins',
+                                
                                 fontSize: 15,
                               ),
                             ),
@@ -432,9 +432,9 @@ class _AddWorkshopsAdminState extends State<AddWorkshopsAdmin> {
                   padding: const EdgeInsetsDirectional.fromSTEB(18, 0, 0, 0),
                   child: Text(
                     '${events[i].name} (${DateFormat('MMM. d').format(DateFormat('yyyy-MM-dd').parse(events[i].date))}, ${events[i].startTime})',
-                    style: GoogleFonts.getFont(
+                    style: TextStyle(fontFamily: 'DM Sans',
                       color: Colors.black,
-                      'DM Sans',
+        
                       fontSize: 16,
                     ),
                   ),
@@ -491,9 +491,9 @@ class _AddWorkshopsAdminState extends State<AddWorkshopsAdmin> {
                           const EdgeInsetsDirectional.fromSTEB(18, 0, 0, 0),
                       child: Text(
                         '${events[i].sessions[j]['name']} (${DateFormat('MMM. d').format(DateFormat('yyyy-MM-dd').parse(events[i].sessions[j]['date']!))}, ${events[i].sessions[j]['startTime']})',
-                        style: GoogleFonts.getFont(
+                        style: TextStyle(fontFamily: 'DM Sans',
                           color: Colors.black,
-                          'DM Sans',
+                         
                           fontSize: 16,
                         ),
                       ),

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+
 import 'login_page.dart';
 import '../../app/login/login_screen.dart';
 
@@ -44,7 +44,7 @@ class _AdminWelcomePageState extends State<AdminWelcomePage> {
                     ClipRRect(
                       borderRadius: BorderRadius.circular(8),
                       child: Image.asset(
-                        'assets/images/confviewasset.png',
+                        'assets/images/darklogoname.png',
                         width: 325,
                         fit: BoxFit.cover,
                       ),
@@ -59,8 +59,8 @@ class _AdminWelcomePageState extends State<AdminWelcomePage> {
                   child: Text(
                     'Simplifying Conference Logistics',
                     textAlign: TextAlign.end,
-                    style: GoogleFonts.getFont(
-                      'Poppins',
+                    style: TextStyle(fontFamily: 'DM Sans',
+                      
                       color: Colors.black,
                       fontSize: 14,
                       fontStyle: FontStyle.italic,
@@ -102,8 +102,8 @@ class _AdminWelcomePageState extends State<AdminWelcomePage> {
                       child: Text(
                         'Continue to User Portal',
                         textAlign: TextAlign.center,
-                        style: GoogleFonts.getFont(
-                          'Poppins',
+                        style: TextStyle(fontFamily: 'DM Sans',
+                          
                           color: const Color(0xFFA0A0A0),
                           fontWeight: FontWeight.w500,
                           fontSize: 16,
@@ -139,8 +139,8 @@ class _AdminWelcomePageState extends State<AdminWelcomePage> {
                         child: Text(
                           'Continue to Admin Portal',
                           textAlign: TextAlign.center,
-                          style: GoogleFonts.getFont(
-                            'Poppins',
+                          style: TextStyle(fontFamily: 'DM Sans',
+                            
                             color: const Color(0xFF490FFF),
                             fontWeight: FontWeight.w500,
                             fontSize: 16,

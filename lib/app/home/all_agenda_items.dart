@@ -13,7 +13,6 @@ import '../navigation/navigation.dart';
 
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class AllagendaWidget extends StatefulWidget {
   const AllagendaWidget({super.key});
@@ -187,7 +186,7 @@ class _AllagendaWidgetState extends State<AllagendaWidget> {
                                           child: Text(
                                             'Home',
                                             style: TextStyle(
-                                              fontFamily: 'ClashGrotesk',
+                                              fontFamily: 'RedHatDisplay',
                                               color: Color(0xC5FFFFFF),
                                               fontSize: 20,
                                             ),
@@ -207,7 +206,7 @@ class _AllagendaWidgetState extends State<AllagendaWidget> {
                                       Text(
                                         'All Agenda Items',
                                         style: TextStyle(
-                                          fontFamily: 'ClashGrotesk',
+                                          fontFamily: 'RedHatDisplay',
                                           color: Colors.white,
                                           fontWeight: FontWeight.w500,
                                           fontSize: 24,
@@ -244,7 +243,7 @@ class _AllagendaWidgetState extends State<AllagendaWidget> {
                                   DateFormat("EEEE, MMMM d")
                                       .format(DateTime.now().toLocal()),
                                   style: const TextStyle(
-                                    fontFamily: 'ClashGrotesk',
+                                    fontFamily: 'RedHatDisplay',
                                     color: Colors.black,
                                     fontWeight: FontWeight.w500,
                                     fontSize: 24,
@@ -266,7 +265,7 @@ class _AllagendaWidgetState extends State<AllagendaWidget> {
                               child: Text(
                                 'All Agenda Items for Today',
                                 style: TextStyle(
-                                  fontFamily: 'ClashGrotesk',
+                                  fontFamily: 'RedHatDisplay',
                                   color: Colors.black,
                                   fontWeight: FontWeight.normal,
                                   fontSize: 16,
@@ -387,8 +386,8 @@ class _AllagendaWidgetState extends State<AllagendaWidget> {
                       ),
                     )
                   ],
-                  style: GoogleFonts.getFont(
-                    'Poppins',
+                  style: TextStyle(fontFamily: 'DM Sans',
+                    
                     fontSize: (!kIsWeb && Platform.isIOS) ? 12 : 10,
                   ),
                 ),
@@ -425,8 +424,8 @@ class _AllagendaWidgetState extends State<AllagendaWidget> {
                       ),
                     )
                   ],
-                  style: GoogleFonts.getFont(
-                    'Poppins',
+                  style: TextStyle(fontFamily: 'DM Sans',
+                    
                     fontSize: (!kIsWeb && Platform.isIOS) ? 12 : 10,
                   ),
                 ),
@@ -513,8 +512,8 @@ class _AllagendaWidgetState extends State<AllagendaWidget> {
                                                   : w.type == "Session"
                                                       ? "Session"
                                                       : "Item",
-                                              style: GoogleFonts.getFont(
-                                                'Poppins',
+                                              style: TextStyle(fontFamily: 'DM Sans',
+                                                
                                                 color: w.type == "Event"
                                                     ? const Color(0xFF0904F4)
                                                     : w.type == "Session"
@@ -549,8 +548,8 @@ class _AllagendaWidgetState extends State<AllagendaWidget> {
                                             name,
                                             textAlign: TextAlign.start,
                                             maxLines: 2,
-                                            style: GoogleFonts.getFont(
-                                              'Poppins',
+                                            style: TextStyle(fontFamily: 'DM Sans',
+                                              
                                               color: Colors.black,
                                               fontSize:
                                                   (!kIsWeb && Platform.isIOS)
@@ -583,7 +582,7 @@ class _AllagendaWidgetState extends State<AllagendaWidget> {
                                                       TextOverflow.ellipsis,
                                                   maxLines: 1,
                                                   style: const TextStyle(
-                                                    fontFamily: 'ClashGrotesk',
+                                                    fontFamily: 'RedHatDisplay',
                                                     fontWeight: FontWeight.w500,
                                                     fontSize: 11,
                                                   ),
@@ -626,7 +625,7 @@ class _AllagendaWidgetState extends State<AllagendaWidget> {
                                   child: Text(
                                     'Start',
                                     style: TextStyle(
-                                      fontFamily: 'ClashGrotesk',
+                                      fontFamily: 'RedHatDisplay',
                                       color: w.type == "Event"
                                           ? const Color.fromARGB(180, 8, 4, 244)
                                           : w.type == "Session"
@@ -642,8 +641,8 @@ class _AllagendaWidgetState extends State<AllagendaWidget> {
                                 AutoSizeText(
                                   start.toUpperCase().replaceAll(":", "."),
                                   maxLines: 1,
-                                  style: GoogleFonts.getFont(
-                                    'Poppins',
+                                  style: TextStyle(fontFamily: 'DM Sans',
+                                    
                                     color: w.type == "Event"
                                         ? const Color.fromARGB(255, 8, 4, 244)
                                         : w.type == "Session"
@@ -661,7 +660,7 @@ class _AllagendaWidgetState extends State<AllagendaWidget> {
                                   child: Text(
                                     'End',
                                     style: TextStyle(
-                                      fontFamily: 'ClashGrotesk',
+                                      fontFamily: 'RedHatDisplay',
                                       color: w.type == "Event"
                                           ? const Color.fromARGB(180, 8, 4, 244)
                                           : w.type == "Session"
@@ -677,8 +676,8 @@ class _AllagendaWidgetState extends State<AllagendaWidget> {
                                 AutoSizeText(
                                   end.toUpperCase().replaceAll(":", "."),
                                   maxLines: 1,
-                                  style: GoogleFonts.getFont(
-                                    'Poppins',
+                                  style: TextStyle(fontFamily: 'DM Sans',
+                                    
                                     color: w.type == "Event"
                                         ? const Color.fromARGB(255, 8, 4, 244)
                                         : w.type == "Session"
@@ -800,8 +799,8 @@ class _AllagendaWidgetState extends State<AllagendaWidget> {
                     child: Text(
                       'There are no more selected agenda items for today.',
                       textAlign: TextAlign.center,
-                      style: GoogleFonts.getFont(
-                        'Poppins',
+                      style: TextStyle(fontFamily: 'DM Sans',
+                        
                         color: Colors.black,
                         fontSize: 14,
                       ),

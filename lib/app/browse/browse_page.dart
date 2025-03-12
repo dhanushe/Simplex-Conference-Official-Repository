@@ -4,7 +4,6 @@ import 'dart:io';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:material_symbols_icons/symbols.dart';
 
 import '../../api/app_info.dart';
@@ -95,7 +94,7 @@ class _BrowsePageState extends State<BrowsePage> {
                           Text(
                             'Competitive Events',
                             style: TextStyle(
-                              fontFamily: 'ClashGrotesk',
+                              fontFamily: 'RedHatDisplay',
                               fontWeight: FontWeight.w500,
                               fontSize: 28,
                             ),
@@ -145,9 +144,9 @@ class _BrowsePageState extends State<BrowsePage> {
                           obscureText: false,
                           decoration: InputDecoration(
                             hintText: 'Search...',
-                            hintStyle: GoogleFonts.getFont(
+                            hintStyle: TextStyle(fontFamily: 'DM Sans',
                               fontWeight: FontWeight.w400,
-                              'Poppins',
+                              
                               color: const Color(0xFFAEAEAE),
                               fontSize: 13,
                             ),
@@ -194,8 +193,8 @@ class _BrowsePageState extends State<BrowsePage> {
                               size: 20,
                             ),
                           ),
-                          style: GoogleFonts.getFont(
-                            'Poppins',
+                          style: TextStyle(fontFamily: 'DM Sans',
+                            
                             color: f!.hasFocus || f!.hasPrimaryFocus
                                 ? const Color(0xFF226ADD)
                                 : const Color(0xFF585858),
@@ -268,8 +267,8 @@ class _BrowsePageState extends State<BrowsePage> {
                                 e.name,
                                 maxLines: 1,
                                 overflow: TextOverflow.ellipsis,
-                                style: GoogleFonts.getFont(
-                                  'Poppins',
+                                style: TextStyle(fontFamily: 'DM Sans',
+                                  
                                   color: const Color(0xFF585858),
                                   fontWeight: FontWeight.w400,
                                   fontSize:
@@ -370,8 +369,8 @@ class _BrowsePageState extends State<BrowsePage> {
                 Text(
                   'No events with the inputted search.',
                   maxLines: 1,
-                  style: GoogleFonts.getFont(
-                    'Poppins',
+                  style: TextStyle(fontFamily: 'DM Sans',
+                    
                     color: const Color(0xFF585858),
                     fontWeight: FontWeight.w500,
                     fontSize: 11,

@@ -73,8 +73,8 @@ class _ErrorPageState extends State<ErrorPage> {
                           ClipRRect(
                             borderRadius: BorderRadius.circular(8),
                             child: Image.asset(
-                              'assets/images/appicondisplay.png',
-                              height: 33,
+                              'assets/images/darklogoname.png',
+                              height: 40,
                               fit: BoxFit.contain,
                             ),
                           ),
@@ -90,7 +90,7 @@ class _ErrorPageState extends State<ErrorPage> {
                     child: Text(
                       'Uh oh...',
                       style: TextStyle(
-                        fontFamily: 'ClashGrotesk',
+                        fontFamily: 'RedHatDisplay',
                         color: Colors.black,
                         fontSize: 30,
                         fontWeight: FontWeight.w300,
@@ -106,7 +106,7 @@ class _ErrorPageState extends State<ErrorPage> {
                     child: Text(
                       'We ran into\nan error',
                       style: TextStyle(
-                        fontFamily: 'ClashGrotesk',
+                        fontFamily: 'RedHatDisplay',
                         color: Colors.black,
                         fontSize: 50,
                         fontWeight: FontWeight.bold,
@@ -233,7 +233,7 @@ class _ErrorPageState extends State<ErrorPage> {
                             Text(
                               'Back to Login',
                               style: TextStyle(
-                                fontFamily: 'ClashGrotesk',
+                                fontFamily: 'RedHatDisplay',
                                 color: Colors.black,
                                 fontSize: 22,
                                 fontWeight: FontWeight.w600,
