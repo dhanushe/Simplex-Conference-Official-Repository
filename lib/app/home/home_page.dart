@@ -1,10 +1,13 @@
 // ignore_for_file: library_private_types_in_public_api, use_build_context_synchronously
 
 import 'dart:async';
+import 'dart:developer';
 import 'dart:io';
 
+import 'package:add_2_calendar/add_2_calendar.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/foundation.dart';
 
 import 'package:flutter/material.dart';
@@ -12,6 +15,7 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 import 'package:intl/intl.dart';
+import 'package:material_symbols_icons/material_symbols_icons.dart';
 import 'about_conference_page.dart';
 import 'all_agenda_items.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -40,8 +44,6 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
-  String selectedEvent = "";
-
   late DateTime targetTime;
   bool isLeaving = false;
   late Duration timeDifference;
@@ -49,9 +51,6 @@ class _HomePageState extends State<HomePage> {
 
   @override
   void initState() {
-    if (AppInfo.currentEvents.isNotEmpty) {
-      selectedEvent = AppInfo.currentEvents[0].name;
-    }
     API().configureFirebaseMessaging(AppInfo.conference.id);
     super.initState();
     API.setLight();
@@ -198,8 +197,8 @@ class _HomePageState extends State<HomePage> {
                                                         .fromSTEB(3, 0, 0, 0),
                                                 child: Text(
                                                   'Exit Conference',
-                                                  style: TextStyle(fontFamily: 'DM Sans',
-                                                    
+                                                  style: TextStyle(
+                                                    fontFamily: 'DM Sans',
                                                     color: Colors.white,
                                                     fontWeight:
                                                         FontWeight.normal,
@@ -269,8 +268,8 @@ class _HomePageState extends State<HomePage> {
                                                           .fromSTEB(3, 0, 0, 0),
                                                   child: Text(
                                                     'Refresh',
-                                                    style: TextStyle(fontFamily: 'DM Sans',
-                                                      
+                                                    style: TextStyle(
+                                                      fontFamily: 'DM Sans',
                                                       color: Colors.white,
                                                       fontWeight:
                                                           FontWeight.normal,
@@ -369,8 +368,8 @@ class _HomePageState extends State<HomePage> {
                                           AppInfo.conference.location,
                                           overflow: TextOverflow.ellipsis,
                                           maxLines: 1,
-                                          style: TextStyle(fontFamily: 'DM Sans',
-                                            
+                                          style: TextStyle(
+                                            fontFamily: 'DM Sans',
                                             color: const Color(0xD9FFFFFF),
                                             fontWeight: (!kIsWeb &&
                                                     (!kIsWeb && Platform.isIOS))
@@ -415,8 +414,8 @@ class _HomePageState extends State<HomePage> {
                                               AppInfo.conference.startDate,
                                               AppInfo.conference.endDate),
                                           maxLines: 2,
-                                          style: TextStyle(fontFamily: 'DM Sans',
-                                            
+                                          style: TextStyle(
+                                            fontFamily: 'DM Sans',
                                             color: const Color(0xD9FFFFFF),
                                             fontWeight: (!kIsWeb &&
                                                     (!kIsWeb && Platform.isIOS))
@@ -493,8 +492,8 @@ class _HomePageState extends State<HomePage> {
                                       12, 0, 12, 0),
                                   child: Text(
                                     'View in Agenda',
-                                    style: TextStyle(fontFamily: 'DM Sans',
-                                      
+                                    style: TextStyle(
+                                      fontFamily: 'DM Sans',
                                       color: const Color(0xFF656567),
                                       fontSize: 11,
                                     ),
@@ -534,8 +533,8 @@ class _HomePageState extends State<HomePage> {
                                       children: [
                                         Text(
                                           'See All...',
-                                          style: TextStyle(fontFamily: 'DM Sans',
-                                            
+                                          style: TextStyle(
+                                            fontFamily: 'DM Sans',
                                             color: const Color(0xFF0904F4),
                                             fontSize: 14,
                                           ),
@@ -610,8 +609,8 @@ class _HomePageState extends State<HomePage> {
                                       12, 0, 12, 0),
                                   child: Text(
                                     'View in Competitive Events',
-                                    style: TextStyle(fontFamily: 'DM Sans',
-                                      
+                                    style: TextStyle(
+                                      fontFamily: 'DM Sans',
                                       color: const Color(0xFF656567),
                                       fontSize: 11,
                                     ),
@@ -696,8 +695,8 @@ class _HomePageState extends State<HomePage> {
                                             overflow: TextOverflow.ellipsis,
                                             maxLines: 2,
                                             'Building\nMaps',
-                                            style: TextStyle(fontFamily: 'DM Sans',
-                                              
+                                            style: TextStyle(
+                                              fontFamily: 'DM Sans',
                                               color: const Color(0xFF8A00DE),
                                               fontWeight: FontWeight.w400,
                                               fontSize: 15,
@@ -772,8 +771,8 @@ class _HomePageState extends State<HomePage> {
                                             overflow: TextOverflow.ellipsis,
                                             maxLines: 2,
                                             'About This\nConference',
-                                            style: TextStyle(fontFamily: 'DM Sans',
-                                              
+                                            style: TextStyle(
+                                              fontFamily: 'DM Sans',
                                               color: const Color(0xFF0081F4),
                                               fontWeight: FontWeight.w400,
                                               fontSize: 15,
@@ -845,11 +844,11 @@ class _HomePageState extends State<HomePage> {
                   children: [
                     Text(
                       'You are being directed to an external third-party application by opening this link. Simplex bears no responsibility for any violations on third-party platforms.\n\nLink: $s',
-                      style: TextStyle(fontFamily: 'DM Sans',
+                      style: TextStyle(
+                        fontFamily: 'DM Sans',
                         fontSize: 14,
                         color: const Color.fromARGB(255, 0, 0, 0),
                         fontWeight: FontWeight.w400,
-                        
                       ),
                     ),
                     const SizedBox(height: 15),
@@ -868,8 +867,10 @@ class _HomePageState extends State<HomePage> {
                       backgroundColor: const Color.fromARGB(255, 186, 186, 186),
                     ),
                     child: Text('Cancel',
-                        style: TextStyle(fontFamily: 'DM Sans',
-                            color: Colors.black, )),
+                        style: TextStyle(
+                          fontFamily: 'DM Sans',
+                          color: Colors.black,
+                        )),
                     onPressed: () {
                       setState(() {
                         okPressed = true;
@@ -884,8 +885,10 @@ class _HomePageState extends State<HomePage> {
                       backgroundColor: const Color.fromARGB(255, 164, 151, 255),
                     ),
                     child: Text('Open',
-                        style: TextStyle(fontFamily: 'DM Sans',
-                            color: Colors.black, )),
+                        style: TextStyle(
+                          fontFamily: 'DM Sans',
+                          color: Colors.black,
+                        )),
                     onPressed: () async {
                       var uri = Uri.parse(s);
                       if (await canLaunchUrl(uri)) {
@@ -1032,8 +1035,8 @@ class _HomePageState extends State<HomePage> {
                                   overflow: TextOverflow.ellipsis,
                                   maxLines: 2,
                                   tile['name1']!,
-                                  style: TextStyle(fontFamily: 'DM Sans',
-                                    
+                                  style: TextStyle(
+                                    fontFamily: 'DM Sans',
                                     color: c,
                                     fontWeight: FontWeight.w400,
                                     fontSize: 15,
@@ -1103,8 +1106,8 @@ class _HomePageState extends State<HomePage> {
                                   overflow: TextOverflow.ellipsis,
                                   maxLines: 2,
                                   tile['name2']!,
-                                  style: TextStyle(fontFamily: 'DM Sans',
-                                    
+                                  style: TextStyle(
+                                    fontFamily: 'DM Sans',
                                     color: c3,
                                     fontWeight: FontWeight.w400,
                                     fontSize: 15,
@@ -1218,8 +1221,8 @@ class _HomePageState extends State<HomePage> {
                               overflow: TextOverflow.ellipsis,
                               maxLines: 2,
                               tile['name']!,
-                              style: TextStyle(fontFamily: 'DM Sans',
-                                
+                              style: TextStyle(
+                                fontFamily: 'DM Sans',
                                 color: c,
                                 fontWeight: FontWeight.w400,
                                 fontSize: 16,
@@ -1259,148 +1262,415 @@ class _HomePageState extends State<HomePage> {
 
   List<Widget> getEventWidgets() {
     List<Widget> items = [];
-    for (EventData e in AppInfo.currentEvents) {
-      items.add(SizedBox(
-          width: MediaQuery.sizeOf(context).width * 0.88,
-          child: Stack(children: [
-            Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
-                child: InkWell(
-                  onTap: () {
-                    Navigator.pushAndRemoveUntil(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => Navigation(
-                                pIndex: 2,
-                                reNav: false,
-                              )),
-                      (route) => false,
-                    );
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => EventLandingPage(e: e)),
-                      // This condition removes all previous routes
-                    );
-                  },
-                  child: Container(
-                    width: MediaQuery.sizeOf(context).width * 0.86,
-                    height: 40,
-                    decoration: BoxDecoration(
-                      color: const Color.fromARGB(255, 0, 0, 0),
-                      boxShadow: const [
-                        BoxShadow(
-                          blurRadius: 6,
-                          color: Color(0x1B8A8A8A),
-                          offset: Offset(
-                            0,
-                            3,
+  
+    for (EventData e in AppInfo.currentEvents.keys) {
+      String timeKey = AppInfo.currentEvents[e]!;
+      String time = timeKey.split(" ")[0];
+      
+      if (!DateTime.now().toLocal().isAfter(Dates.parseDateTime(e.date, time))) {
+        Map<String, List<String>> events = Map.fromEntries(
+            e.competitors.entries.where((entry) => entry.key.contains(timeKey.split(" ")[1])));
+        
+        List<String> keys = events.keys.toList();
+        keys.sort((a, b) => Dates.parseTimeString(a.split(" ")[0])
+            .compareTo(Dates.parseTimeString(b.split(" ")[0])));
+        
+        int index = keys.indexOf(timeKey);
+        if (index != -1) {
+          List<String> items2 = events[keys[index]]!;
+          List<String> otherInfo = items2.last.split(";");
+          items2 = items2.sublist(0, items2.length - 1);
+
+          DateTime targetTime = Dates.parseDateTime(e.date, time)
+              .subtract(const Duration(minutes: 20));
+
+          Duration timeDifference = targetTime.difference(DateTime.now().toLocal());
+          String checkInTime = DateFormat('h.mma').format(targetTime).toUpperCase();
+
+          String tempPrep = DateFormat('h.mma')
+              .format(targetTime.add(const Duration(minutes: 35)))
+              .toUpperCase();
+
+          int hours = timeDifference.inHours;
+          int minutes = (timeDifference.inMinutes % 60);
+          minutes++;
+
+          if (minutes == 60) {
+            minutes = 0;
+            hours += 1;
+          }
+
+          bool c = e.type.toLowerCase().contains("case");
+
+          items.add(
+            SizedBox(
+              width: MediaQuery.sizeOf(context).width * 0.88,
+              child: Stack(children: [
+                Align(
+                  alignment: const Alignment(0, 0),
+                  child: Padding(
+                    padding: const EdgeInsetsDirectional.fromSTEB(0, 12, 0, 0),
+                    child: InkWell(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => EventLandingPage(e: e),
                           ),
-                        )
-                      ],
-                      borderRadius: BorderRadius.circular(
-                          (!kIsWeb && (!kIsWeb && Platform.isIOS)) ? 17 : 20),
-                    ),
-                    child: Padding(
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(20, 0, 20, 0),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Flexible(
-                            child: Text(
-                              e.name,
-                              maxLines: 1,
-                              overflow: TextOverflow.ellipsis,
-                              style: TextStyle(fontFamily: 'DM Sans',
-                                
-                                color: Colors.white,
-                                fontWeight: FontWeight.w400,
-                                fontSize:
-                                    (!kIsWeb && Platform.isIOS) ? 14.5 : 12,
+                        );
+                      },
+                      child: Container(
+                        width: MediaQuery.sizeOf(context).width * 0.88,
+                        height: 150,
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          boxShadow: const [
+                            BoxShadow(
+                              blurRadius: 6,
+                              color: Color(0x1A8A8A8A),
+                              offset: Offset(
+                                0,
+                                3,
+                              ),
+                            )
+                          ],
+                          borderRadius: BorderRadius.circular(25),
+                        ),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            Expanded(
+                              child: Padding(
+                                padding: const EdgeInsetsDirectional.fromSTEB(15, 15, 15, 15),
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        Padding(
+                                          padding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 5),
+                                          child: Row(
+                                            mainAxisSize: MainAxisSize.max,
+                                            children: [
+                                              !e.isLate && Dates.isSameDateAsNow(e.date) ?
+                                                Padding(
+                                                  padding: const EdgeInsetsDirectional.fromSTEB(0, 0, 8, 0),
+                                                  child: Container(
+                                                    width: 110,
+                                                    height: 18,
+                                                    decoration: BoxDecoration(
+                                                      color: hours == 0 && minutes <= 30
+                                                          ? const Color.fromARGB(9, 114, 37, 37)
+                                                          : const Color(0xC0ECEBFF),
+                                                      borderRadius: BorderRadius.circular(12),
+                                                    ),
+                                                    child: Align(
+                                                      alignment: const AlignmentDirectional(0, 0),
+                                                      child: RichText(
+                                                        textScaler: MediaQuery.of(context).textScaler,
+                                                        text: TextSpan(
+                                                          children: [
+                                                            TextSpan(
+                                                              text: 'Starts in ',
+                                                              style: TextStyle(
+                                                                color: hours == 0 && minutes <= 30
+                                                                    ? const Color(0xFFAE1919)
+                                                                    : const Color(0xFF252C72),
+                                                                fontWeight: FontWeight.normal,
+                                                              ),
+                                                            ),
+                                                            TextSpan(
+                                                              text: '${hours}h ${minutes}m',
+                                                              style: TextStyle(
+                                                                color: hours == 0 && minutes <= 30
+                                                                    ? const Color(0xFFAE1919)
+                                                                    : const Color(0xFF252C72),
+                                                                fontWeight: FontWeight.w600,
+                                                              ),
+                                                            )
+                                                          ],
+                                                          style: TextStyle(
+                                                            fontFamily: 'DM Sans',
+                                                            fontSize: (!kIsWeb && Platform.isIOS) ? 11 : 10,
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ) : const SizedBox(),
+                                               
+
+                                                
+                                              
+                                            ],
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        Align(
+                                          alignment: const AlignmentDirectional(-1, 0),
+                                          child: AutoSizeText(
+                                            e.name,
+                                            textAlign: TextAlign.start,
+                                            maxLines: 2,
+                                            style: TextStyle(
+                                              fontFamily: 'DM Sans',
+                                              color: Colors.black,
+                                              fontSize: (!kIsWeb && Platform.isIOS) ? 19 : 17,
+                                              height: 1.1,
+                                            ),
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
+                                          child: Row(
+                                            mainAxisSize: MainAxisSize.max,
+                                            children: [
+                                              Flexible(
+                                                child: Text(
+                                                  items2
+                                                .map((name) => name.split(' ').last)
+                                                .toList()
+                                                .join(', '),
+                                                  maxLines: 1,
+                                                  style: TextStyle(
+                                                    fontFamily: 'RedHatDisplay',
+                                                    color: const Color(0xFF8D8D92),
+                                                    fontWeight: FontWeight.w500,
+                                                    fontSize: (!kIsWeb && Platform.isIOS) ? 14 : 12,
+                                                  ),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
+                                          child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment: MainAxisAlignment.start,
+                                        children: [InkWell(
+                                            onTap: () {
+                                  log(checkInTime);
+                                  log(time);
+                          DateTime time1 = Dates.parseDateTime(e.date, checkInTime.replaceAll(".", ":").toLowerCase());
+                            DateTime time2 = time1.add(Duration(minutes: 30));
+                            
+                            try {
+                            Event event = Event(
+                              title: e.name,
+                     
+                              location: AppInfo.conference.location,
+                              startDate: time1,
+                              endDate: time2,
+                              iosParams: IOSParams(
+                                reminder: Duration(
+                                    minutes:
+                                        30), // on iOS, you can set alarm notification after your event.
+                                // on iOS, you can set url to your event.
+                              ),
+                            );
+
+                            Add2Calendar.addEvent2Cal(event);
+                            } catch ( e) {
+                             log("Error: $e");
+                            }
+                                },
+                                            child: Container(
+                                              width: 124,
+                                              height: 23,
+                                              decoration: BoxDecoration(
+                                                borderRadius: BorderRadius.circular(5),
+                                                color: const Color(0xFFE6E6E6)
+                                              ),
+                                              child: Row(
+                                                mainAxisAlignment: MainAxisAlignment.center,
+                                                children: [
+                                                  const Icon(Icons.edit_calendar_rounded, size: 12, color: Color(0xFF616161)),
+                                                  const SizedBox(width: 5),
+                                                  const Text(
+                                                    'Add to Calendar',
+                                                    style: TextStyle(
+                                                      fontFamily: 'Poppins',
+                                                      fontSize: 10,
+                                                      color: Color(0xFF616161),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          ),
+                                       ])),
+                                      ],
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
-                          ),
-                        ],
+                            Container(
+                              width: 84,
+                              decoration: const BoxDecoration(
+                                color: Colors.black,
+                                borderRadius: BorderRadius.only(
+                                  bottomLeft: Radius.circular(0),
+                                  bottomRight: Radius.circular(25),
+                                  topLeft: Radius.circular(0),
+                                  topRight: Radius.circular(25),
+                                ),
+                              ),
+                              child: Padding(
+                                padding: const EdgeInsetsDirectional.fromSTEB(18, 0, 0, 0),
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Align(
+                                      alignment: const AlignmentDirectional(-1, 0),
+                                      child: Text(
+                                        'Check-in',
+                                        style: TextStyle(
+                                          fontFamily: 'RedHatDisplay',
+                                          color: const Color(0xAFFFFFFF),
+                                          fontSize: (!kIsWeb && Platform.isIOS) ? 11 : 8,
+                                        ),
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(0, 3, 0, 0),
+                                      child: AutoSizeText(
+                                        checkInTime.replaceAll(":", '.').toUpperCase(),
+                                        maxLines: 1,
+                                        style: TextStyle(
+                                          fontFamily: 'DM Sans',
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.w500,
+                                          fontSize: (!kIsWeb && Platform.isIOS) ? 11 : 10,
+                                        ),
+                                      ),
+                                    ),
+                                    if (!c)
+                                      Padding(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
+                                        child: Text(
+                                          'Perform',
+                                          style: TextStyle(
+                                            fontFamily: 'RedHatDisplay',
+                                            color: const Color(0xA6FFFFFF),
+                                            fontSize: (!kIsWeb && Platform.isIOS) ? 11 : 8,
+                                          ),
+                                        ),
+                                      ),
+                                    if (!c)
+                                      AutoSizeText(
+                                        time.replaceAll(":", '.').toUpperCase(),
+                                        maxLines: 1,
+                                        style: TextStyle(
+                                          fontFamily: 'DM Sans',
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.w500,
+                                          fontSize: (!kIsWeb && Platform.isIOS) ? 11 : 10,
+                                        ),
+                                      ),
+                                    if (c)
+                                      Padding(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
+                                        child: Text(
+                                          'Prep',
+                                          style: TextStyle(
+                                            fontFamily: 'RedHatDisplay',
+                                            color: const Color(0xA6FFFFFF),
+                                            fontSize: (!kIsWeb && Platform.isIOS) ? 11 : 8,
+                                          ),
+                                        ),
+                                      ),
+                                    if (c)
+                                      AutoSizeText(
+                                        time.replaceAll(":", '.').toUpperCase(),
+                                        maxLines: 1,
+                                        style: TextStyle(
+                                          fontFamily: 'DM Sans',
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.w500,
+                                          fontSize: (!kIsWeb && Platform.isIOS) ? 11 : 10,
+                                        ),
+                                      ),
+                                    if (c)
+                                      Padding(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
+                                        child: Text(
+                                          'Perform',
+                                          style: TextStyle(
+                                            fontFamily: 'RedHatDisplay',
+                                            color: const Color(0xA6FFFFFF),
+                                            fontSize: (!kIsWeb && Platform.isIOS) ? 11 : 8,
+                                          ),
+                                        ),
+                                      ),
+                                    if (c)
+                                      AutoSizeText(
+                                        otherInfo.length > 2
+                                            ? otherInfo[2].replaceAll(' ', '').replaceAll(':', '.').toUpperCase()
+                                            : tempPrep.toUpperCase(),
+                                        maxLines: 1,
+                                        style: TextStyle(
+                                          fontFamily: 'DM Sans',
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.w500,
+                                          fontSize: (!kIsWeb && Platform.isIOS) ? 11 : 10,
+                                        ),
+                                      ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),
-                )),
-            Align(
-              alignment: const AlignmentDirectional(1, 0),
-              child: Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0, 15, 0, 0),
-                child: InkWell(
-                  onTap: () {
-                    Navigator.pushAndRemoveUntil(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => Navigation(
-                                pIndex: 2,
-                                reNav: false,
-                              )),
-                      (route) => false,
-                    );
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => EventLandingPage(e: e)),
-                      // This condition removes all previous routes
-                    );
-                  },
-                  child: Container(
-                    width: 26,
-                    height: 26,
-                    decoration: const BoxDecoration(
-                      color: Color(0xFFf8f8f8),
-                      shape: BoxShape.circle,
-                    ),
-                  ),
                 ),
-              ),
-            ),
-            Align(
-              alignment: const AlignmentDirectional(1, 0),
-              child: Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0, 18, 2, 0),
-                child: InkWell(
-                  onTap: () {
-                    Navigator.pushAndRemoveUntil(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => Navigation(
-                                pIndex: 2,
-                                reNav: false,
-                              )),
-                      (route) => false,
-                    );
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => EventLandingPage(e: e)),
-                      // This condition removes all previous routes
-                    );
-                  },
-                  child: Container(
-                    width: 20,
-                    height: 20,
-                    decoration: const BoxDecoration(
-                      color: Color.fromARGB(255, 31, 31, 31),
-                      shape: BoxShape.circle,
-                    ),
-                    child: const Align(
-                      alignment: AlignmentDirectional(0, 0),
-                      child: Icon(
-                        Icons.chevron_right,
-                        color: Color(0xFFF9F9F9),
-                        size: 18,
+                Align(
+                  alignment: const AlignmentDirectional(1, 0),
+                  child: Padding(
+                    padding: const EdgeInsetsDirectional.fromSTEB(0, 148, 71, 0),
+                    child: InkWell(
+                      onTap: () {
+                        if (AppInfo.currentConferenceUser.events.containsKey(e.id)) {
+                          AppInfo.currentEvents.removeWhere((key, value) => key.id == e.id);
+                          AppInfo.currentConferenceUser.events.remove(e.id);
+                          FirebaseMessaging.instance.unsubscribeFromTopic(e.id);
+                          API().updateAgendaUser(AppInfo.currentConferenceUser);
+                          setState(() {});
+                        }
+                      },
+                      child: Container(
+                        width: 28,
+                        height: 28,
+                        decoration: BoxDecoration(
+                          color: const Color(0xFF18AE9F),
+                          shape: BoxShape.circle,
+                        ),
+                        child: Icon(
+                          Symbols.check,
+                          color: Colors.white,
+                          size: 22,
+                        ),
                       ),
                     ),
                   ),
                 ),
-              ),
+              ]),
             ),
-          ])));
+          );
+        }
+      }
     }
 
     if (items.isEmpty) {
@@ -1430,12 +1700,12 @@ class _HomePageState extends State<HomePage> {
               children: [
                 Flexible(
                   child: Align(
-                    alignment: const AlignmentDirectional(-1, 0),
+                    alignment: const AlignmentDirectional(0, 0),
                     child: Text(
                       'You do not have any bookmarked events.',
                       textAlign: TextAlign.center,
-                      style: TextStyle(fontFamily: 'DM Sans',
-                        
+                      style: TextStyle(
+                        fontFamily: 'DM Sans',
                         color: Colors.black,
                         fontSize: 14,
                       ),
@@ -1549,8 +1819,8 @@ class _HomePageState extends State<HomePage> {
                       ),
                     )
                   ],
-                  style: TextStyle(fontFamily: 'DM Sans',
-                    
+                  style: TextStyle(
+                    fontFamily: 'DM Sans',
                     fontSize: (!kIsWeb && Platform.isIOS) ? 12 : 10,
                   ),
                 ),
@@ -1587,8 +1857,8 @@ class _HomePageState extends State<HomePage> {
                       ),
                     )
                   ],
-                  style: TextStyle(fontFamily: 'DM Sans',
-                    
+                  style: TextStyle(
+                    fontFamily: 'DM Sans',
                     fontSize:
                         (!kIsWeb && (!kIsWeb && Platform.isIOS)) ? 12 : 10,
                   ),
@@ -1676,8 +1946,8 @@ class _HomePageState extends State<HomePage> {
                                                   : w.type == "Session"
                                                       ? "Session"
                                                       : "Item",
-                                              style: TextStyle(fontFamily: 'DM Sans',
-                                                
+                                              style: TextStyle(
+                                                fontFamily: 'DM Sans',
                                                 color: w.type == "Event"
                                                     ? const Color(0xFF0904F4)
                                                     : w.type == "Session"
@@ -1713,8 +1983,8 @@ class _HomePageState extends State<HomePage> {
                                             name,
                                             textAlign: TextAlign.start,
                                             maxLines: 2,
-                                            style: TextStyle(fontFamily: 'DM Sans',
-                                              
+                                            style: TextStyle(
+                                              fontFamily: 'DM Sans',
                                               color: Colors.black,
                                               fontSize: (!kIsWeb &&
                                                       (!kIsWeb &&
@@ -1809,8 +2079,8 @@ class _HomePageState extends State<HomePage> {
                                 AutoSizeText(
                                   start.toUpperCase().replaceAll(":", "."),
                                   maxLines: 1,
-                                  style: TextStyle(fontFamily: 'DM Sans',
-                                    
+                                  style: TextStyle(
+                                    fontFamily: 'DM Sans',
                                     color: w.type == "Event"
                                         ? const Color.fromARGB(255, 8, 4, 244)
                                         : w.type == "Session"
@@ -1846,8 +2116,8 @@ class _HomePageState extends State<HomePage> {
                                 AutoSizeText(
                                   end.toUpperCase().replaceAll(":", "."),
                                   maxLines: 1,
-                                  style: TextStyle(fontFamily: 'DM Sans',
-                                    
+                                  style: TextStyle(
+                                    fontFamily: 'DM Sans',
                                     color: w.type == "Event"
                                         ? const Color.fromARGB(255, 8, 4, 244)
                                         : w.type == "Session"
@@ -1969,8 +2239,8 @@ class _HomePageState extends State<HomePage> {
                     child: Text(
                       'There are no more selected agenda items for today.',
                       textAlign: TextAlign.center,
-                      style: TextStyle(fontFamily: 'DM Sans',
-                        
+                      style: TextStyle(
+                        fontFamily: 'DM Sans',
                         color: Colors.black,
                         fontSize: 14,
                       ),

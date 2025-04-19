@@ -70,7 +70,7 @@ class _HomePageAdminState extends State<HomePageAdmin> {
                           child: Row(
                             mainAxisSize: MainAxisSize.min,
                             children: [
-                              Image.asset('assets/images/appicondisplay.png',
+                              Image.asset('assets/images/webimage.png',
                                   height: 24),
                               const SizedBox(width: 7),
                               const Text(

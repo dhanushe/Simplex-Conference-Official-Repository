@@ -12,7 +12,7 @@ class AppInfo {
   static late ConferenceUserData currentConferenceUser;
   static late ConferenceData conference;
 
-  static List<EventData> currentEvents = [];
+  static Map<EventData, String> currentEvents = {};
   static List<WorkshopData> currentWorkshops = [];
   static List<EventData> allEvents = [];
   static int userCount = 0;

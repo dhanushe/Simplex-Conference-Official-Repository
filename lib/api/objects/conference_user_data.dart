@@ -3,7 +3,7 @@ class ConferenceUserData {
 
   late String _name;
   late String _email;
-  late List<String> _events;
+  late Map<String, String> _events;
   late Map<String, int> _agendaItems;
 
   late bool _isAdmin;
@@ -12,7 +12,7 @@ class ConferenceUserData {
     required String id,
     required String name,
     required String email,
-    required List<String> events,
+    required Map<String, String> events,
     required Map<String, int> agendaItems,
     required bool isAdmin,
   }) {
@@ -22,7 +22,6 @@ class ConferenceUserData {
 
     _name = name;
     _email = email;
-    _events = events;
     _isAdmin = isAdmin;
   }
 
@@ -38,7 +37,7 @@ class ConferenceUserData {
     return _name;
   }
 
-  List<String> get events {
+  Map<String, String> get events {
     return _events;
   }
 

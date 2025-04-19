@@ -4,6 +4,7 @@ import 'dart:async';
 import 'dart:io';
 
 import 'package:add_2_calendar/add_2_calendar.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/foundation.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
@@ -536,9 +537,11 @@ class _WorkshopCardState extends State<WorkshopCard> {
                                 int index = AppInfo
                                     .currentConferenceUser.agendaItems[w.id]!;
                                 if (index == -1 || index == i) {
+                                  FirebaseMessaging.instance.unsubscribeFromTopic(index == i ? w.id + i.toString() : w.id);
                                   AppInfo.currentConferenceUser.agendaItems
                                       .remove(w.id);
                                 } else {
+                                    FirebaseMessaging.instance.subscribeToTopic(index == i ? w.id + i.toString() : w.id);
                                   AppInfo.currentConferenceUser
                                       .agendaItems[w.id] = i;
                                 }
@@ -546,6 +549,7 @@ class _WorkshopCardState extends State<WorkshopCard> {
                                     AppInfo.currentConferenceUser);
                                 setState(() {});
                               } else {
+                                  FirebaseMessaging.instance.subscribeToTopic(w.id + i.toString());
                                 AppInfo.currentConferenceUser
                                     .agendaItems[w.id] = i;
                                 API().updateAgendaUser(

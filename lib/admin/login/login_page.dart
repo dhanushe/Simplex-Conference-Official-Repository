@@ -89,11 +89,11 @@ class _LoginPageState extends State<LoginPage> {
               // row with the sielfiy admin and link
               child: Row(
                 children: [
-                  Image.asset('assets/images/appicondisplay.png', height: 75),
+                  Image.asset('assets/images/webimage.png', height: 75),
                   const SizedBox(
                     width: 20,
                   ),
-                  const Text("Sielify",
+                  const Text("Simplex",
                       style:
                           TextStyle(fontWeight: FontWeight.bold, fontSize: 50)),
                   const Text(
@@ -177,9 +177,9 @@ class _LoginPageState extends State<LoginPage> {
                 child: TextField(
                   controller: _usernameController2,
                   decoration: const InputDecoration(
-                      labelText: 'Sielify Account Email',
+                      labelText: 'Simplex Account Email',
                       hintText:
-                          'e.g. \'mahiremran7@gmail.com\' (You must have an existing Sielify account with an email)',
+                          'e.g. \'mahiremran7@gmail.com\' (You must have an existing Simplex account with an email)',
                       hintStyle: TextStyle(
                         fontStyle: FontStyle.italic,
                         color: Colors.grey,
@@ -203,7 +203,7 @@ class _LoginPageState extends State<LoginPage> {
                   obscureText: !_showPassword2,
                   controller: _passwordController2,
                   decoration: InputDecoration(
-                    labelText: 'Sielify Account Password',
+                    labelText: 'Simplex Account Password',
                     suffixIcon: Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: IconButton(
@@ -232,7 +232,7 @@ class _LoginPageState extends State<LoginPage> {
                           alignment: Alignment.bottomRight,
                           title: const Text('Don\'t Fret 😉'),
                           content: const Text(
-                              'Please contact the Sielify Team for speedy assistance\n\nEmail: ncfbla.app@gmail.com\nPhone Number: 425-877-6783'),
+                              'Please contact the Simplex Team for speedy assistance\n\nEmail: hello@wesimplex.com'),
                           actions: [
                             TextButton(
                               onPressed: () {
@@ -279,7 +279,7 @@ class _LoginPageState extends State<LoginPage> {
                                           backgroundColor: const Color.fromARGB(
                                               255, 105, 27, 27),
                                           content: Text(
-                                              'Error: invalid Sielify credential provided. Recheck email and/or password.',
+                                              'Error: invalid Simplex credential provided. Recheck email and/or password.',
                                               style: TextStyle(fontFamily: 'DM Sans',
                                                 fontSize: 16,
                                                 color: const Color(0xFFe9e9e9),
@@ -295,7 +295,7 @@ class _LoginPageState extends State<LoginPage> {
                                           backgroundColor: const Color.fromARGB(
                                               255, 105, 27, 27),
                                           content: Text(
-                                              'Error: Sielify Email is invalid. Did you make a typo?',
+                                              'Error: Simplex Email is invalid. Did you make a typo?',
                                               style: TextStyle(fontFamily: 'DM Sans',
                                                 fontSize: 16,
                                                 color: const Color(0xFFe9e9e9),

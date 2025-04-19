@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:io';
 
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
@@ -1009,6 +1010,7 @@ class _ConfAgendaPageState extends State<ConfAgendaPage> {
                   onTap: () {
                     if (AppInfo.currentConferenceUser.agendaItems
                         .containsKey(w.id)) {
+                         FirebaseMessaging.instance.unsubscribeFromTopic(w.id);
                       AppInfo.currentConferenceUser.agendaItems.remove(w.id);
                       API().updateAgendaUser(AppInfo.currentConferenceUser);
                       setState(() {});
@@ -1020,6 +1022,7 @@ class _ConfAgendaPageState extends State<ConfAgendaPage> {
                               builder: (context) => WorkshopBrowsePage(w: w)),
                         );
                       } else {
+                         FirebaseMessaging.instance.unsubscribeFromTopic(w.id);
                         AppInfo.currentConferenceUser.agendaItems[w.id] = -1;
                         API().updateAgendaUser(AppInfo.currentConferenceUser);
                         setState(() {});
@@ -1049,6 +1052,7 @@ class _ConfAgendaPageState extends State<ConfAgendaPage> {
                   onTap: () {
                     if (AppInfo.currentConferenceUser.agendaItems
                         .containsKey(w.id)) {
+                           FirebaseMessaging.instance.unsubscribeFromTopic(w.id);
                       AppInfo.currentConferenceUser.agendaItems.remove(w.id);
                       API().updateAgendaUser(AppInfo.currentConferenceUser);
                       setState(() {});
@@ -1060,6 +1064,7 @@ class _ConfAgendaPageState extends State<ConfAgendaPage> {
                               builder: (context) => WorkshopBrowsePage(w: w)),
                         );
                       } else {
+                         FirebaseMessaging.instance.subscribeToTopic(w.id);
                         AppInfo.currentConferenceUser.agendaItems[w.id] = -1;
                         API().updateAgendaUser(AppInfo.currentConferenceUser);
                         setState(() {});
@@ -1584,6 +1589,7 @@ class _ConfAgendaPageState extends State<ConfAgendaPage> {
                   onTap: () {
                     if (AppInfo.currentConferenceUser.agendaItems
                         .containsKey(w.id)) {
+                              FirebaseMessaging.instance.unsubscribeFromTopic(w.id);
                       AppInfo.currentConferenceUser.agendaItems.remove(w.id);
                       API().updateAgendaUser(AppInfo.currentConferenceUser);
                       setState(() {});
@@ -1595,6 +1601,7 @@ class _ConfAgendaPageState extends State<ConfAgendaPage> {
                               builder: (context) => WorkshopBrowsePage(w: w)),
                         );
                       } else {
+                            FirebaseMessaging.instance.subscribeToTopic(w.id);
                         AppInfo.currentConferenceUser.agendaItems[w.id] = -1;
                         API().updateAgendaUser(AppInfo.currentConferenceUser);
                         setState(() {});
@@ -1679,6 +1686,7 @@ class _ConfAgendaPageState extends State<ConfAgendaPage> {
                     onTap: () {
                       if (AppInfo.currentConferenceUser.agendaItems
                           .containsKey(w.id)) {
+                                FirebaseMessaging.instance.unsubscribeFromTopic(w.id);
                         AppInfo.currentConferenceUser.agendaItems.remove(w.id);
                         API().updateAgendaUser(AppInfo.currentConferenceUser);
                         setState(() {});
@@ -1690,6 +1698,7 @@ class _ConfAgendaPageState extends State<ConfAgendaPage> {
                                 builder: (context) => WorkshopBrowsePage(w: w)),
                           );
                         } else {
+                              FirebaseMessaging.instance.subscribeToTopic(w.id);
                           AppInfo.currentConferenceUser.agendaItems[w.id] = -1;
                           API().updateAgendaUser(AppInfo.currentConferenceUser);
                           setState(() {});

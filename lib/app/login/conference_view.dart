@@ -38,7 +38,9 @@ class _ConferenceViewState extends State<ConferenceView> {
   bool isJoiningConference = false;
   List<Widget> conferenceItems = [];
   List<ConferenceData> conferences = [];
+  List<Widget> pastConferences = [];
   bool dataLoaded = false;
+  bool showPastConferences = false;
   bool linkGoogle = false;
   bool isLinking = false;
   bool isDeleting = false;
@@ -48,6 +50,7 @@ class _ConferenceViewState extends State<ConferenceView> {
       conferences = value;
 
       conferenceItems = getConferenceWidgets();
+      pastConferences = getPastConferenceWidgets();
       dataLoaded = true;
       setState(() {});
     });
@@ -68,6 +71,8 @@ class _ConferenceViewState extends State<ConferenceView> {
   Widget build(BuildContext context) {
     if (dataLoaded) {
       conferenceItems = getConferenceWidgets();
+      pastConferences = getPastConferenceWidgets();
+
     }
     return Scaffold(
       key: scaffoldKey,
@@ -322,6 +327,58 @@ class _ConferenceViewState extends State<ConferenceView> {
               //                         color: Color(0xFF070650))))),
               //       ),
               //     ]),
+Padding(
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(25, 25, 25, 0),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Text(
+                            'Past Conferences',
+                            style: TextStyle(fontFamily: 'DM Sans',
+                              
+                              fontWeight: FontWeight.normal,
+                              fontSize: 18,
+                            ),
+                          ),
+                          SizedBox(width: 12),
+                          InkWell(
+                            onTap: () {
+                              setState(() {
+                                showPastConferences =
+                                    !showPastConferences;
+                              });
+                            },
+                            child:
+                            Container(
+                          width: 60,
+                          height: 26,
+                          decoration: BoxDecoration(
+                              border: Border.all(
+                                color: const Color(0xFF070650),
+                                width: 1.0,
+                              ),
+                              borderRadius: BorderRadius.circular(40)),
+                          child:  Align(
+                              alignment: Alignment.center,
+                              child: Text(!showPastConferences ? 'Show' : 'Hide',
+                                  style: TextStyle(
+                                    fontSize: 11,
+                                      fontFamily: 'DM Sans',
+                                      color: Color(0xFF070650)))))
+                            
+                            
+                          
+                          ),
+                        ],
+                      ),
+                    ),
+
+                    dataLoaded && showPastConferences
+                  ? Column(children: pastConferences)
+                  : dataLoaded ? SizedBox() :const Padding(
+                      padding: EdgeInsets.only(top: 15),
+                      child: CircularProgressIndicator(color: Colors.black)),
 
               dataLoaded && !linkGoogle
                   ? Padding(
@@ -928,6 +985,241 @@ class _ConferenceViewState extends State<ConferenceView> {
   List<Widget> getConferenceWidgets() {
     List<Widget> items = [];
     for (ConferenceData c in conferences) {
+      if (DateTime.parse(c.endDate).add(Duration(days: 1)).isBefore(DateTime.now())) {
+        continue;
+      }
+      items.add(
+        Padding(
+          padding: const EdgeInsetsDirectional.fromSTEB(0, 12, 0, 0),
+          child: Container(
+            width: MediaQuery.sizeOf(context).width * 0.88,
+            height: 232,
+            decoration: BoxDecoration(
+              color: const Color(0xFF010030),
+              borderRadius: BorderRadius.circular(25),
+            ),
+            child: Column(
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                SizedBox(
+                  width: MediaQuery.sizeOf(context).width * 0.88,
+                  height: 232,
+                  child: Stack(
+                    children: [
+                      Opacity(
+                        opacity: 0.2,
+                        child: Container(
+                          width: MediaQuery.sizeOf(context).width * 0.88,
+                          height: 232,
+                          decoration: BoxDecoration(
+                            color: const Color(0xFF010030),
+                            image: DecorationImage(
+                              fit: BoxFit.cover,
+                              image: Image.asset(
+                                'assets/images/homebg.png',
+                              ).image,
+                            ),
+                            borderRadius: BorderRadius.circular(25),
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding:
+                            const EdgeInsetsDirectional.fromSTEB(30, 20, 30, 0),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Row(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                ClipRRect(
+                                  borderRadius: BorderRadius.circular(0),
+                                  child: CachedNetworkImage(
+                                    imageUrl: c.logo,
+                                    height: 33,
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                              ],
+                            ),
+                            Align(
+                              alignment: const AlignmentDirectional(-1, 0),
+                              child: Padding(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    0, 20, 0, 0),
+                                child: AutoSizeText(
+                                  c.name,
+                                  maxLines: 2,
+                                  style: const TextStyle(
+                                    fontFamily: 'RedHatDisplay',
+                                    color: Colors.white,
+                                    fontSize: 28,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            Align(
+                              alignment: const AlignmentDirectional(-1, 0),
+                              child: Text(
+                                overflow: TextOverflow.ellipsis,
+                                c.desc,
+                                maxLines: 2,
+                                style: const TextStyle(
+                                  fontFamily: 'RedHatDisplay',
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w300,
+                                  fontSize: 15,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Align(
+                        alignment: const AlignmentDirectional(0, 1),
+                        child: Container(
+                          width: MediaQuery.sizeOf(context).width * 0.88,
+                          height: 66,
+                          decoration: const BoxDecoration(
+                            color: Color(0xFF070650),
+                            borderRadius: BorderRadius.only(
+                              bottomLeft: Radius.circular(25),
+                              bottomRight: Radius.circular(25),
+                              topLeft: Radius.circular(0),
+                              topRight: Radius.circular(0),
+                            ),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                30, 0, 30, 5),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      c.location,
+                                      style: const TextStyle(
+                                        fontFamily: 'RedHatDisplay',
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.w300,
+                                        fontSize: 13,
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding:
+                                          const EdgeInsetsDirectional.fromSTEB(
+                                              0, 0, 0, 0),
+                                      child: Text(
+                                        Dates.formatDateRange(
+                                            c.startDate, c.endDate),
+                                        style: const TextStyle(
+                                          fontFamily: 'RedHatDisplay',
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.w300,
+                                          fontSize: 13,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                !isJoiningConference
+                                    ? InkWell(
+                                        onTap: () async {
+                                          if (!isJoiningConference) {
+                                            setState(() {
+                                              isJoiningConference = true;
+                                            });
+                                            if (!AppInfo.currentUser.conferences
+                                                .contains(c.id)) {
+                                              await API().addConferenceUser(
+                                                  c.id, AppInfo.currentUser);
+                                              await API().updateUserConference(
+                                                  AppInfo.currentUser, c.id);
+                                              await API().loadData(c.id);
+                                              API().joinConference(
+                                                  AppInfo.currentUser, c.id);
+                                              Navigator.pushAndRemoveUntil(
+                                                context,
+                                                MaterialPageRoute(
+                                                    builder: (context) =>
+                                                        Navigation(
+                                                            reNav: false,
+                                                            pIndex: 0)),
+                                                (route) =>
+                                                    false, // This condition removes all previous routes
+                                              );
+                                            } else {
+                                              await API().loadData(c.id);
+                                              API().joinConference(
+                                                  AppInfo.currentUser, c.id);
+
+                                              Navigator.pushAndRemoveUntil(
+                                                context,
+                                                MaterialPageRoute(
+                                                    builder: (context) =>
+                                                        Navigation(
+                                                            reNav: false,
+                                                            pIndex: 0)),
+                                                (route) =>
+                                                    false, // This condition removes all previous routes
+                                              );
+                                            }
+                                          }
+                                        },
+                                        child: Container(
+                                          width: 74,
+                                          height: 21,
+                                          decoration: BoxDecoration(
+                                            color: Colors.white,
+                                            borderRadius:
+                                                BorderRadius.circular(12),
+                                          ),
+                                          child: const Align(
+                                            alignment:
+                                                AlignmentDirectional(0, 0),
+                                            child: Text(
+                                              'Join',
+                                              style: TextStyle(
+                                                fontFamily: 'RedHatDisplay',
+                                                color: Color(0xFF226ADD),
+                                                fontWeight: FontWeight.w500,
+                                                fontSize: 12,
+                                              ),
+                                            ),
+                                          ),
+                                        ))
+                                    : const CircularProgressIndicator(
+                                        color: Colors.white,
+                                        strokeWidth: 3.0,
+                                      ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      );
+    }
+    return items;
+  }
+
+  List<Widget> getPastConferenceWidgets() {
+    List<Widget> items = [];
+    for (ConferenceData c in conferences) {
+      if (DateTime.parse(c.endDate).add(Duration(days: 1)).isAfter(DateTime.now())) {
+        continue;
+      }
       items.add(
         Padding(
           padding: const EdgeInsetsDirectional.fromSTEB(0, 12, 0, 0),

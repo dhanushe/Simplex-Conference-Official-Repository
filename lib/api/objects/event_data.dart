@@ -10,6 +10,8 @@ class EventData {
 
   late String _round;
   late String _type;
+  late bool _isLate;
+  late bool _isOpen;
 
   EventData({
     required String id,
@@ -20,6 +22,8 @@ class EventData {
     required String times,
     required String type,
     required String round,
+    required bool isLate,
+    required bool isOpen,
   }) {
     _id = id;
     _name = name;
@@ -29,6 +33,8 @@ class EventData {
     _type = type;
     _times = times;
     _round = round;
+    _isLate = isLate;
+    _isOpen = isOpen;
   }
 
   String get type {
@@ -62,4 +68,32 @@ class EventData {
   String get date {
     return _date;
   }
+
+  bool get isLate {
+    return _isLate;
+  }
+
+  bool get isOpen {
+    return _isOpen;
+  }
+
+  set isLate(bool value) {
+    _isLate = value;
+  }
+
+  set times(String value) {
+    _times = value;
+  }
+  set name(String value) {
+    _name = value;
+  }
+
+  set isOpen(bool value) {
+    _isOpen = value;
+  }
+
+  set date (String value) {
+    _date = value;
+  }
 }
+

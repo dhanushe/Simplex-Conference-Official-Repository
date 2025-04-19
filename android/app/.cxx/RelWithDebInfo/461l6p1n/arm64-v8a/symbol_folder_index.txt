@@ -1,0 +1,1 @@
+/Users/mahiremran/Desktop/GitHub/Simplex-Conference-Official-Repository/build/app/intermediates/cxx/RelWithDebInfo/461l6p1n/obj/arm64-v8a

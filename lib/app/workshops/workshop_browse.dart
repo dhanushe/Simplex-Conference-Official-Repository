@@ -1,5 +1,6 @@
 // ignore_for_file: must_be_immutable, no_logic_in_create_state
 
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:material_symbols_icons/symbols.dart';
@@ -374,9 +375,11 @@ class _WorkshopBrowsePageState extends State<WorkshopBrowsePage> {
                             int index = AppInfo
                                 .currentConferenceUser.agendaItems[w.id]!;
                             if (index == i) {
+                                  FirebaseMessaging.instance.unsubscribeFromTopic(w.id + i.toString());
                               AppInfo.currentConferenceUser.agendaItems
                                   .remove(w.id);
                             } else {
+                                FirebaseMessaging.instance.subscribeToTopic(w.id + i.toString());
                               AppInfo.currentConferenceUser.agendaItems[w.id] =
                                   i;
                             }
@@ -384,6 +387,7 @@ class _WorkshopBrowsePageState extends State<WorkshopBrowsePage> {
                                 AppInfo.currentConferenceUser);
                             setState(() {});
                           } else {
+                              FirebaseMessaging.instance.subscribeToTopic(w.id + i.toString());
                             AppInfo.currentConferenceUser.agendaItems[w.id] = i;
                             API().updateAgendaUser(
                                 AppInfo.currentConferenceUser);

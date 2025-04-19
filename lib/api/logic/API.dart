@@ -208,10 +208,11 @@ class API {
 
       DocumentSnapshot u = await userRef.get();
 
-      List<String> currentAgendaItems = (u['events'] as List).cast<String>();
+      Map<String, dynamic> currentAgendaItems =
+          u['events'] as Map<String, dynamic>;
 
       // Check if the document ID exists in the agendaItems map
-      if (currentAgendaItems.contains(eId)) {
+      if (currentAgendaItems.containsKey(eId)) {
         // Remove the entry with the document ID
         currentAgendaItems.remove(eId);
 
@@ -314,6 +315,24 @@ class API {
         return MapEntry(key,
             (value as List<dynamic>).map((item) => item.toString()).toList());
       });
+
+      bool isOpen;
+      bool isLate;
+
+      try {
+        isOpen = d.get('isOpen') as bool;
+      } catch (e) {
+        isOpen = false;
+        await d.reference.update({'isOpen': false});
+      }
+
+      try {
+        isLate = d.get('isLate') as bool;
+      } catch (e) {
+        isLate = false;
+        await d.reference.update({'isLate': false});
+      }
+
       currentEvents.add(EventData(
           id: d.id,
           type: d.get('type') as String,
@@ -322,7 +341,9 @@ class API {
           competitors: flutterMap,
           date: d.get('date') as String,
           times: d.get('times') as String,
-          round: d.get('round') as String));
+          round: d.get('round') as String,
+          isOpen: isOpen,
+          isLate: isLate));
     }
     return currentEvents;
   }
@@ -389,6 +410,7 @@ class API {
     Map<String, int> tileList = {};
     // Because of Firebase's API with typing, the List of maps must be cast
     // to a dynamic typing.
+     Map<String, String> compEvents = {};
 
     try {
       Map<String, dynamic> firestoreMap =
@@ -409,12 +431,31 @@ class API {
           .update({'agendaItems': {}});
     }
 
+    try {
+      Map<String, dynamic> firestoreMap =
+          userDocument['events'] as Map<String, dynamic>;
+
+      // Convert the dynamic values to List<String> and create a Map<String, List<String>>
+      Map<String, String> flutterMap = firestoreMap.map((key, value) {
+        return MapEntry(key, (value as String));
+      });
+
+      compEvents = flutterMap;
+    } catch (e) {
+      await database
+          .collection('conferences')
+          .doc(conferenceId)
+          .collection('users')
+          .doc(id)
+          .update({'events': {}});
+    
+ }
     return ConferenceUserData(
         email: user.email!,
         name: userDocument.get('name') as String,
         isAdmin: userDocument.get('isAdmin') as bool,
         id: user.uid,
-        events: (userDocument.get('events') as List).cast<String>(),
+        events: compEvents,
         agendaItems: tileList);
   }
 
@@ -527,6 +568,7 @@ class API {
         .collection('users')
         .doc(u.id)
         .update({
+          'events': u.events,
       'agendaItems': u.agendaItems,
     });
   }
@@ -560,6 +602,38 @@ class API {
       'conferences': u.conferences + [cId]
     });
   }
+
+  Future<void> updateLateEvent(EventData e, String cId) async {
+    await database.collection('conferences').doc(cId).collection('events').doc(e.id).update({
+      'isLate': e.isLate
+    });
+  }
+
+  Future<void> updateEvent(EventData e, String cId) async {
+    await database.collection('conferences').doc(cId).collection('events').doc(e.id).update({
+      'name': e.name,
+      'date': e.date,
+      'isOpen': e.isOpen,
+      'times': e.times,
+    });
+  }
+
+
+  Future<void> updateWorkshop(WorkshopData e, String cId) async {
+    await database.collection('conferences').doc(cId).collection('workshops').doc(e.id).update({
+      'name': e.name,
+      'date': e.date,
+      'location': e.location,
+      'startTime': e.startTime,
+      'endTime': e.endTime,
+      'desc': e.desc,
+      'sessions': e.sessions,
+      'tag': e.tag,
+      "type": e.type,
+      'sessionId': e.sessionId,
+    });
+  }
+
 
   Future<void> joinConference(UserData u, String cId) async {
     await database.collection('users').doc(u.id).update({
@@ -618,13 +692,13 @@ class API {
     return announcementsList;
   }
 
-  Future<List<EventData>> getEventsForUser(
-      String conferenceid, List<String> workshops) async {
-    List<EventData> currentEvents = [];
+  Future<Map<EventData, String>> getEventsForUser(
+      String conferenceid, Map<String, String> workshops) async {
+    Map<EventData, String> currentEvents = {};
     List<DocumentReference> documentReferences = [];
 
     // Populate the list with DocumentReference objects based on the document IDs
-    for (var docId in workshops) {
+    for (var docId in workshops.keys) {
       documentReferences.add(FirebaseFirestore.instance
           .collection('conferences')
           .doc(conferenceid)
@@ -645,7 +719,25 @@ class API {
         return MapEntry(key,
             (value as List<dynamic>).map((item) => item.toString()).toList());
       });
-      currentEvents.add(EventData(
+
+      bool isOpen;
+      bool isLate;
+
+      try {
+        isOpen = d.get('isOpen') as bool;
+      } catch (e) {
+        isOpen = false;
+        await d.reference.update({'isOpen': false});
+      }
+
+      try {
+        isLate = d.get('isLate') as bool;
+      } catch (e) {
+        isLate = false;
+        await d.reference.update({'isLate': false});
+      }
+
+      currentEvents[EventData(
           id: d.id,
           type: d.get('type') as String,
           name: d.get('name') as String,
@@ -653,7 +745,9 @@ class API {
           competitors: flutterMap,
           date: d.get('date') as String,
           times: d.get('times') as String,
-          round: d.get('round') as String));
+          round: d.get('round') as String,
+          isOpen: isOpen,
+          isLate: isLate)] = workshops[d.id]!;
     }
 
     return currentEvents;

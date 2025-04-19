@@ -28,6 +28,7 @@ class _BrowsePageState extends State<BrowsePage> {
   bool dataLoaded = true;
   FocusNode? f;
   List<EventData> events = [];
+  bool showOpenEventsOnly = false;
 
   _BrowsePageState() {
     events = AppInfo.allEvents;
@@ -144,9 +145,9 @@ class _BrowsePageState extends State<BrowsePage> {
                           obscureText: false,
                           decoration: InputDecoration(
                             hintText: 'Search...',
-                            hintStyle: TextStyle(fontFamily: 'DM Sans',
+                            hintStyle: TextStyle(
+                              fontFamily: 'DM Sans',
                               fontWeight: FontWeight.w400,
-                              
                               color: const Color(0xFFAEAEAE),
                               fontSize: 13,
                             ),
@@ -193,8 +194,8 @@ class _BrowsePageState extends State<BrowsePage> {
                               size: 20,
                             ),
                           ),
-                          style: TextStyle(fontFamily: 'DM Sans',
-                            
+                          style: TextStyle(
+                            fontFamily: 'DM Sans',
                             color: f!.hasFocus || f!.hasPrimaryFocus
                                 ? const Color(0xFF226ADD)
                                 : const Color(0xFF585858),
@@ -203,6 +204,41 @@ class _BrowsePageState extends State<BrowsePage> {
                           minLines: null,
                         ),
                       ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsetsDirectional.fromSTEB(0, 10, 0, 10),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children:[
+                          SizedBox(width: 25),
+                          GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            showOpenEventsOnly = !showOpenEventsOnly;
+                          });
+                        },
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: showOpenEventsOnly
+                                ? const Color(0xFF19A5AE)
+                                : const Color(0xFFD9D9D9),
+                            borderRadius: BorderRadius.circular(50),
+                          ),
+                          padding: const EdgeInsets.symmetric(
+                              vertical: 8, horizontal: 20),
+                          child: Text(
+                            'Open Event',
+                            style: TextStyle(
+                              fontFamily: 'Poppins',
+                              fontSize: 12,
+                              color: showOpenEventsOnly
+                                  ? const Color(0xFFFFFFFF)
+                                  : const Color(0xFF585858),
+                            ),
+                          ),
+                        ),
+                      ),
+                      ])
                     ),
                     Column(
                         mainAxisSize: MainAxisSize.max,
@@ -221,77 +257,96 @@ class _BrowsePageState extends State<BrowsePage> {
     List<Widget> items = [];
 
     for (EventData e in events) {
-      if (Parsing.normalizeString(e.name.toLowerCase())
-          .startsWith(Parsing.normalizeString(search.toLowerCase()))) {
+      if ((!showOpenEventsOnly || e.isOpen) &&
+          Parsing.normalizeString(e.name.toLowerCase())
+              .contains(Parsing.normalizeString(search.toLowerCase()))) {
         items.add(SizedBox(
-            width: MediaQuery.sizeOf(context).width * 0.88,
-            child: Stack(children: [
+          width: MediaQuery.sizeOf(context).width * 0.88,
+          child: Stack(
+            children: [
               Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
-                  child: InkWell(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => EventLandingPage(e: e)),
-                        // This condition removes all previous routes
-                      );
-                    },
-                    child: Container(
-                      width: MediaQuery.sizeOf(context).width * 0.86,
-                      height: 40,
-                      decoration: BoxDecoration(
-                        color: const Color(0xFFFFFFFF),
-                        boxShadow: const [
-                          BoxShadow(
-                            blurRadius: 6,
-                            color: Color(0x1B8A8A8A),
-                            offset: Offset(
-                              0,
-                              3,
-                            ),
-                          )
-                        ],
-                        borderRadius: (!kIsWeb && Platform.isIOS)
-                            ? BorderRadius.circular(17)
-                            : BorderRadius.circular(20),
-                      ),
-                      child: Padding(
-                        padding:
-                            const EdgeInsetsDirectional.fromSTEB(20, 0, 20, 0),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Flexible(
+                padding: const EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
+                child: InkWell(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => EventLandingPage(e: e)),
+                    );
+                  },
+                  child: Container(
+                    width: MediaQuery.sizeOf(context).width * 0.86,
+                    height: e.isOpen ? 60 : 40, // Adjust height for open events
+                    decoration: BoxDecoration(
+                      color: const Color(0xFFFFFFFF),
+                      boxShadow: const [
+                        BoxShadow(
+                          blurRadius: 6,
+                          color: Color(0x1B8A8A8A),
+                          offset: Offset(
+                            0,
+                            3,
+                          ),
+                        )
+                      ],
+                      borderRadius: (!kIsWeb && Platform.isIOS)
+                          ? BorderRadius.circular(17)
+                          : BorderRadius.circular(20),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsetsDirectional.fromSTEB(20, 0, 20, 0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          if (e.isOpen)
+                            Container(
+                              decoration: BoxDecoration(
+                                color: const Color(0xFFFFF4EB),
+                                borderRadius: BorderRadius.circular(50),
+                              ),
+                              padding: const EdgeInsets.symmetric(
+                                  vertical: 4, horizontal: 10),
                               child: Text(
-                                e.name,
-                                maxLines: 1,
-                                overflow: TextOverflow.ellipsis,
-                                style: TextStyle(fontFamily: 'DM Sans',
-                                  
-                                  color: const Color(0xFF585858),
-                                  fontWeight: FontWeight.w400,
-                                  fontSize:
-                                      (!kIsWeb && Platform.isIOS) ? 13.5 : 12,
+                                'Open Event',
+                                style: TextStyle(
+                                  fontFamily: 'DM Sans',
+                                  fontSize: 10,
+                                  color: const Color(0xFFFB8500),
+                                  fontWeight: FontWeight.w500,
                                 ),
                               ),
                             ),
-                          ],
-                        ),
+                          const SizedBox(height: 4), // Space between tag and name
+                          Flexible(
+                            child: Text(
+                              e.name,
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                              style: TextStyle(
+                                fontFamily: 'DM Sans',
+                                color: const Color(0xFF585858),
+                                fontWeight: FontWeight.w400,
+                                fontSize: (!kIsWeb && Platform.isIOS) ? 13.5 : 12,
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
                     ),
-                  )),
+                  ),
+                ),
+              ),
               Align(
                 alignment: const AlignmentDirectional(1, 0),
                 child: Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0, 15, 0, 0),
+                  padding:  EdgeInsetsDirectional.fromSTEB(0,  !e.isOpen ? 15 : 24, 0, 0),
                   child: InkWell(
                     onTap: () {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
                             builder: (context) => EventLandingPage(e: e)),
-                        // This condition removes all previous routes
                       );
                     },
                     child: Container(
@@ -308,14 +363,13 @@ class _BrowsePageState extends State<BrowsePage> {
               Align(
                 alignment: const AlignmentDirectional(1, 0),
                 child: Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0, 18, 2, 0),
+                  padding:  EdgeInsetsDirectional.fromSTEB(0, !e.isOpen ? 18 : 28, 2, 0),
                   child: InkWell(
                     onTap: () {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
                             builder: (context) => EventLandingPage(e: e)),
-                        // This condition removes all previous routes
                       );
                     },
                     child: Container(
@@ -337,7 +391,9 @@ class _BrowsePageState extends State<BrowsePage> {
                   ),
                 ),
               ),
-            ])));
+            ],
+          ),
+        ));
       }
     }
 
@@ -369,8 +425,8 @@ class _BrowsePageState extends State<BrowsePage> {
                 Text(
                   'No events with the inputted search.',
                   maxLines: 1,
-                  style: TextStyle(fontFamily: 'DM Sans',
-                    
+                  style: TextStyle(
+                    fontFamily: 'DM Sans',
                     color: const Color(0xFF585858),
                     fontWeight: FontWeight.w500,
                     fontSize: 11,

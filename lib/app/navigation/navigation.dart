@@ -283,16 +283,37 @@ class _NavigationState extends State<Navigation> {
           return MapEntry(key,
               (value as List<dynamic>).map((item) => item.toString()).toList());
         });
-        currentEvents.add(EventData(
-            id: d.id,
-            type: d.get('type') as String,
-            name: d.get('name') as String,
-            color: d.get('color') as String,
-            competitors: flutterMap,
-            date: d.get('date') as String,
-            times: d.get('times') as String,
-            round: d.get('round') as String));
+
+         bool isOpen;
+      bool isLate;
+
+      try {
+        isOpen = d.get('isOpen') as bool;
+      } catch (e) {
+        isOpen = false;
+         d.reference.update({'isOpen': false});
       }
+
+      try {
+        isLate = d.get('isLate') as bool;
+      } catch (e) {
+        isLate = false;
+         d.reference.update({'isLate': false});
+      }
+
+      currentEvents.add(EventData(
+          id: d.id,
+          type: d.get('type') as String,
+          name: d.get('name') as String,
+          color: d.get('color') as String,
+          competitors: flutterMap,
+          date: d.get('date') as String,
+          times: d.get('times') as String,
+          round: d.get('round') as String,
+          isOpen: isOpen,
+          isLate: isLate));
+    }
+       
       AppInfo.allEvents = currentEvents;
       if (reNav) {
         Navigator.pushAndRemoveUntil(

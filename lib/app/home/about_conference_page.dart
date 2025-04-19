@@ -411,17 +411,17 @@ class _AboutConferencePageState extends State<AboutConferencePage> {
                                 ),
                               )
                             : const SizedBox(),
-                        AppInfo.conference.specificLoc != ""
-                            ? Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    25, 9, 25, 0),
-                                child: SizedBox(
-                                    width:
-                                        MediaQuery.sizeOf(context).width * 0.88,
-                                    height: 200,
-                                    child: const MapScreen()),
-                              )
-                            : const SizedBox(),
+                        // AppInfo.conference.specificLoc != ""
+                        //     ? Padding(
+                        //         padding: const EdgeInsetsDirectional.fromSTEB(
+                        //             25, 9, 25, 0),
+                        //         child: SizedBox(
+                        //             width:
+                        //                 MediaQuery.sizeOf(context).width * 0.88,
+                        //             height: 200,
+                        //             child: const MapScreen()),
+                        //       )
+                        //     : const SizedBox(),
                         AppInfo.conference.specificLoc != ""
                             ? Padding(
                                 padding: const EdgeInsetsDirectional.fromSTEB(
