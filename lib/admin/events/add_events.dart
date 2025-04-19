@@ -137,7 +137,7 @@ class _AddEventsAdminState extends State<AddEventsAdmin> {
                             children: [
                               SizedBox(
                                   width:
-                                        MediaQuery.sizeOf(context).width * .18),
+                                        MediaQuery.sizeOf(context).width * .22),
                               const Text('Edit Info',
                                   style: TextStyle(
                                       fontSize: 20,
@@ -838,35 +838,35 @@ class _AddEventsAdminState extends State<AddEventsAdmin> {
                   ),
                   SizedBox(width: 15),
 
-                   eventIndex != -1 ? Padding(
-                    padding: const EdgeInsetsDirectional.fromSTEB(
-                        25, 20, 25, 0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
+                  //  eventIndex != -1 ? Padding(
+                  //   padding: const EdgeInsetsDirectional.fromSTEB(
+                  //       25, 20, 25, 0),
+                  //   child: Column(
+                  //     crossAxisAlignment: CrossAxisAlignment.start,
+                  //     children: [
                    
-                        Material(
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(5)),
-                          color: Colors.white,
-                          elevation: 0.5,
-                          child: Padding(
-                            padding: const EdgeInsets.fromLTRB(
-                                20.0, 20, 20, 30.0),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                 SizedBox(
-                                  width:
-                                      MediaQuery.sizeOf(context).width * .18),
-                                const Text(
-                                  'Edit Competitors',
-                                  style: TextStyle(
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.black,
-                                  ),
-                                ),])))])) : SizedBox(),
+                  //       Material(
+                  //         shape: RoundedRectangleBorder(
+                  //             borderRadius: BorderRadius.circular(5)),
+                  //         color: Colors.white,
+                  //         elevation: 0.5,
+                  //         child: Padding(
+                  //           padding: const EdgeInsets.fromLTRB(
+                  //               20.0, 20, 20, 30.0),
+                  //           child: Column(
+                  //             crossAxisAlignment: CrossAxisAlignment.start,
+                  //             children: [
+                  //                SizedBox(
+                  //                 width:
+                  //                     MediaQuery.sizeOf(context).width * .18),
+                  //               const Text(
+                  //                 'Edit Competitors',
+                  //                 style: TextStyle(
+                  //                   fontSize: 20,
+                  //                   fontWeight: FontWeight.bold,
+                  //                   color: Colors.black,
+                  //                 ),
+                  //               ),])))])) : SizedBox(),
                  
                 ],
               ),
