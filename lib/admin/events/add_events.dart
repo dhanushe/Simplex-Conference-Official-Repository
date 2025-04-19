@@ -858,7 +858,7 @@ class _AddEventsAdminState extends State<AddEventsAdmin> {
                               children: [
                                  SizedBox(
                                   width:
-                                      MediaQuery.sizeOf(context).width * .22),
+                                      MediaQuery.sizeOf(context).width * .18),
                                 const Text(
                                   'Edit Competitors',
                                   style: TextStyle(
