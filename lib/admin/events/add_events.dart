@@ -10,6 +10,7 @@ import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_excel/excel.dart';
+import 'package:http/http.dart';
 
 import 'package:intl/intl.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -63,6 +64,7 @@ class _AddEventsAdminState extends State<AddEventsAdmin> {
     text = TextEditingController();
     f = FocusNode();
     super.initState();
+    deleteData();
   }
 
   @override
@@ -201,6 +203,15 @@ class _AddEventsAdminState extends State<AddEventsAdmin> {
                                               try {
                                                 await _uploadSpreadsheet(
                                                     context);
+
+                                                     API().getAllEvents(AppInfo.conference.id).then((value) {
+      events = value;
+      events.sort((a, b) => a.name.compareTo(b.name));
+
+      setState(() {
+        dataLoaded = true;
+      });
+    });
                                                 ScaffoldMessenger.of(context)
                                                     .showSnackBar(SnackBar(
                                                         duration:
@@ -296,6 +307,14 @@ class _AddEventsAdminState extends State<AddEventsAdmin> {
                                           });
                                           try {
                                             await deleteData();
+                                             API().getAllEvents(AppInfo.conference.id).then((value) {
+      events = value;
+      events.sort((a, b) => a.name.compareTo(b.name));
+
+      setState(() {
+        dataLoaded = true;
+      });
+    });
                                             ScaffoldMessenger.of(context)
                                                 .showSnackBar(SnackBar(
                                                     duration: const Duration(
@@ -648,11 +667,12 @@ class _AddEventsAdminState extends State<AddEventsAdmin> {
                         color: Colors.white,
                         elevation: 0.5,
                         child: Container(
-                            height: MediaQuery.sizeOf(context).height - 80,
+                          
                             child: Padding(
                                 padding: const EdgeInsets.fromLTRB(
                                     20.0, 20, 20, 30.0),
-                                child: Column(
+                                child: SingleChildScrollView(
+                                  child:Column(
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
@@ -824,15 +844,14 @@ class _AddEventsAdminState extends State<AddEventsAdmin> {
                                         ),
                                       ),
                                       dataLoaded
-                                          ? SingleChildScrollView(
-                                              child: Column(
+                                          ? Column(
                                                   crossAxisAlignment:
                                                       CrossAxisAlignment.center,
                                                   children:
-                                                      getEventWidgets()))
+                                                      getEventWidgets())
                                           : const CircularProgressIndicator(
                                               color: Color(0xFF000000))
-                                    ]))),
+                                    ])))),
                       )
                     ],
                   ),
@@ -1028,6 +1047,7 @@ class _AddEventsAdminState extends State<AddEventsAdmin> {
   }
 
   Future<void> _uploadSpreadsheet(BuildContext context) async {
+    
     FilePickerResult? pickedFile = await FilePicker.platform.pickFiles(
       type: FileType.custom,
       allowedExtensions: ['xlsx'],
@@ -1051,6 +1071,7 @@ class _AddEventsAdminState extends State<AddEventsAdmin> {
       bool prelimExists = false;
       var table = excel.tables.keys.first;
       for (int i = 1; i < excel.tables[table]!.rows.length; i++) {
+        
         var row = excel.tables[table]!.rows[i];
 
         if (row[17] == null ||
@@ -1072,8 +1093,11 @@ class _AddEventsAdminState extends State<AddEventsAdmin> {
               events[lastIndex]['times'] = times;
             }
             lastName = row[1]!.value.toString();
+            
             String date = row[3]!.value.toString();
+        
             DateTime inputDate;
+          
             if (date.contains("T")) {
               date = date.substring(0, date.indexOf("T"));
               inputDate = DateFormat('yyyy-MM-dd').parse(date);
@@ -1087,15 +1111,25 @@ class _AddEventsAdminState extends State<AddEventsAdmin> {
             } else {
               inputDate = DateFormat('M/d/yyyy').parse(date);
             }
+   
+             
             String outputDateString =
                 DateFormat('yyyy-MM-dd').format(inputDate);
-
+                
+              
             times = row[0]?.value.toString() == "Case" ||
                     row[0]!.value.toString().contains("RP")
                 ? row[15]!.value.toString().toLowerCase().replaceAll(' ', '')
                 : row[17]!.value.toString().toLowerCase().replaceAll(' ', '');
-            endTime = getEndTime(times);
+             if (double.tryParse(times) != null) {
+              times = decimalToTimeString(double.parse(times));
+            }
+            dv.log(times.toString());
 
+
+            endTime = getEndTime(times);
+           
+           
             // Format the DateTime object into the desired format
 
             String location = row[4]!.value.toString();
@@ -1118,8 +1152,12 @@ class _AddEventsAdminState extends State<AddEventsAdmin> {
             extra += ";$location";
             if (row[0]!.value.toString() == "Case" ||
                 row[0]!.value.toString().replaceAll(' ', '') == "RP") {
+                  String performTime = row[17]!.value.toString().toLowerCase().replaceAll(' ', '');
+                   if (double.tryParse(performTime) != null) {
+              performTime = decimalToTimeString(double.parse(performTime)).toLowerCase();
+            }
               extra +=
-                  ';${row[17]!.value.toString().toLowerCase().replaceAll(' ', '')}';
+                  ';${performTime}';
               extra += ";$location2";
             }
 
@@ -1127,6 +1165,9 @@ class _AddEventsAdminState extends State<AddEventsAdmin> {
                     row[0]!.value.toString().replaceAll(' ', '') == "RP"
                 ? row[15]!.value.toString().toLowerCase().replaceAll(' ', '')
                 : row[17]!.value.toString().toLowerCase().replaceAll(' ', '');
+             if (double.tryParse(time) != null) {
+              time = decimalToTimeString(double.parse(time)).toLowerCase();
+            }
             String r = row[2]!.value.toString();
 
             String extraChar = r.contains('Prelim') ? r[r.length - 1] : 'F';
@@ -1168,8 +1209,14 @@ class _AddEventsAdminState extends State<AddEventsAdmin> {
             extra += ";$location";
             if (row[0]!.value.toString() == "Case" ||
                 row[0]!.value.toString().replaceAll(' ', '') == "RP") {
+
+              
+                  String performTime = row[17]!.value.toString().toLowerCase().replaceAll(' ', '');
+                   if (double.tryParse(performTime) != null) {
+              performTime = decimalToTimeString(double.parse(performTime)).toLowerCase();
+            }
               extra +=
-                  ';${row[17]!.value.toString().toLowerCase().replaceAll(' ', '')}';
+                  ';${performTime}';
               extra += ";$location2";
             }
 
@@ -1177,6 +1224,9 @@ class _AddEventsAdminState extends State<AddEventsAdmin> {
                     row[0]!.value.toString().replaceAll(' ', '') == "RP"
                 ? row[15]!.value.toString().toLowerCase().replaceAll(' ', '')
                 : row[17]!.value.toString().toLowerCase().replaceAll(' ', '');
+            if (double.tryParse(time) != null) {
+              time = decimalToTimeString(double.parse(time)).toLowerCase();
+            }
             String r = row[2]!.value.toString();
 
             String extraChar = r.contains('Prelim') ? r[r.length - 1] : 'F';
@@ -1186,6 +1236,7 @@ class _AddEventsAdminState extends State<AddEventsAdmin> {
             events[lastIndex]['competitors']['$time $extraChar'] = tokens;
           }
         }
+     
       }
       times += ' - $endTime';
       events[events.length - 1]['times'] = times;
@@ -1206,6 +1257,7 @@ class _AddEventsAdminState extends State<AddEventsAdmin> {
     setState(() {
       loadingEvents = false;
     });
+
   }
 
   bool isFirstAfterSecond(String time1, String time2) {
@@ -1248,11 +1300,11 @@ class _AddEventsAdminState extends State<AddEventsAdmin> {
         .collection('conferences')
         .doc(AppInfo.conference.id)
         .collection('events');
-    await collection.get().then((querySnapshot) {
-      for (QueryDocumentSnapshot doc in querySnapshot.docs) {
-        doc.reference.delete();
-      }
-    });
+    // await collection.get().then((querySnapshot) {
+    //   for (QueryDocumentSnapshot doc in querySnapshot.docs) {
+    //     doc.reference.delete();
+    //   }
+    // });
 
     CollectionReference conferencesCollection =
         FirebaseFirestore.instance.collection('conferences');
@@ -1352,6 +1404,7 @@ class _AddEventsAdminState extends State<AddEventsAdmin> {
 
   DateTime parseTimeString(String timeString) {
     // Parse the time string to a DateTime object with the current date
+    timeString = timeString.toLowerCase();
     DateTime currentDate = DateTime.now().toLocal();
 
     // Parse the timeString without the am/pm part
@@ -1368,5 +1421,17 @@ class _AddEventsAdminState extends State<AddEventsAdmin> {
     );
 
     return targetTime;
+  }
+
+    String decimalToTimeString(double decimal) {
+    int totalMinutes = (decimal * 24 * 60).round();
+    int hours = totalMinutes ~/ 60;
+    int minutes = totalMinutes % 60;
+
+    String period = hours >= 12 ? "PM" : "AM";
+    hours = hours % 12;
+    if (hours == 0) hours = 12;
+
+    return "${hours}:${minutes.toString().padLeft(2, '0')}$period";
   }
 }

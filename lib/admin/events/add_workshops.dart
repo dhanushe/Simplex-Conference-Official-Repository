@@ -238,6 +238,13 @@ class _AddWorkshopsAdminState extends State<AddWorkshopsAdmin> {
                                             });
                                             try {
                                               await _uploadSpreadsheet(context);
+                                                  API().getWorkshops(AppInfo.conference.id).then((value) {
+      workshops = value;
+      workshops.sort((a, b) => a.name.compareTo(b.name));
+      setState(() {
+        dataLoaded = true;
+      });
+    });
                                               ScaffoldMessenger.of(context)
                                                   .showSnackBar(SnackBar(
                                                       duration:
@@ -322,6 +329,13 @@ class _AddWorkshopsAdminState extends State<AddWorkshopsAdmin> {
                                             });
                                             try {
                                               await deleteData();
+                                                  API().getWorkshops(AppInfo.conference.id).then((value) {
+      workshops = value;
+      workshops.sort((a, b) => a.name.compareTo(b.name));
+      setState(() {
+        dataLoaded = true;
+      });
+    });
                                               ScaffoldMessenger.of(context)
                                                   .showSnackBar(SnackBar(
                                                       duration:
